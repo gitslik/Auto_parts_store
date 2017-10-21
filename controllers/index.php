@@ -15,8 +15,6 @@ class Index
     }
 
     self::layout('index.php');
-
-    //echo View::instance()->render(self::$base_derectory . 'index.php');
   }
 
   static function layout($template)
