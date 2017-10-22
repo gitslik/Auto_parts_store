@@ -4,7 +4,7 @@ include 'main.php';
 
 $f3->route('GET|POST /', 'Index::indexPage');
 
-$f3->route('GET|POST /admin', 'Index::indexPage');
+$f3->route('GET|POST /admin', 'Admin::adminPage');
 
 // Kickstart the framework
 //$f3=require('lib/base.php');
