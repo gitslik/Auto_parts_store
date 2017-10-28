@@ -11,7 +11,7 @@ class Menu extends DB\SQL\Mapper
   static function allMenu()
   {
     global $db;
-    $menus = $db->exec('SELECT * FROM menu ORDER BY menu.id DESC');
+    $menus = $db->exec('SELECT * FROM menu WHERE sub_id = 0');
     return $menus;
   }
 
