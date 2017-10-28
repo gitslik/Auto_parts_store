@@ -8,13 +8,13 @@ class Admin
   static function adminPage()
   {
     global $f3;
-/*    $all_menus = Menu::allMenu();
-
-    if (count($all_menus)>0) {
-      $f3->set("all_menus", $all_menus);
-    }*/
-
     self::layout('index.php');
+  }
+
+  static function adminSliderPage()
+  {
+    global $f3;
+    self::layout_only_tpl('slider/index.php');
   }
 
   static function layout($template)
