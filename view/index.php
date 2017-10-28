@@ -20,7 +20,7 @@
                       </div>
 
 
-                      <div class="swiper-slide slide-2" data-slide-bg="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/slide-2-1170x303.jpg">
+<!--                      <div class="swiper-slide slide-2" data-slide-bg="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/slide-2-1170x303.jpg">
                         <div class="slide-desc">																																						<p><br></p>
 
                         </div>
@@ -31,7 +31,7 @@
                         <div class="slide-desc">																																						<p><br></p>
 
                         </div>
-                      </div>
+                      </div>-->
 
                     </div>
 

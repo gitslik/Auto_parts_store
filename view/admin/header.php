@@ -100,7 +100,9 @@
           <li>
             <a href="#"><i class="fa fa-dashboard fa-fw"></i>Категории</a>
           </li>
-
+          <li>
+            <a href="#"><i class="fa fa-dashboard fa-fw"></i>Слайдер</a>
+          </li>
 
 <!--          <li>
             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
