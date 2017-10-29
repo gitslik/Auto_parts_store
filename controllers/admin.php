@@ -11,6 +11,27 @@ class Admin
     self::layout('index.php');
   }
 
+
+  static function adminPages()
+  {
+    self::layout_only_tpl('page/index.php');
+  }
+
+  static function adminProducts()
+  {
+    self::layout_only_tpl('products/index.php');
+  }
+
+  static function adminCategory()
+  {
+    self::layout_only_tpl('category/index.php');
+  }
+
+  static function adminMenu()
+  {
+    self::layout_only_tpl('menu/index.php');
+  }
+
   static function adminSliderPage()
   {
     global $f3;

@@ -91,22 +91,22 @@
           </li>
 
           <li>
-            <a href="#" class="menu_shop"><i class="fa fa-dashboard fa-fw"></i>Меню</a>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('menu')"><i class="fa fa-dashboard fa-fw"></i>Меню</a>
           </li>
           <li>
-            <a href="#" class="menu_shop"><i class="fa fa-dashboard fa-fw"></i>Страницы</a>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('pages')"><i class="fa fa-dashboard fa-fw"></i>Страницы</a>
           </li>
           <li>
-            <a href="#" class="menu_shop"><i class="fa fa-dashboard fa-fw"></i>Продукция</a>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('products')"><i class="fa fa-dashboard fa-fw"></i>Продукция</a>
           </li>
           <li>
-            <a href="#" class="menu_shop"><i class="fa fa-dashboard fa-fw"></i>Категории</a>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('category')"><i class="fa fa-dashboard fa-fw"></i>Категории</a>
           </li>
           <li>
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('slider')"><i class="fa fa-dashboard fa-fw"></i>Слайдер</a>
           </li>
 
-          <li>
+<!--          <li>
             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
               <li>
@@ -116,7 +116,7 @@
                 <a href="morris.html">Morris.js Charts</a>
               </li>
             </ul>
-          </li>
+          </li>-->
 
 
         </ul>

@@ -9,14 +9,10 @@ class Index
   {
     global $f3;
     $all_menus = Menu::allMenu();
-
-    if (count($all_menus)>0) {
-      $f3->set("all_menus", $all_menus);
-    }
-
     $all_slider = Slider::getSlideIconIndexPage();
 
-    if (count($all_slider)>0) {
+    if (count($all_menus)>0 && count($all_slider)>0) {
+      $f3->set("all_menus", $all_menus);
       $f3->set("all_sliders", $all_slider);
     }
 

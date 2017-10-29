@@ -14,6 +14,11 @@ $f3->route('GET|POST /', 'Index::indexPage');
 /*Admin routings*/
 $f3->route('GET|POST /admin', 'Admin::adminPage');
 $f3->route('GET|POST /admin/slider', 'Admin::adminSliderPage');
+
+$f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
+$f3->route('GET|POST /admin/category', 'Admin::adminCategory');
+$f3->route('GET|POST /admin/products', 'Admin::adminProducts');
+$f3->route('GET|POST /admin/pages', 'Admin::adminPages');
 /*End Admin Routings*/
 
 
