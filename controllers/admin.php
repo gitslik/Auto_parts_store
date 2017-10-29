@@ -14,6 +14,11 @@ class Admin
   static function adminSliderPage()
   {
     global $f3;
+    $all_slider = Slider::getSlideIconIndexPage();
+
+    if (count($all_slider)>0) {
+      $f3->set("all_sliders", $all_slider);
+    }
     self::layout_only_tpl('slider/index.php');
   }
 

@@ -11,8 +11,8 @@ class Slider extends DB\SQL\Mapper
   static function getSlideIconIndexPage()
   {
     global $db;
-    $slider_icons = $db->exec('SELECT * FROM slider WHERE sub_id = 0');
-    return $slider_icons;
+    $sliders = $db->exec('SELECT * FROM slider WHERE sub_id = 0');
+    return $sliders;
   }
 }
 

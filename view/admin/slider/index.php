@@ -4,6 +4,14 @@
     </div>
 </div>
 
-    Контент для слайдеров
+Навигация для управиления слайдов на главной странице.
+
+<table class="table">
+  <?php foreach ($all_sliders as $slider) { ?>
+  <tr>
+    <td><img class="slider_img" src="<?php echo $slider['url']?>"></td>
+  </tr>
+  <?php } ?>
+</table>
 
 

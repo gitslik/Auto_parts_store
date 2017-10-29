@@ -14,6 +14,12 @@ class Index
       $f3->set("all_menus", $all_menus);
     }
 
+    $all_slider = Slider::getSlideIconIndexPage();
+
+    if (count($all_slider)>0) {
+      $f3->set("all_sliders", $all_slider);
+    }
+
     self::layout('index.php');
   }
 

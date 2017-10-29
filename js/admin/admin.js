@@ -9,7 +9,6 @@ Shop = function () {
 
 
 Shop.prototype.indexPageTest = function (menu_link) {
-  console.log(menu_link);
   $.ajax({
     type: "POST",
     url: "admin/"+menu_link,

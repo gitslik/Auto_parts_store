@@ -24,6 +24,8 @@
   <!-- Morris Charts CSS -->
   <link href="../../css/vendor/morrisjs/morris.css" rel="stylesheet">
 
+  <link href="../../css/admin.css" rel="stylesheet">
+
   <!-- Custom Fonts -->
   <link href="../../css/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -104,7 +106,7 @@
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('slider')"><i class="fa fa-dashboard fa-fw"></i>Слайдер</a>
           </li>
 
-<!--          <li>
+          <li>
             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
               <li>
@@ -114,7 +116,7 @@
                 <a href="morris.html">Morris.js Charts</a>
               </li>
             </ul>
-          </li>-->
+          </li>
 
 
         </ul>

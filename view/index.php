@@ -13,31 +13,17 @@
 
                     <div class="swiper-wrapper">
 
-                      <div class="swiper-slide slide-1" data-slide-bg="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/slide-1-1170x303.jpg">
-                        <div class="slide-desc">																																						<p><br></p>
-
+                      <?php foreach ($all_sliders as $slider) { ?>
+                        <div class="swiper-slide slide-1" data-slide-bg="<?php echo $slider['url']?>">
+                          <div class="slide-desc">
+                            <p><br></p>
+                          </div>
                         </div>
-                      </div>
-
-
-<!--                      <div class="swiper-slide slide-2" data-slide-bg="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/slide-2-1170x303.jpg">
-                        <div class="slide-desc">																																						<p><br></p>
-
-                        </div>
-                      </div>
-
-
-                      <div class="swiper-slide " data-slide-bg="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/slide-3-1170x303.jpg">
-                        <div class="slide-desc">																																						<p><br></p>
-
-                        </div>
-                      </div>-->
+                      <?php } ?>
 
                     </div>
 
                     <div class="swiper-pagination" data-index-bullet="false" data-clickable="true"></div>
-
-
 
                   </div>
                 </div>
