@@ -1,14 +1,14 @@
 <?php
 
-class Category extends DB\SQL\Mapper
+class Products extends DB\SQL\Mapper
 {
+  public $product_id;
+
   public $name;
 
-  public $category_id;
+  public $description;
 
-  public $has_parent;
-
-  public $enabled;
+  public $price;
 
   public $photo_id;
 
@@ -16,7 +16,7 @@ class Category extends DB\SQL\Mapper
 
   public function __construct(DB\SQL $db)
   {
-    parent::__construct($db, 'category');
+    parent::__construct($db, 'poducts');
   }
 
 

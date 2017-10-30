@@ -1,19 +1,25 @@
 <?php
 
-class Slider extends DB\SQL\Mapper
+class Category extends DB\SQL\Mapper
 {
+  public $name;
+
+  public $category_id;
+
+  public $has_parent;
+
+  public $enabled;
+
+  public $photo_id;
+
+  public $photo;
 
   public function __construct(DB\SQL $db)
   {
-    parent::__construct($db, 'menu');
+    parent::__construct($db, 'category');
   }
 
-  static function getSlideIconIndexPage()
-  {
-    global $db;
-    $sliders = $db->exec('SELECT * FROM slider WHERE sub_id = 0');
-    return $sliders;
-  }
+
 }
 
 ?>

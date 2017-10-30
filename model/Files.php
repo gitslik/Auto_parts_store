@@ -1,18 +1,14 @@
 <?php
 
-class Products extends DB\SQL\Mapper
+class Files extends DB\SQL\Mapper
 {
+  public $file_id;
+
+  public $path;
+
+  public $url;
+
   public $product_id;
-
-  public $name;
-
-  public $description;
-
-  public $price;
-
-  public $photo_id;
-
-  public $photo;
 
   public function __construct(DB\SQL $db)
   {

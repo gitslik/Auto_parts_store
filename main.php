@@ -13,6 +13,7 @@ include_once "controllers/admin.php";
 /*models*/
 include_once "model/Menu.php";
 include_once "model/Slider.php";
+include_once "model/Category.php";
 /*end models*/
 
 include_once "configs.php";
