@@ -14,6 +14,9 @@ include_once "controllers/admin.php";
 include_once "model/Menu.php";
 include_once "model/Slider.php";
 include_once "model/Category.php";
+include_once "model/Files.php";
+include_once "model/Products.php";
+
 /*end models*/
 
 include_once "configs.php";

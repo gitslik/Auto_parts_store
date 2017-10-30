@@ -7,6 +7,17 @@ Shop = function () {
   })(this);
 };
 
+Shop.prototype.slideOption = function (options) {
+  $.ajax({
+    type: "POST",
+    url: "admin/"+options,
+    data: {cat: options},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
 
 Shop.prototype.indexPageTest = function (menu_link) {
   $.ajax({
