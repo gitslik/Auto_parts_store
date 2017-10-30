@@ -1,6 +1,6 @@
 <?php
 
-class Products extends DB\SQL\Mapper
+class Products1 extends DB\SQL\Mapper
 {
   public $product_id;
 

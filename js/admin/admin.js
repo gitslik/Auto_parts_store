@@ -8,13 +8,15 @@ Shop = function () {
 };
 
 Shop.prototype.slideOption = function (options) {
+  console.log(options);
   $.ajax({
     type: "POST",
     url: "admin/"+options,
     data: {cat: options},
     dataType: "html",
     success: function (data) {
-      $(".content_page").html(data);
+      console.log(data);
+      //$(".content_page").html(data);
     }
   });
 };

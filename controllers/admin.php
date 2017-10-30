@@ -32,6 +32,8 @@ class Admin
     self::layout_only_tpl('menu/index.php');
   }
 
+
+  /*Slider*/
   static function adminSliderPage()
   {
     global $f3;
@@ -42,6 +44,21 @@ class Admin
     }
     self::layout_only_tpl('slider/index.php');
   }
+
+  static function adminDeleteSlideItem()
+  {
+    print_die($_REQUEST);
+    Slider::deleteSlideItem();
+  }
+  static function adminEditSlider()
+  {
+    print_die($_REQUEST);
+  }
+  static function adminAddSlider()
+  {
+
+  }
+  /*End Slider*/
 
   static function layout($template)
   {

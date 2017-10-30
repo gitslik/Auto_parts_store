@@ -13,7 +13,13 @@ $f3->route('GET|POST /', 'Index::indexPage');
 
 /*Admin routings*/
 $f3->route('GET|POST /admin', 'Admin::adminPage');
+/*slider*/
 $f3->route('GET|POST /admin/slider', 'Admin::adminSliderPage');
+$f3->route('GET|POST /admin/slider-edit', 'Admin::adminSliderPage');
+$f3->route('GET|POST /admin/slider-delete', 'Admin::adminDeleteSlideItem');
+$f3->route('GET|POST /admin/slider-add', 'Admin::adminAddSlider');
+
+/*end slider*/
 
 $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
 $f3->route('GET|POST /admin/category', 'Admin::adminCategory');
