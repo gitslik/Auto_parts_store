@@ -7,16 +7,29 @@ Shop = function () {
   })(this);
 };
 
-Shop.prototype.slideOption = function (options) {
+
+Shop.prototype.slideAddItem = function (options) {
   console.log(options);
+  $.ajax({
+    type: "POST",
+    url: "admin/"+url,
+    data: {img: options},
+    dataType: "html",
+    success: function (data) {
+      console.log(data);
+    // $(".content_page").html(data);
+    }
+  });
+};
+
+Shop.prototype.slideOption = function (options) {
   $.ajax({
     type: "POST",
     url: "admin/"+options,
     data: {cat: options},
     dataType: "html",
     success: function (data) {
-      console.log(data);
-      //$(".content_page").html(data);
+      $(".content_page").html(data);
     }
   });
 };
@@ -32,5 +45,9 @@ Shop.prototype.indexPageTest = function (menu_link) {
     }
   });
 };
+
+
+
+
 
 

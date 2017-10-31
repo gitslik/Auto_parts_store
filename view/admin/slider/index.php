@@ -1,6 +1,11 @@
 <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Слайдер</h1>
+      <div class="add-slider-options">
+        <a href="#" onclick="self.shop.slideOption('slider-add')">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
 </div>
 

@@ -56,8 +56,18 @@ class Admin
   }
   static function adminAddSlider()
   {
+    global $f3;
 
+    self::layout_only_tpl('slider/add-slider.php');
   }
+
+  static function adminUploadSlider()
+  {
+    global $f3;
+    print_die($_REQUEST);
+    self::layout_only_tpl('slider/add-slider.php');
+  }
+
   /*End Slider*/
 
   static function layout($template)

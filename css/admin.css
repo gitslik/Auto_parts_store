@@ -1,3 +1,41 @@
 img.slider_img {
   width: 20%;
 }
+.add-slider-options {
+  position: absolute;
+  right: 40px;
+  top: 55px;
+}
+.add-slider-options a>i {
+  font-size: 25px;
+  color: #50dc3f;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+#img-upload{
+  width: 100%;
+}
+a.btn-success.save-btn {
+  padding: 10px;
+  border-radius: 3px;
+  margin-left: 15px;
+}
