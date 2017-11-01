@@ -5,19 +5,19 @@
         <h3 class="box-heading">Информация</h3>
         <ul class="box-content list-unstyled">
 
-          <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=information/information&amp;information_id=4">O нас</a></li>
+          <li><a href="">O нас</a></li>
 
-          <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=information/information&amp;information_id=6">Информация о доставке</a></li>
+          <li><a href="">Информация о доставке</a></li>
 
-          <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=information/information&amp;information_id=3">Условия использования</a></li>
+          <li><a href="">Условия использования</a></li>
 
-          <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=information/information&amp;information_id=5">Политика конфиденциальности</a></li>
+          <li><a href="">Политика конфиденциальности</a></li>
 
         </ul>
       </div>
 
     </div>
-    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 footer_modules"><div class="">
+<!--    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 footer_modules"><div class="">
         <h3 class="box-heading"><span>Моя учетная запись</span></h3>
         <ul class="box-content list-unstyled">
 
@@ -29,7 +29,7 @@
 
         </ul>
       </div>
-    </div>
+    </div>-->
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 footer_modules"><div class="module-social">
         <div class="social-block">
           <h3 class="box-heading">Подписка</h3>

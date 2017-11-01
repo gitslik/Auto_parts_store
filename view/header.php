@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>СТО</title>
-  <base href="https://livedemo00.template-help.com/opencart_65320/" />
+  <base href="<?php echo BASE_URL?>/" />
 
   <meta name="description" content="Auto Point" />
 
