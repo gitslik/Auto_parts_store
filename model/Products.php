@@ -1,6 +1,8 @@
 <?php
 
-class Products1 extends DB\SQL\Mapper
+//namespace Auto;
+
+class Products extends DB\SQL\Mapper
 {
   public $product_id;
 

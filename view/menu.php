@@ -8,144 +8,24 @@
         <div class="box-category">
           <ul class="list-unstyled category_menu">
 
-
-            <li class="parent">
-              <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=42">Exhaust Tips</a>
-              <ul class="list-unstyled">
+          <?php foreach($categories as $cat):?>
+            <li <?php if(count($cat['child'])>0):?>class="parent"<?php endif;?>>
+              <a href="<?php echo BASE_URL . '/category?id='. $cat['menu']->category_id ?>"><?php echo $cat['menu']->name ?></a>
+              <?php if(count($cat['child'])>0):?><ul class="list-unstyled">
+                <?php foreach($cat['child'] as $child):?>
                 <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=42_49">Catalytic Converter</a>
+                  <a href="<?php echo BASE_URL . '/category?id='. $child->category_id ?>"><?php echo $child->name ?></a>
 
                 </li>
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=42_50">Mufflers</a>
+                <?php endforeach;?>
+                </ul><?php endif;?>
 
-                  <ul class="list-unstyled">
-
-                    <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=42_50_59"> - Muffler - 2-1/4&quot; ID Inlet</a></li>
-
-                    <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=42_50_61"> - Muffler - 2-1/2&quot; ID Inlet</a></li>
-
-                    <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=42_50_63"> - Muffler - 3&quot; ID Inlet</a></li>
-
-                  </ul>
-
-                </li>
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=42_51">Exhaust Pipes</a>
-
-                </li>
-
-              </ul>
             </li>
 
+        <?php endforeach;?>
 
 
 
-            <li class="parent">
-              <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=43">Bumpers &amp; Components</a>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=43_68">Audi Bumper</a>
-
-                </li>
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=43_69">BMW Bumper</a>
-
-                </li>
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=43_52">Ford Bumper</a>
-
-                </li>
-
-              </ul>
-            </li>
-
-
-
-
-            <li class="parent">
-              <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=44">Mirrors &amp; Components</a>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=44_53">Outside Mirror Cover</a>
-
-                </li>
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=44_54">Mirror Replacement Glass</a>
-
-                </li>
-
-              </ul>
-            </li>
-
-
-
-
-            <li class="parent">
-              <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=45">Grilles &amp; Components</a>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=45_55">Audi grille</a>
-
-                </li>
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=45_65">BMW grille</a>
-
-                </li>
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=45_66">Buick grille</a>
-
-                </li>
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=45_67">Cadillac grille</a>
-
-                </li>
-
-              </ul>
-            </li>
-
-
-
-
-            <li class="parent">
-              <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=46">Brake Discs</a>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=46_60">Mazda Brake Disc</a>
-
-                </li>
-                <li>
-                  <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=46_62">Toyota Brake Disc</a>
-
-                </li>
-
-              </ul>
-            </li>
-
-
-
-
-            <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=47">Calipers</a></li>
-
-
-
-
-            <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=48">Shocks, Struts</a></li>
-
-
-
-
-            <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=58">Car Covers</a></li>
-
-
-
-
-            <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=56">Seats, Seat Covers</a></li>
-
-
-
-
-            <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/category&amp;path=64">Carpet Kits</a></li>
 
 
 
