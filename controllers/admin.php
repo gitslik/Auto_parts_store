@@ -17,10 +17,32 @@ class Admin
     self::layout_only_tpl('page/index.php');
   }
 
+
+
+  /*Poducts*/
   static function adminProducts()
   {
+    global $db,$f3;
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->find();
+
+    $f3->set("all_categories", $categories);
     self::layout_only_tpl('products/index.php');
   }
+
+  static function adminViewProducts($f3)
+  {
+    global $db,$f3;
+    $id = ($f3->POST['id']);
+    $products_obj = new Products($db);
+    $products = $products_obj->getProductsOfCategory((int)$id);
+
+    $f3->set("all_products_this_category", $products);
+    self::layout_only_tpl('products/viewProducts.php');
+  }
+  /*End Products*/
+
+
 
   static function adminCategory()
   {

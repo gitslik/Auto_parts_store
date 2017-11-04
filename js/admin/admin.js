@@ -8,6 +8,21 @@ Shop = function () {
 };
 
 
+/*Products*/
+Shop.prototype.productsOfCategory = function (id) {
+  $.ajax({
+    type: "POST",
+    url: "admin/productsOfCategory",
+    data: {id: id},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
+/*End Products*/
+
+/*Slide*/
 Shop.prototype.slideAddItem = function (options) {
   console.log(options);
   $.ajax({
@@ -45,6 +60,7 @@ Shop.prototype.indexPageTest = function (menu_link) {
     }
   });
 };
+/*End Slide*/
 
 
 

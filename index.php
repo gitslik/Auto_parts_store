@@ -24,7 +24,12 @@ $f3->route('GET|POST /admin/slider-upload', 'Admin::adminUploadSlider');
 
 $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
 $f3->route('GET|POST /admin/category', 'Admin::adminCategory');
+
+/*Products*/
 $f3->route('GET|POST /admin/products', 'Admin::adminProducts');
+$f3->route('GET|POST /admin/productsOfCategory', 'Admin::adminViewProducts');
+/*End Products*/
+
 $f3->route('GET|POST /admin/pages', 'Admin::adminPages');
 /*End Admin Routings*/
 

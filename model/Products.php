@@ -1,10 +1,11 @@
 <?php
 
-//namespace Auto;
-
+/**
+ * Class Products
+ */
 class Products extends DB\SQL\Mapper
 {
-  public $product_id;
+ /* public $product_id;
 
   public $name;
 
@@ -14,13 +15,21 @@ class Products extends DB\SQL\Mapper
 
   public $photo_id;
 
-  public $photo;
+  public $photo;*/
 
+  /**
+   * Products constructor.
+   * @param \DB\SQL $db
+   */
   public function __construct(DB\SQL $db)
   {
-    parent::__construct($db, 'poducts');
+    parent::__construct($db, 'products');
   }
 
+  public function getProductsOfCategory($id)
+  {
+    return $this->find(array("category_id=?",$id));
+  }
 
 }
 
