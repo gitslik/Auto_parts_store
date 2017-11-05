@@ -63,7 +63,12 @@ class Index
     $id = $_GET['id'];
     $thisCategory  = $CategoryClass->load(array('category_id=?',$id));
     $ProductClass = new Products($db);
-    $products = $ProductClass->find(array('ca'),array());
+    $allChildCategories  = $CategoryClass->find(array('parent_category_id=?',$id));
+    $idsCategory  = array($id);
+    foreach($allChildCategories as $catHil){
+      $idsCategory[]  = $catHil->category_id;
+    }
+    $products = $ProductClass->find(array('category_id in('.implode(',',$idsCategory).')'));
     $f3->set("categories", $categories);
     $f3->set("thisCategory", $thisCategory);
     $f3->set("products", $products);

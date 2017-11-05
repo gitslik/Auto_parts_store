@@ -555,7 +555,7 @@
         </div>
         <p>
           <i class="fa fa-tags"></i>
-          <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=product/search&amp;tag=Angel Eye Headlight BMW 3er Limo">Angel Eye Headlight BMW 3er Limo</a>
+          <a href="">Angel Eye Headlight BMW 3er Limo</a>
           <a href=""></a>
         </p>
 

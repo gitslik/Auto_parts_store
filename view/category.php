@@ -51,15 +51,21 @@
                                     </div>
                                     <div class="row">
                                     <?php if(isset($products) && count($products)>0):?>
-
+                                        <?php foreach($products as $product):?>
                                         <div class="product-layout col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <div class="product-thumb transition  options ">
 
 
                                                 <div class="image">
                                                     <a class="lazy" href="<?php echo BASE_URL . '/product?id='. $product->product_id?>" style="padding-bottom: 111.11111111111%">
+                                                       <?php if($product->getPhotoUrl()){?>
                                                         <img width="270" height="300" alt="<?php echo $product->name?>" title="<?php echo $product->name?>" class="img-primary" data-src="<?php echo $product->getPhotoUrl()?>" src="#"/>
                                                         <img width="270" height="300" alt="<?php echo $product->name?>" title="<?php echo $product->name?>" class="img-secondary" data-src="<?php echo $product->getPhotoUrl()?>" src="#"/>
+
+                                                        <?php }else{ ?>
+                                                           <img width="270" height="300" alt="<?php echo $product->name?>" title="<?php echo $product->name?>" class="img-primary" data-src="<?php echo $product->getDefaulImage()?>" src="#"/>
+
+                                                        <?php }?>
                                                     </a>
 
 
@@ -75,6 +81,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                            <?php endforeach;?>
                                         <?php else:?>
                                         <h5>В данной категории пока нет товаров</h5>
                                         <?php endif?>
