@@ -37,7 +37,7 @@ $(document).ready(function () {
     var url = $('base').attr('href') + 'search';
     var value = $('header input[name=\'search\']').val();
     if (value) {
-      url += '&search=' + encodeURIComponent(value);
+      url += '?search=' + encodeURIComponent(value);
     }
     location = url;
   });

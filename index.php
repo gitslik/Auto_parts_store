@@ -8,6 +8,7 @@ include 'main.php';
 /*Frontend Routings*/
 $f3->route('GET|POST /', 'Index::indexPage');
 $f3->route('GET|POST /category', 'Index::category');
+$f3->route('GET|POST /search', 'Index::search');
 
 /*End Frontend Routings*/
 

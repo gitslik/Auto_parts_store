@@ -47,16 +47,15 @@
 
                                 <div class="box latest">
                                     <div class="box-heading">
-                                        <h4><?php echo $thisCategory->name?></h4>
+                                        <h4><?php echo $thisCategory?></h4>
                                     </div>
                                     <div class="row">
+                                      <?php
+                                      $empty = 'Поиск не дал результатов';
+                                      include('products_list.php');?>
 
-                                        <?php
-                                        $empty = 'В ДАННОЙ КАТЕГОРИИ ПОКА НЕТ ТОВАРОВ';
-                                        include('products_list.php');?>
 
-
-                                        <!--product end -->
+                                      <!--product end -->
                                     </div>
                                 </div>
                             </div>
