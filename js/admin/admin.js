@@ -9,6 +9,17 @@ Shop = function () {
 
 
 /*Products*/
+Shop.prototype.productOption = function (options) {
+  $.ajax({
+    type: "POST",
+    url: "admin/"+options,
+    data: {cat: options},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
 Shop.prototype.productsOfCategory = function (id) {
   $.ajax({
     type: "POST",

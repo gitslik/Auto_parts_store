@@ -40,6 +40,12 @@ class Admin
     $f3->set("all_products_this_category", $products);
     self::layout_only_tpl('products/viewProducts.php');
   }
+
+  static function adminAddProducts()
+  {
+    global $db,$f3;
+    self::layout_only_tpl('products/addProducts.php');
+  }
   /*End Products*/
 
 

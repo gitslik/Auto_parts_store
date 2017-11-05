@@ -6,6 +6,11 @@ img.slider_img {
   right: 40px;
   top: 55px;
 }
+.add-options {
+  position: absolute;
+  right: 40px;
+  top: 55px;
+}
 .add-slider-options a>i {
   font-size: 25px;
   color: #50dc3f;
