@@ -89,10 +89,16 @@ class Admin
     self::layout_only_tpl('slider/add-slider.php');
   }
 
-  static function adminUploadSlider()
+  static function adminUploadSlider($f3)
   {
     global $f3;
+
+   // print_arr($f3);
+    print_arr($_FILES);
     print_die($_REQUEST);
+
+    $file = Files::uploadFile();
+
     self::layout_only_tpl('slider/add-slider.php');
   }
 

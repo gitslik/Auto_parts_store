@@ -16,9 +16,9 @@ class Files extends DB\SQL\Mapper
   }
 
   static function uploadFile($files){
-    if (is_uploaded_file($_FILES["uploadfile"]["tmp_name"])){
-      move_uploaded_file($_FILES["uploadfile"]["tmp_name"], "./uploads/".$_FILES["uploadfile"]["name"]);
-      return "uploads/".$_FILES["uploadfile"]["name"];
+    if (is_uploaded_file($files["tmp_name"])){
+      move_uploaded_file($files["tmp_name"], "./uploads/".$files["name"]);
+      return "uploads/".$files["name"];
     }else{
       return false;
     }

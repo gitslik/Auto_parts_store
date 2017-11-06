@@ -1,11 +1,14 @@
 <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Добавление сладера</h1>
+      <div class="add-slider-options">
+        <a href="#" onclick="self.shop.slideAddItem('slider-upload')" class="btn-success save-btn">Добавить картинку в слайдер</a>
+      </div>
     </div>
 </div>
 
-<form class="form-horizontal">
-  <div class="container">
+<form class="form-horizontal" name="uploadimages" method="post" enctype="multipart/form-data">
+  <div class="container col-lg-12">
     <div class="col-md-6">
       <div class="form-group">
         <label>Загрузка картинки</label>
@@ -21,8 +24,6 @@
       </div>
     </div>
   </div>
-
-  <a href="#" onclick="self.shop.slideAddItem('slider-upload')" class="btn-success save-btn">Добавить картинку в слайдер</a>
 </form>
 
 <script>

@@ -35,17 +35,24 @@ Shop.prototype.productsOfCategory = function (id) {
 
 /*Slide*/
 Shop.prototype.slideAddItem = function (options) {
-  console.log(options);
+
+  var $input = $("#imgInp");
+  var fd = new FormData;
+
+  fd.append('img', $input.prop('files')[0]);
+
   $.ajax({
-    type: "POST",
-    url: "admin/"+url,
-    data: {img: options},
-    dataType: "html",
+    url: 'admin/slider-upload',
+    data: fd,
+    processData: false,
+    contentType: false,
+    type: 'POST',
     success: function (data) {
-      console.log(data);
-    // $(".content_page").html(data);
+      $(".content_page").html(data);
     }
   });
+
+
 };
 
 Shop.prototype.slideOption = function (options) {
