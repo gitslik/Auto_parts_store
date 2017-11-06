@@ -36,30 +36,12 @@ class Slider extends DB\SQL\Mapper
     return true;
   }
 
-
-  static function uploadSlideFile($files){
-    print_die($_FILES);
-    if (is_uploaded_file($_FILES["uploadfile"]["tmp_name"])){
-      move_uploaded_file($_FILES["uploadfile"]["tmp_name"], "./uploads/".$_FILES["uploadfile"]["name"]);
-      return "uploads/".$_FILES["uploadfile"]["name"];
-    }else{
-      return false;
-    }
-  }
-
   static function addSlideItem($params)
   {
     global $db;
-    $db->exec("INSERT INTO slider SET sub_id=?,url=?,`position`=?",
-      array(1=>'0',2=>$params['url'],3=>$params['position']));
+    $db->exec("INSERT INTO slider SET sub_id=?,url=?",
+      array(1=>'0',2=>$params['url']));
   }
-
-/*  static function updatePosition()
-  {
-    global $db;
-    $db->exec("UPDATE slider SET `position` = ? WHERE id = ?",
-      array(1 => $params['url'],2=>$params['position'],3=>$params['id']));
-  }*/
 
 }
 

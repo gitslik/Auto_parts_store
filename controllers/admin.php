@@ -93,15 +93,17 @@ class Admin
   {
     global $f3;
 
-   // print_arr($f3);
-    print_arr($_FILES);
-    print_die($_REQUEST);
+    $file = Files::uploadFile($_FILES['img']);
+    $params = array();
+    $params['url'] = $file;
+    Slider::addSlideItem($params);
 
-    $file = Files::uploadFile();
-
-    self::layout_only_tpl('slider/add-slider.php');
+    $all_slider = Slider::getSlideIconIndexPage();
+    if (count($all_slider)>0) {
+      $f3->set("all_sliders", $all_slider);
+    }
+    self::layout_only_tpl('slider/index.php');
   }
-
   /*End Slider*/
 
   static function layout($template)
