@@ -30,6 +30,8 @@ $f3->route('GET|POST /admin/category', 'Admin::adminCategory');
 $f3->route('GET|POST /admin/products', 'Admin::adminProducts');
 $f3->route('GET|POST /admin/productsOfCategory', 'Admin::adminViewProducts');
 $f3->route('GET|POST /admin/addProducts', 'Admin::adminAddProducts');
+$f3->route('GET|POST /admin/saveProduct', 'Admin::adminSaveProduct');
+
 /*End Products*/
 
 $f3->route('GET|POST /admin/pages', 'Admin::adminPages');

@@ -9,6 +9,27 @@ Shop = function () {
 
 
 /*Products*/
+Shop.prototype.productAddItem = function () {
+  var $input = $("#photoimg");
+  var fd = new FormData;
+  var $form = $('#add-new-products');
+
+  fd.append('img', $input.prop('files')[0]);
+  fd.append('form', $form.serialize());
+
+  $.ajax({
+    url: 'admin/saveProduct',
+    data: fd,
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+
+};
+
 Shop.prototype.productOption = function (options) {
   $.ajax({
     type: "POST",

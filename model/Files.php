@@ -15,6 +15,8 @@ class Files extends DB\SQL\Mapper
     parent::__construct($db, 'poducts');
   }
 
+
+
   static function uploadFile($files){
     if (is_uploaded_file($files["tmp_name"])){
       move_uploaded_file($files["tmp_name"], "./uploads/".$files["name"]);

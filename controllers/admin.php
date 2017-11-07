@@ -29,7 +29,6 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('products/index.php');
   }
-
   static function adminViewProducts($f3)
   {
     global $db,$f3;
@@ -40,11 +39,21 @@ class Admin
     $f3->set("all_products_this_category", $products);
     self::layout_only_tpl('products/viewProducts.php');
   }
-
   static function adminAddProducts()
   {
     global $db,$f3;
+
+    $category = new Category($db);
+    $categories = $category->getMenu();
+    $f3->set("all_category", $categories);
+
     self::layout_only_tpl('products/addProducts.php');
+  }
+
+  static function adminSaveProduct()
+  {
+    print_arr($_FILES);
+    print_die($_REQUEST);
   }
   /*End Products*/
 
