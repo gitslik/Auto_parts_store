@@ -32,7 +32,7 @@ class Slider extends DB\SQL\Mapper
   static function deleteSlideItem($params)
   {
     global $db;
-    $db->exec('DELETE FROM slider WHERE id=?', array(1 => $params['id']));
+    $db->exec('DELETE FROM slider WHERE id=?', array(1 => $params));
     return true;
   }
 

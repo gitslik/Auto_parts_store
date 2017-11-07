@@ -719,22 +719,3 @@
 
   </section>
 
-  <div id="common-home" class="container">
-    <div class="row">
-      <div id="content" class="col-sm-12">
-        <div id="style_switcher">
-          <div class="toggler"></div>
-          <p>The customization tool allows you to make color changes in your theme</p>
-          <ul id="color-box">
-            <li><div class="color_scheme color_scheme_1" data-scheme="color_scheme_1">&nbsp;</div></li>
-            <li><div class="color_scheme color_scheme_2" data-scheme="color_scheme_2">&nbsp;</div></li>
-            <li><div class="color_scheme color_scheme_3" data-scheme="color_scheme_3">&nbsp;</div></li>
-            <li><div class="color_scheme color_scheme_4" data-scheme="color_scheme_4">&nbsp;</div></li>
-          </ul>
-        </div>
-
-
-      </div>
-
-    </div>
-  </div>

@@ -55,11 +55,11 @@ Shop.prototype.slideAddItem = function (options) {
 
 };
 
-Shop.prototype.slideOption = function (options) {
+Shop.prototype.slideOption = function (options, id) {
   $.ajax({
     type: "POST",
     url: "admin/"+options,
-    data: {cat: options},
+    data: {cat: options, id: id},
     dataType: "html",
     success: function (data) {
       $(".content_page").html(data);
