@@ -10,11 +10,7 @@ Shop = function () {
 
 /*Products*/
 Shop.prototype.productAddItem = function () {
-
-
-  var $input = $("#photo");
   var fd = new FormData;
-
   var array_photo = [];
   $($("#photo").prop('files')).each(function(index,foto){
     array_photo.push(foto);

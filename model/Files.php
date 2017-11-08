@@ -12,7 +12,7 @@ class Files extends DB\SQL\Mapper
 
   public function __construct(DB\SQL $db)
   {
-    parent::__construct($db, 'poducts');
+    parent::__construct($db, 'files');
   }
 
 
@@ -25,6 +25,22 @@ class Files extends DB\SQL\Mapper
       return false;
     }
   }
+
+
+  public function uploadProductsPhotos($files){
+    if (count($files)) {
+      $array_photo_path = array();
+      foreach ($files as $file) {
+        if (is_uploaded_file($file["tmp_name"])){
+          move_uploaded_file($file["tmp_name"], "./products_photos/".$file["name"]);
+          $array_photo_path[] = "products_photos/".$file["name"];
+        }
+      }
+      return $array_photo_path;
+    }
+  }
+
+
 }
 
 ?>

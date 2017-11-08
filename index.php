@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 /*File with settigs include controllers and model*/
 include 'main.php';
 /*end settings*/

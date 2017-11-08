@@ -49,21 +49,59 @@ class Admin
 
     self::layout_only_tpl('products/addProducts.php');
   }
-
   static function adminSaveProduct()
   {
-
     global $db,$f3;
-    print_arr($_FILES);
+
+    $files_photo = $_FILES;
+
     $params = explode('&',$_REQUEST['params']);
-    print_arr($params);
-    print_die($_REQUEST);
 
-    $category = new Category($db);
-    $categories = $category->getMenu();
-    $f3->set("all_category", $categories);
+    $array_params = array();
+    foreach ($params as $param ) {
+      $options = (explode('=',$param));
+      $array_params[$options[0]] = $options[1];
+    }
 
-    self::layout_only_tpl('products/addProducts.php');
+    $files_object = new Files($db);
+    $path_new_file_in_directory = $files_object->uploadProductsPhotos($files_photo);
+
+    $product_table = new Products($db);
+
+    $array_params['photo_id'] = 0;
+
+    $array_fin_for_save = array();
+
+    $array_fin_for_save['name'] = $array_params['name'];
+    $array_fin_for_save['description'] = $array_params['description'];
+    $array_fin_for_save['price'] = $array_params['price'];
+    $array_fin_for_save['product_code'] = $array_params['product_code'];
+    $array_fin_for_save['condition'] = $array_params['condition'];
+    $array_fin_for_save['part_number'] = $array_params['part_number'];
+    $array_fin_for_save['photo_id'] = 0;
+    $array_fin_for_save['category_id'] = $array_params['category_id'];
+
+    $product_table->copyfrom($array_fin_for_save);
+    $product_table->save();
+
+    $lastInsertIdProducts = $product_table->get('_id');
+
+    foreach ($path_new_file_in_directory as $path) {
+      $array_for_files = array();
+      $array_for_files['path'] = $path;
+      $array_for_files['url'] = $path;
+      $array_for_files['type'] = 0;
+      $array_for_files['product_id'] = $lastInsertIdProducts;
+
+      $files_object->copyfrom($array_for_files);
+      $files_object->save();
+    }
+
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->find();
+
+    $f3->set("all_categories", $categories);
+    self::layout_only_tpl('products/index.php');
   }
   /*End Products*/
 
