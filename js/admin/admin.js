@@ -10,12 +10,24 @@ Shop = function () {
 
 /*Products*/
 Shop.prototype.productAddItem = function () {
-  var $input = $("#photoimg");
-  var fd = new FormData;
-  var $form = $('#add-new-products');
 
-  fd.append('img', $input.prop('files')[0]);
-  fd.append('form', $form.serialize());
+
+  var $input = $("#photo");
+  var fd = new FormData;
+
+  var array_photo = [];
+  $($("#photo").prop('files')).each(function(index,foto){
+    array_photo.push(foto);
+    console.log(index);console.log(foto);
+  });
+
+  jQuery.each($('#photo')[0].files, function(i, file) {
+    fd.append('file-'+i, file);
+  });
+
+  console.log(array_photo);
+  fd.append('img', array_photo);
+  fd.append('params', $("#add-new-products").serialize());
 
   $.ajax({
     url: 'admin/saveProduct',

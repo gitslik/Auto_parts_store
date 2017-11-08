@@ -52,8 +52,18 @@ class Admin
 
   static function adminSaveProduct()
   {
+
+    global $db,$f3;
     print_arr($_FILES);
+    $params = explode('&',$_REQUEST['params']);
+    print_arr($params);
     print_die($_REQUEST);
+
+    $category = new Category($db);
+    $categories = $category->getMenu();
+    $f3->set("all_category", $categories);
+
+    self::layout_only_tpl('products/addProducts.php');
   }
   /*End Products*/
 

@@ -10,7 +10,7 @@
 <div class="container col-lg-8">
   <h2>Форма добавления продукции</h2>
   <p>В данной форме вы можете создать новый продукт и присвоить ему свой раздел:</p>
-  <form name="add-new-products" method="post" enctype="multipart/form-data">
+  <form id="add-new-products" action="/admin/saveProduct" method="post" enctype="multipart/form-data">
 
     <div class="form-group">
       <label for="name">Название товара:</label>
@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <label for="category_id">Фото продукта</label>
-      <input type="file" name="photos[]" id="photoimg" multiple="true" />
+      <input type="file" name="photos[]" id="photo" multiple="true" />
     </div>
 
 
