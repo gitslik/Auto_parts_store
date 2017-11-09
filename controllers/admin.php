@@ -110,6 +110,11 @@ class Admin
 
   static function adminCategory()
   {
+    global $f3, $db;
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->find();
+
+    $f3->set("all_categories", $categories);
     self::layout_only_tpl('category/index.php');
   }
 
@@ -130,7 +135,6 @@ class Admin
     }
     self::layout_only_tpl('slider/index.php');
   }
-
   static function adminDeleteSlideItem()
   {
     global $f3;
@@ -151,7 +155,6 @@ class Admin
 
     self::layout_only_tpl('slider/add-slider.php');
   }
-
   static function adminUploadSlider($f3)
   {
     global $f3;
