@@ -8,6 +8,12 @@ Shop = function () {
 };
 
 
+/*Category*/
+Shop.prototype.categoryOption = function () {
+  console.log("test");
+};
+/*End Category*/
+
 /*Products*/
 Shop.prototype.productAddItem = function () {
   var fd = new FormData;
