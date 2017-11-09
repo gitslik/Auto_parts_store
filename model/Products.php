@@ -5,7 +5,7 @@
  */
 class Products extends DB\SQL\Mapper
 {
-  public $product_id;
+ /* public $product_id;
 
   public $name;
 
@@ -21,7 +21,7 @@ class Products extends DB\SQL\Mapper
 
   public $photo_id;
 
-  public $category_id;
+  public $category_id;*/
 
  /**
   * Products constructor.
@@ -37,7 +37,14 @@ class Products extends DB\SQL\Mapper
   return $this->find(array("category_id=?",$id));
  }
  public function getPhotoUrl(){
-  return false;
+   global $db;
+
+  $FilesTable = new Files($db);
+   $files = $FilesTable->find(array('product_id=? and type=0',$this->product_id));
+   if(count($files)){
+     return $files;
+   }
+   return false;
  }
 
  public function getDefaulImage(){
@@ -47,7 +54,7 @@ class Products extends DB\SQL\Mapper
   return $this->price . ' сом';
  }
  public function getShorDescription(){
-  return mb_substr($this->description, 0, 100);
+  return mb_substr($this->description, 0, 50);
  }
 }
 

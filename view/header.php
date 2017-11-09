@@ -29,7 +29,7 @@
   <link href="catalog/view/javascript/jquery/swiper/css/swiper.min.css" type="text/css" rel="stylesheet" media="screen" />
   <link href="catalog/view/javascript/jquery/swiper/css/opencart.css" type="text/css" rel="stylesheet" media="screen" />
 
-  <link href="https://livedemo00.template-help.com/opencart_65320/image/catalog/favicon.png" rel="icon" />
+  <link href="favicon.png" rel="icon" />
 
   <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
   <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -57,8 +57,8 @@
   <nav id="top">
     <div class="container">
       <div id="logo">
-        <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=common/home">
-          <img src="https://livedemo00.template-help.com/opencart_65320/image/catalog/logo.png" title="Auto Point" alt="Auto Point" class="img-responsive" />
+        <a href="<?php echo BASE_URL?>">
+          <img src="/image/catalog/logo.png" title="Auto Point" alt="Auto Point" class="img-responsive" />
         </a>
       </div>
       <div class="box-cart pull-right">
@@ -76,9 +76,9 @@
           </ul>
         </div>
       </div>
-      <div id="top-links" class="nav pull-right">
+      <!--<div id="top-links" class="nav pull-right">
         <ul class="list-inline">
-          <li class="toggle-wrap">
+        <!--  <li class="toggle-wrap">
             <a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=account/account" class="toggle">Личный кабинет</a>
             <ul class="toggle_cont toggle_cont__right">
               <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=account/register">Регистрация</a></li>
@@ -155,7 +155,7 @@
             </div>
           </li>
         </ul>
-      </div>
+      </div>-->
     </div>
   </nav>
   <header>
