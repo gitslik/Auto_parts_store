@@ -1,19 +1,39 @@
 <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Категории</h1>
+      <div class="add-options">
+        <a href="#" onclick="self.shop.categoryOption('addProducts')">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
 </div>
 
-Навигация для управиления категорий.
 
-<!--<table class="table">
-  <?php /*foreach ($all_sliders as $slider) { */?>
-  <tr>
-    <td><img class="slider_img" src="<?php /*echo $slider['url']*/?>"></td>
-    <td><a href="/admin/slider-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-    <td><a href="/admin/slider-delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
-  </tr>
-  <?php /*} */?>
-</table>-->
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Название категорий</th>
+      <th>Опции</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($all_categories as $category) { ?>
+      <?php if ($category->enabled != 0) { ?>
+      <tr>
+        <td><?php echo $category->name; ?></td>
+        <td>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </td>
+      </tr>
+      <?php } ?>
+    <?php } ?>
+    </tbody>
+  </table>
+
+
+
+
 
 
