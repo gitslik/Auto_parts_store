@@ -87,6 +87,7 @@ class Admin
     $lastInsertIdProducts = $product_table->get('_id');
 
     foreach ($path_new_file_in_directory as $path) {
+      $files_object = new Files($db);
       $array_for_files = array();
       $array_for_files['path'] = $path;
       $array_for_files['url'] = $path;
