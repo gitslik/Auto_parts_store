@@ -6,11 +6,25 @@
 
         <div class="image">
           <a class="lazy" href="<?php echo BASE_URL . '/product?id='. $product->product_id?>" style="padding-bottom: 111.11111111111%">
-            <?php if($product->getPhotoUrl()){?>
-              <img width="270" height="300" alt="<?php echo $product->name?>" title="<?php echo $product->name?>" class="img-primary" data-src="<?php echo $product->getPhotoUrl()?>" src="#"/>
-              <img width="270" height="300" alt="<?php echo $product->name?>" title="<?php echo $product->name?>" class="img-secondary" data-src="<?php echo $product->getPhotoUrl()?>" src="#"/>
+            <?php
+            $photos = $product->getPhotoUrl();
+            if($photos){
+              $i = 0;
 
-            <?php }else{ ?>
+                $count = count($photos);
+
+              foreach($photos as $photo){
+                $i++; if($i>=3){ continue; }
+              ?>
+              <img width="270" height="300" alt="<?php echo $product->name?>" title="<?php echo $product->name?>" class="<?php echo $i==1?'img-primary':'img-secondary' ?>" data-src="<?php echo BASE_URL . '/' .$photo->url ?>" src="#"/>
+              <?php if($count == 1){
+?>
+
+                  <img width="270" height="300" alt="<?php echo $product->name?>" title="<?php echo $product->name?>" class="img-secondary" data-src="<?php echo BASE_URL . '/' .$photo->url ?>" src="#"/>
+                  <?php
+                }?>
+
+            <?php } }else{ ?>
               <img width="270" height="300" alt="<?php echo $product->name?>" title="<?php echo $product->name?>" class="img-primary" data-src="<?php echo $product->getDefaulImage()?>" src="#"/>
 
             <?php }?>

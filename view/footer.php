@@ -17,19 +17,7 @@
       </div>
 
     </div>
-<!--    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 footer_modules"><div class="">
-        <h3 class="box-heading"><span>Моя учетная запись</span></h3>
-        <ul class="box-content list-unstyled">
 
-          <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=account/login">Войти</a></li>
-
-          <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=account/order">История заказов</a></li>
-          <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=account/voucher">Подарочные сертификаты</a></li>
-          <li><a href="https://livedemo00.template-help.com/opencart_65320/index.php?route=account/return/add">Возврат</a></li>
-
-        </ul>
-      </div>
-    </div>-->
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 footer_modules"><div class="module-social">
         <div class="social-block">
           <h3 class="box-heading">Подписка</h3>
