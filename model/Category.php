@@ -5,17 +5,17 @@
  */
 class Category extends DB\SQL\Mapper
 {
+
+/*  public $category_id;
+
   public $name;
 
-  public $category_id;
-
-  public $has_parent;
-
-  public $enabled;
+  public $parent_category_id;
 
   public $photo_id;
 
-  public $photo;
+  public $enabled;*/
+
   /**
    * Category constructor.
    * @param \DB\SQL $db
