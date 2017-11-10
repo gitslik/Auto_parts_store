@@ -5,7 +5,7 @@
  */
 class Category extends DB\SQL\Mapper
 {
- /* public $name;
+  public $name;
 
   public $category_id;
 
@@ -15,7 +15,7 @@ class Category extends DB\SQL\Mapper
 
   public $photo_id;
 
-  public $photo;*/
+  public $photo;
   /**
    * Category constructor.
    * @param \DB\SQL $db

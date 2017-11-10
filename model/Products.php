@@ -5,7 +5,7 @@
  */
 class Products extends DB\SQL\Mapper
 {
- /* public $product_id;
+  public $product_id;
 
   public $name;
 
@@ -21,7 +21,7 @@ class Products extends DB\SQL\Mapper
 
   public $photo_id;
 
-  public $category_id;*/
+  public $category_id;
 
  /**
   * Products constructor.
