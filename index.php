@@ -26,7 +26,15 @@ $f3->route('GET|POST /admin/slider-upload', 'Admin::adminUploadSlider');
 /*end slider*/
 
 $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
+
+/*Category*/
 $f3->route('GET|POST /admin/category', 'Admin::adminCategory');
+$f3->route('GET|POST /admin/addCategoryForm', 'Admin::addCategoryForm');
+$f3->route('GET|POST /admin/addCategoryForm', 'Admin::addCategoryForm');
+$f3->route('GET|POST /admin/editCategoryForm', 'Admin::editCategoryForm');
+$f3->route('GET|POST /admin/deleteCategory', 'Admin::deleteCategory');
+/*End Category*/
+
 
 /*Products*/
 $f3->route('GET|POST /admin/products', 'Admin::adminProducts');
