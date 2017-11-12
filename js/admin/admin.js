@@ -17,13 +17,16 @@ Shop.prototype.saveCategoryForm = function () {
     console.log(index);console.log(foto);
   });
 
+
+
   jQuery.each($('#photo')[0].files, function(i, file)  {
     fd.append('file-'+i, file);
   });
 
-  console.log(array_photo);
   fd.append('img', array_photo);
   fd.append('params', $("#add-new-category").serialize());
+  fd.append('name', $("#name").val());
+
 
   $.ajax({
     url: 'admin/saveCategoryForm',

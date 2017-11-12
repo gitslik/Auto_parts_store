@@ -149,7 +149,7 @@ class Admin
 
     $array_fin_for_save = array();
 
-    $array_fin_for_save['name'] = $array_params['name'];
+    $array_fin_for_save['name'] = $_REQUEST['name'];
     $array_fin_for_save['parent_category_id'] = $array_params['parent_category_id'];
     $array_fin_for_save['photo_id'] = 0;
     $array_fin_for_save['enabled'] = $array_params['enabled'];
@@ -161,6 +161,7 @@ class Admin
     $lastInsertIdCategory = $categories_obj->get('_id');
 
     $array_for_files = array();
+
     $array_for_files['path'] = $path_category_photo[0];
     $array_for_files['url'] = $path_category_photo[0];
     $array_for_files['type'] = 1;
