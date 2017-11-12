@@ -31,6 +31,10 @@ class Category extends DB\SQL\Mapper
      );
   }
 
+  public function findHeadCategory(){
+    return $this->find('parent_category_id = 0');
+  }
+
   public function deleteCategory($id)
   {
     $category_id = explode('=',$id);

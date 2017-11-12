@@ -9,8 +9,35 @@ Shop = function () {
 
 
 /*Category*/
-Shop.prototype.categoryOption = function (options) {
+Shop.prototype.saveCategoryForm = function () {
+  var fd = new FormData;
+  var array_photo = [];
+  $($("#photo").prop('files')).each(function(index,foto){
+    array_photo.push(foto);
+    console.log(index);console.log(foto);
+  });
 
+  jQuery.each($('#photo')[0].files, function(i, file) {
+    fd.append('file-'+i, file);
+  });
+
+  console.log(array_photo);
+  fd.append('img', array_photo);
+  fd.append('params', $("#add-new-category").serialize());
+
+  $.ajax({
+    url: 'admin/saveCategoryForm',
+    data: fd,
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
+
+Shop.prototype.categoryOption = function (options) {
     $.ajax({
       url: 'admin/'+options,
       processData: false,
@@ -20,7 +47,6 @@ Shop.prototype.categoryOption = function (options) {
         $(".content_page").html(data);
       }
     });
-
 };
 /*End Category*/
 

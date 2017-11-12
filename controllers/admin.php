@@ -121,11 +121,24 @@ class Admin
 
   static function addCategoryForm()
   {
+    global $f3, $db;
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->findHeadCategory();
 
+    $f3->set("all_sub_categories", $categories);
+    self::layout_only_tpl('category/addCategory.php');
   }
   static function saveCategoryForm()
   {
+    global $f3, $db;
 
+    print_die($_REQUEST);
+
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->find();
+
+    $f3->set("all_categories", $categories);
+    self::layout_only_tpl('category/index.php');
   }
   static function editCategoryForm()
   {

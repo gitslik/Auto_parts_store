@@ -2,7 +2,7 @@
     <div class="col-lg-12">
       <h1 class="page-header">Категории</h1>
       <div class="add-options">
-        <a href="#" onclick="self.shop.categoryOption('addProducts')">
+        <a href="#" onclick="self.shop.categoryOption('addCategoryForm')">
           <i class="fa fa-plus" aria-hidden="true"></i>
         </a>
       </div>
