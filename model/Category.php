@@ -31,6 +31,20 @@ class Category extends DB\SQL\Mapper
      );
   }
 
+  public function deleteCategory($id)
+  {
+    $category_id = explode('=',$id);
+
+    $cat_row = $this->load(
+      array('category_id = ?',$category_id[1])
+    );
+
+    if (count($cat_row)==1) {
+      $cat_row->erase();
+    }
+    return false;
+  }
+
 }
 
 ?>

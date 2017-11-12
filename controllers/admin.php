@@ -108,6 +108,7 @@ class Admin
 
 
 
+  /*Category*/
   static function adminCategory()
   {
     global $f3, $db;
@@ -117,6 +118,35 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('category/index.php');
   }
+
+  static function addCategoryForm()
+  {
+
+  }
+  static function saveCategoryForm()
+  {
+
+  }
+  static function editCategoryForm()
+  {
+
+  }
+  static function deleteCategory($id)
+  {
+    global $f3, $db;
+    $categories_obj = new Category($db);
+
+    $id = $id['PARAMS']['id'];
+    if (isset($id)) {
+      $categories_obj->deleteCategory($id);
+    }
+
+    $categories = $categories_obj->find();
+    $f3->set("all_categories", $categories);
+    self::layout_only_tpl('category/index.php');
+  }
+
+  /*End Category*/
 
   static function adminMenu()
   {

@@ -9,8 +9,18 @@ Shop = function () {
 
 
 /*Category*/
-Shop.prototype.categoryOption = function () {
-  console.log("test");
+Shop.prototype.categoryOption = function (options) {
+
+    $.ajax({
+      url: 'admin/'+options,
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function (data) {
+        $(".content_page").html(data);
+      }
+    });
+
 };
 /*End Category*/
 
