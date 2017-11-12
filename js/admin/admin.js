@@ -17,7 +17,7 @@ Shop.prototype.saveCategoryForm = function () {
     console.log(index);console.log(foto);
   });
 
-  jQuery.each($('#photo')[0].files, function(i, file) {
+  jQuery.each($('#photo')[0].files, function(i, file)  {
     fd.append('file-'+i, file);
   });
 

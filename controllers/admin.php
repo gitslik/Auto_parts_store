@@ -131,10 +131,44 @@ class Admin
   static function saveCategoryForm()
   {
     global $f3, $db;
-
-    print_die($_REQUEST);
-
     $categories_obj = new Category($db);
+
+    if (count($_FILES)) {
+      $files_obj = new Files($db);
+      $file_input = $_FILES;
+      $path_category_photo = $files_obj->uploadCategoryPhotos($file_input);
+    }
+
+    $params = explode('&',$_REQUEST['params']);
+
+    $array_params = array();
+    foreach ($params as $param ) {
+      $options = (explode('=',$param));
+      $array_params[$options[0]] = $options[1];
+    }
+
+    $array_fin_for_save = array();
+
+    $array_fin_for_save['name'] = $array_params['name'];
+    $array_fin_for_save['parent_category_id'] = $array_params['parent_category_id'];
+    $array_fin_for_save['photo_id'] = 0;
+    $array_fin_for_save['enabled'] = $array_params['enabled'];
+
+
+    $categories_obj->copyfrom($array_fin_for_save);
+    $categories_obj->save();
+
+    $lastInsertIdCategory = $categories_obj->get('_id');
+
+    $array_for_files = array();
+    $array_for_files['path'] = $path_category_photo[0];
+    $array_for_files['url'] = $path_category_photo[0];
+    $array_for_files['type'] = 1;
+    $array_for_files['product_id'] = $lastInsertIdCategory;
+
+    $files_obj->copyfrom($array_for_files);
+    $files_obj->save();
+
     $categories = $categories_obj->find();
 
     $f3->set("all_categories", $categories);

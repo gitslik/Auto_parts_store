@@ -15,7 +15,7 @@
 <div class="container col-lg-8">
   <h2>Форма создания категорий</h2>
   <p>В данной форме вы можете создать новые категории:</p>
-  <form id="add-new-category" action="/admin/saveCategoryForm" method="post" enctype="multipart/form-data">
+  <form id="add-new-category" action="/admin/saveCategoryForm" method="post">
 
     <div class="form-group">
       <label for="name">Название категории:</label>
@@ -24,7 +24,7 @@
 
     <div class="form-group">
       <label for="category_id">Фото категории</label>
-      <input type="file" name="photo" id="photo" multiple="true" />
+      <input type="file" name="photo" id="photo" />
     </div>
 
     <div class="form-group">
