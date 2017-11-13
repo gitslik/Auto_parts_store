@@ -68,11 +68,58 @@ class Index
     foreach($allChildCategories as $catHil){
       $idsCategory[]  = $catHil->category_id;
     }
-    $products = $ProductClass->find(array('category_id in('.implode(',',$idsCategory).')'));
+    $position = 0;
+    if(isset($_GET['page'])){
+      $position = (int)$_GET['page'];
+    }
+    $products = $ProductClass->paginate($position,6,array('category_id in('.implode(',',$idsCategory).')'));
+/*    print_arr($position);
+    print_die($products);*/
     $f3->set("categories", $categories);
     $f3->set("thisCategory", $thisCategory);
     $f3->set("products", $products);
+
     self::layout('category.php');
+  }
+  static function page()
+  {
+    global $f3;
+    $all_menus = Menu::allMenu();
+    $all_slider = Slider::getSlideIconIndexPage();
+
+    if (count($all_menus)>0 && count($all_slider)>0) {
+      $f3->set("all_menus", $all_menus);
+      $f3->set("all_sliders", $all_slider);
+    }
+    global $db;
+    $CategoryClass = new Category($db);
+    $menu = $CategoryClass->getMenu();
+    $categories = array();
+    foreach($menu as $key => $m){
+      if($m->parent_category_id <= 0){
+        $categories[$m->category_id]['menu']  = $m;
+      }
+    }
+
+    foreach($menu as $key => $c){
+
+      if($c->parent_category_id>0 ){
+        $categories[$c->parent_category_id]['child'][$c->category_id] = $c;
+      }
+    }
+
+    $PageClass = new Page($db);
+    $allChildCategories  = $CategoryClass->find(array('parent_category_id=?',$id));
+    $idsCategory  = array($id);
+    foreach($allChildCategories as $catHil){
+      $idsCategory[]  = $catHil->category_id;
+    }
+
+    $page = $PageClass->load(array('menu_id=?',$f3->get('PARAMS.page_id')));;
+    $f3->set("categories", $categories);
+
+    $f3->set("page", $page);
+    self::layout('page.php');
   }
   static function search()
   {

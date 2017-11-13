@@ -5,23 +5,6 @@
  */
 class Products extends DB\SQL\Mapper
 {
-  public $product_id;
-
-  public $name;
-
-  public $description;
-
-  public $price;
-
-  public $product_code;
-
-  public $condition;
-
-  public $part_number;
-
-  public $photo_id;
-
-  public $category_id;
 
  /**
   * Products constructor.
@@ -41,6 +24,7 @@ class Products extends DB\SQL\Mapper
 
   $FilesTable = new Files($db);
    $files = $FilesTable->find(array('product_id=? and type=0',$this->product_id));
+
    if(count($files)){
      return $files;
    }

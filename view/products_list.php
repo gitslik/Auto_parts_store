@@ -1,5 +1,5 @@
-<?php if(isset($products) && count($products)>0):?>
-  <?php foreach($products as $product):?>
+<?php if(isset($products['subset']) && count($products['subset'])>0):?>
+  <?php foreach($products['subset'] as $product):?>
     <div class="product-layout col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <div class="product-thumb transition  options ">
 
@@ -44,6 +44,33 @@
       </div>
     </div>
   <?php endforeach;?>
+  <div class="row">
+    <div class="col-sm-6 text-left">
+      <ul class="pagination">
+        <?php if ($products['pos'] > 1): ?>
+          <li>
+            <a href="<?php echo BASE_URL . '/category?id=' . $thisCategory->category_id  ?>">|&lt;</a>
+          </li>
+          <li><a href="<?php echo BASE_URL . '/category?id=' . $thisCategory->category_id . '&page=' . ($products['pos']-1) ?>">&lt;</a>
+          </li>
+        <?php endif; ?>
+  <?php for($i=0; $i<$products['count'];$i++): ?>
+    <?php if ($i == $products['pos']): ?>
+      <li class="active"><span><?php echo $products['pos'] + 1;?></span></li>
+      <?php else: ?>
+      <li><a href="<?php echo  BASE_URL . '/category?id=' . $thisCategory->category_id . '&page='.($i) ?>"><?php echo $i+1;?></a></li>
+        <?php endif; ?>
+
+    <?php endfor;?>
+        <?php if($products['count']>3):?>
+        <li><a href="<?php echo BASE_URL . '/category?id=' . $thisCategory->category_id . '&page=' . ($products['pos'] + 1) ?>">&gt;</a></li>
+        <li><a href="<?php echo BASE_URL . '/category?id=' . $thisCategory->category_id . '&page='.($products['count']) ?>">&gt;|</a></li>
+    <?php endif;?>
+      </ul>
+    </div>
+    <div class="col-sm-6 text-right tx-results">Показано <?php echo $products['limit']?> продукта из <?php echo $products['total']?> (Всего страниц <?php echo $products['count']?>)</div>
+  </div>
+
 <?php else:?>
   <h5><?php echo $empty;?></h5>
 <?php endif?>

@@ -10,7 +10,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>СТО</title>
+  <?php
+  $hesder_label = '';
+  if(isset($title)){
+    $hesder_label = $title;
+  }?>
+  <title>СТО <?php echo $hesder_label?></title>
+
   <base href="<?php echo BASE_URL?>/" />
 
   <meta name="description" content="Auto Point" />
@@ -167,9 +173,13 @@
         <div class="megamenu">
           <ul class="sf-menu">
 
-              <?php foreach ($all_menus as $menu_item){ ?>
+              <?php foreach ($all_menus as $menu_item){
+                $url = BASE_URL . '/page/' . $menu_item['id'];
+                if($menu_item['id'] == 1){
+                  $url  = '/';
+                }?>
                 <li>
-                  <a href="index.php?route=common/home" data-letters="Главная"><span><?php echo $menu_item['name_menu']; ?></span></a>
+                  <a href="<?php echo $url;?>" data-letters="Главная"><span><?php echo $menu_item['name_menu']; ?></span></a>
                 </li>
               <?php  } ?>
 
