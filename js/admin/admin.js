@@ -8,6 +8,23 @@ Shop = function () {
 };
 
 
+/*Pages*/
+Shop.prototype.pagesOption = function (options) {
+  $.ajax({
+    type: "POST",
+    url: "admin/"+options,
+    data: {cat: options},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
+Shop.prototype.savePageForm = function () {
+  console.log('saveProductForm');
+};
+/*End Pages*/
+
 /*Category*/
 Shop.prototype.saveCategoryForm = function () {
   var fd = new FormData;
@@ -17,8 +34,6 @@ Shop.prototype.saveCategoryForm = function () {
     console.log(index);console.log(foto);
   });
 
-
-
   jQuery.each($('#photo')[0].files, function(i, file)  {
     fd.append('file-'+i, file);
   });
@@ -26,7 +41,6 @@ Shop.prototype.saveCategoryForm = function () {
   fd.append('img', array_photo);
   fd.append('params', $("#add-new-category").serialize());
   fd.append('name', $("#name").val());
-
 
   $.ajax({
     url: 'admin/saveCategoryForm',

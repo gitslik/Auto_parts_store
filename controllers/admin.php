@@ -18,6 +18,16 @@ class Admin
   }
 
 
+  /*Pages*/
+  static function addPages()
+  {
+    self::layout_only_tpl('page/addPages.php');
+  }
+  static function savePages(){}
+  static function editPages(){}
+  static function updatePages(){}
+  static function deletePages(){}
+  /*EndPages*/
 
   /*Poducts*/
   static function adminProducts()
@@ -118,7 +128,6 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('category/index.php');
   }
-
   static function addCategoryForm()
   {
     global $f3, $db;
@@ -193,7 +202,6 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('category/index.php');
   }
-
   /*End Category*/
 
   static function adminMenu()
