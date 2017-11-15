@@ -14,6 +14,13 @@ class Admin
 
   static function adminPages()
   {
+    global $db,$f3;
+
+    $pages_object = new Pages($db);
+    $all_pages = $pages_object->find();
+
+    $f3->set("all_pages", $all_pages);
+
     self::layout_only_tpl('page/index.php');
   }
 

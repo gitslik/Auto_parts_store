@@ -16,7 +16,7 @@ include_once "model/Slider.php";
 include_once "model/Category.php";
 include_once "model/Files.php";
 include_once "model/Products.php";
-include_once "model/Page.php";
+include_once "model/Pages.php";
 
 /*end models*/
 
