@@ -28,7 +28,24 @@ class Admin
 
     self::layout_only_tpl('page/addPages.php');
   }
-  static function savePages(){}
+  static function savePages(){
+
+    global $db,$f3;
+
+    $pages_object = new Pages($db);
+    $array_for_save['title'] = $_REQUEST['title'];
+    $array_for_save['description'] = $_REQUEST['description'];
+    $array_for_save['enabled'] = $_REQUEST['enabled'];
+    $array_for_save['menu_id'] = $_REQUEST['menu_id'];
+
+    $pages_object->copyfrom($array_for_save);
+    $pages_object->save();
+
+    $all_pages = $pages_object->find();
+    $f3->set("all_pages", $all_pages);
+
+    self::layout_only_tpl('page/index.php');
+  }
   static function editPages(){}
   static function updatePages(){}
   static function deletePages(){}

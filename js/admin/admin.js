@@ -1,9 +1,5 @@
 Shop = function () {
   (function () {
-    $(document).on('click', '.menu_shopasas', function () {
-    // console.log("test");
-    });
-
   })(this);
 };
 
@@ -18,7 +14,7 @@ Shop.prototype.pagesOption = function (options) {
     success: function (data) {
       $(".content_page").html(data);
         tinymce.init({
-          selector: "textarea",
+          selector: "#description",
           menubar: false,
           height: 200
         });
@@ -26,7 +22,29 @@ Shop.prototype.pagesOption = function (options) {
   });
 };
 Shop.prototype.savePageForm = function () {
-  console.log('saveProductForm');
+
+  var fd = new FormData;
+  var title = $('#name').val();
+  var description = tinyMCE.get('description').getContent();
+  var enabled = '1';
+  var menu_id = $("#menu_id").val();
+
+  fd.append('title', title);
+  fd.append('description', description);
+  fd.append('enabled', enabled);
+  fd.append('menu_id', menu_id);
+
+  $.ajax({
+    url: 'admin/savePages',
+    data: fd,
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+
 };
 /*End Pages*/
 
