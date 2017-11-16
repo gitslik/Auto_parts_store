@@ -17,6 +17,12 @@ Shop.prototype.pagesOption = function (options) {
     dataType: "html",
     success: function (data) {
       $(".content_page").html(data);
+        console.log(123);
+        tinymce.init({
+          selector: "textarea",
+          menubar: false,
+          height: 200
+        });
     }
   });
 };
