@@ -15,9 +15,9 @@
 <!-- Custom Theme JavaScript -->
 <script src="../../css/dist/js/sb-admin-2.js"></script>
 
+<script type="text/javascript" src="../../js/tinymce/tinymce.min.js"></script>
 
-
-
+<script>tinymce.init({ selector:'textarea' });</script>
 </body>
 
 </html>

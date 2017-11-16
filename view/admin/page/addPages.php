@@ -1,3 +1,10 @@
+
+<script type="text/javascript">
+  tinyMCE.init({
+    mode : "textarea",
+    theme : "simple"
+  });
+</script>
 <style>
   div#page-wrapper {
     min-height: 500px!important;
@@ -38,5 +45,4 @@
 
   </form>
 </div>
-
 
