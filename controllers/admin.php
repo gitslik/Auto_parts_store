@@ -11,7 +11,7 @@ class Admin
     self::layout('index.php');
   }
 
-
+  /*Pages*/
   static function adminPages()
   {
     global $db,$f3;
@@ -23,11 +23,9 @@ class Admin
 
     self::layout_only_tpl('page/index.php');
   }
-
-
-  /*Pages*/
   static function addPages()
   {
+
     self::layout_only_tpl('page/addPages.php');
   }
   static function savePages(){}
