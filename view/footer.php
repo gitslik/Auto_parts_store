@@ -55,7 +55,7 @@
     </div>
 
   </div>
-  <div class="copyright"><div class="container">Работает на <a href="http://opencart-russia.ru">OpenCart "Русская сборка"</a><br /> Auto Point &copy; 2017</div></div><!-- [[%FOOTER_LINK]] -->
+  <div class="copyright"><div class="container"></div></div><!-- [[%FOOTER_LINK]] -->
 </footer>
 <div class="ajax-overlay"></div>
 <div class="ajax-quickview-overlay">
