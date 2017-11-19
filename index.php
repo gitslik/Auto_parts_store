@@ -32,7 +32,8 @@ $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
 $f3->route('GET|POST /admin/category', 'Admin::adminCategory');
 $f3->route('GET|POST /admin/addCategoryForm', 'Admin::addCategoryForm');
 $f3->route('GET|POST /admin/saveCategoryForm', 'Admin::saveCategoryForm');
-$f3->route('GET|POST /admin/editCategoryForm/@id', 'Admin::editCategoryForm');
+$f3->route('GET|POST /admin/editCategoryForm', 'Admin::editCategoryForm');
+$f3->route('GET|POST /admin/updateCategoryForm', 'Admin::updateCategoryForm');
 $f3->route('GET|POST /admin/deleteCategory/@id', 'Admin::deleteCategory');
 /*End Category*/
 

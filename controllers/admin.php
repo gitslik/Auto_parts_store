@@ -206,8 +206,23 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('category/index.php');
   }
+
   static function editCategoryForm()
   {
+    $id_category = $_REQUEST['id'];
+    global $f3, $db;
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->findHeadCategory();
+
+    $category_for_edit = $categories_obj->find(array('category_id =?',$id_category));
+
+    $options = array();
+    $options["info_category"] = $category_for_edit[0];
+    $options["all_sub_categories"] = $categories;
+    $f3->set("options", $options);
+    self::layout_only_tpl('category/editCategory.php');
+  }
+  static function updateCategoryForm(){
 
   }
   static function deleteCategory($id)
@@ -230,7 +245,6 @@ class Admin
   {
     self::layout_only_tpl('menu/index.php');
   }
-
 
   /*Slider*/
   static function adminSliderPage()

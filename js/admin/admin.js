@@ -78,15 +78,33 @@ Shop.prototype.saveCategoryForm = function () {
 };
 
 Shop.prototype.categoryOption = function (options) {
-    $.ajax({
-      url: 'admin/'+options,
-      processData: false,
-      contentType: false,
-      type: 'POST',
-      success: function (data) {
-        $(".content_page").html(data);
-      }
-    });
+  $.ajax({
+    url: 'admin/'+options,
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
+Shop.prototype.categoryEdit = function (options) {
+  var fd = new FormData;
+  fd.append('id', options);
+  $.ajax({
+    url: 'admin/editCategoryForm',
+    processData: false,
+    contentType: false,
+    data: fd,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
+
+Shop.prototype.updateCategoryForm = function () {
+
 };
 /*End Category*/
 

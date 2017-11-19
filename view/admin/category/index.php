@@ -23,7 +23,7 @@
       <tr>
         <td><?php echo $category->name; ?></td>
         <td>
-          <a href="#" onclick="self.shop.categoryOption('editCategoryForm/edit_id=<?php echo $category->category_id; ?>')" class="edit_cat"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+          <a href="#" onclick="self.shop.categoryEdit('<?php echo $category->category_id; ?>')" class="edit_cat"><i class="fa fa-pencil" aria-hidden="true"></i></a>
           <a href="#" onclick="self.shop.categoryOption('deleteCategory/delete_id=<?php echo $category->category_id; ?>')" class="delete_cat" data-id="<?php echo $category->category_id; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
         </td>
       </tr>
