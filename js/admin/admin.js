@@ -126,9 +126,15 @@ Shop.prototype.updateCategoryForm = function (options) {
 Shop.prototype.updateProducts = function () {
   console.log("updateProducts");
 };
-Shop.prototype.editProducts = function () {
+Shop.prototype.editProducts = function (options) {
+  console.log(options);
   console.log("editProducts");
 };
+Shop.prototype.deleteProduct = function () {
+  console.log("deleteProduct");
+};
+
+
 Shop.prototype.productAddItem = function () {
   var fd = new FormData;
   var array_photo = [];
