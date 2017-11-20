@@ -136,6 +136,11 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('products/index.php');
   }
+
+
+  static function deleteProduct(){}
+  static function editProducts(){}
+  static function updateProducts(){}
   /*End Products*/
 
 
@@ -205,7 +210,6 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('category/index.php');
   }
-
   static function editCategoryForm()
   {
     $id_category = $_REQUEST['id'];

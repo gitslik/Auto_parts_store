@@ -76,7 +76,6 @@ Shop.prototype.saveCategoryForm = function () {
     }
   });
 };
-
 Shop.prototype.categoryOption = function (options) {
   $.ajax({
     url: 'admin/'+options,
@@ -102,7 +101,6 @@ Shop.prototype.categoryEdit = function (options) {
     }
   });
 };
-
 Shop.prototype.updateCategoryForm = function (options) {
   var fd = new FormData;
   fd.append('id', options);
@@ -125,6 +123,12 @@ Shop.prototype.updateCategoryForm = function (options) {
 /*End Category*/
 
 /*Products*/
+Shop.prototype.updateProducts = function () {
+  console.log("updateProducts");
+};
+Shop.prototype.editProducts = function () {
+  console.log("editProducts");
+};
 Shop.prototype.productAddItem = function () {
   var fd = new FormData;
   var array_photo = [];
@@ -153,7 +157,6 @@ Shop.prototype.productAddItem = function () {
   });
 
 };
-
 Shop.prototype.productOption = function (options) {
   $.ajax({
     type: "POST",
