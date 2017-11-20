@@ -223,7 +223,7 @@ class Admin
     self::layout_only_tpl('category/editCategory.php');
   }
   static function updateCategoryForm(){
-
+    print_die("asd00");
   }
   static function deleteCategory($id)
   {

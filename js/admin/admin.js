@@ -103,8 +103,21 @@ Shop.prototype.categoryEdit = function (options) {
   });
 };
 
-Shop.prototype.updateCategoryForm = function () {
-
+Shop.prototype.updateCategoryForm = function (options) {
+  var fd = new FormData;
+  fd.append('id', options);
+  fd.append('name', $('#name').val());
+  fd.append('parent_category_id', $('#parent_category_id').val());
+  $.ajax({
+    url: 'admin/updateCategoryForm',
+    processData: false,
+    contentType: false,
+    data: fd,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
 };
 /*End Category*/
 
