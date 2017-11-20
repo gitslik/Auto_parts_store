@@ -108,6 +108,9 @@ Shop.prototype.updateCategoryForm = function (options) {
   fd.append('id', options);
   fd.append('name', $('#name').val());
   fd.append('parent_category_id', $('#parent_category_id').val());
+  var file =  $($("#photo").prop('files'));
+  fd.append('file', file[0]);
+
   $.ajax({
     url: 'admin/updateCategoryForm',
     processData: false,

@@ -185,7 +185,6 @@ class Admin
     $array_fin_for_save['photo_id'] = 0;
     $array_fin_for_save['enabled'] = $array_params['enabled'];
 
-
     $categories_obj->copyfrom($array_fin_for_save);
     $categories_obj->save();
 
@@ -223,7 +222,48 @@ class Admin
     self::layout_only_tpl('category/editCategory.php');
   }
   static function updateCategoryForm(){
-    print_die("asd00");
+
+    global $f3, $db;
+
+    $categories_obj = new Category($db);
+
+    $cat = $categories_obj->load(
+      array('category_id = ?',$_REQUEST['id'])
+    );
+
+    $array_fin_for_save['name'] = $_REQUEST['name'];
+    $array_fin_for_save['parent_category_id'] = $_REQUEST['parent_category_id'];
+    $array_fin_for_save['photo_id'] = 0;
+    $array_fin_for_save['enabled'] = 1;
+
+    $cat->copyfrom($array_fin_for_save);
+    $cat->save();
+
+    if (count($_FILES)) {
+      $files_obj = new Files($db);
+      $file_input = $_FILES;
+      $path_category_photo = $files_obj->uploadCategoryPhotos($file_input);
+
+
+
+    $file_row = $files_obj->load(
+      array('	product_id = ? and type = ?',$_REQUEST['id'],1)
+    );
+
+    $array_for_files = array();
+    $array_for_files['path'] = $path_category_photo[0];
+    $array_for_files['url'] = $path_category_photo[0];
+
+    $file_row->copyfrom($array_for_files);
+    $file_row->save();
+    }
+
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->find();
+
+    $f3->set("all_categories", $categories);
+    self::layout_only_tpl('category/index.php');
+
   }
   static function deleteCategory($id)
   {

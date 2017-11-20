@@ -23,6 +23,11 @@
     </div>
 
     <div class="form-group">
+      <label for="category_id">Фото категории</label>
+      <input type="file" name="photo" id="photo" />
+    </div>
+
+    <div class="form-group">
       <label for="category_id">Опция для создания под категории выберите главный раздел</label>
       <select class="form-control" id="parent_category_id" name="parent_category_id">
         <option value="0"></option>

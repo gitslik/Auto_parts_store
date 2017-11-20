@@ -1,3 +1,8 @@
+<style>
+  div#page-wrapper {
+    min-height: 800px!important;
+  }
+</style>
 <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Категории</h1>
