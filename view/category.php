@@ -72,7 +72,7 @@
 
 </section>
 
-<div id="common-home" class="container">
+<!--<div id="common-home" class="container">
     <div class="row">
         <div id="content" class="col-sm-12">
             <div id="style_switcher">
@@ -90,4 +90,4 @@
         </div>
 
     </div>
-</div>
+</div>-->
