@@ -20,7 +20,7 @@
 
   <tbody>
   <?php foreach ($all_products_this_category as $products){ ?>
-  <tr>
+  <tr class="row_hover">
     <td><?php echo $products->name; ?></td>
     <td><?php echo $products->part_number; ?></td>
     <td><?php echo $products->product_code; ?></td>

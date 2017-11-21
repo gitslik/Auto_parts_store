@@ -2,6 +2,7 @@
   div#page-wrapper {
     min-height: 800px!important;
   }
+
 </style>
 <div class="row">
     <div class="col-lg-12">
@@ -25,7 +26,7 @@
     <tbody>
     <?php foreach ($all_categories as $category) { ?>
       <?php if ($category->enabled != 0) { ?>
-      <tr>
+      <tr class="row_hover">
         <td><?php echo $category->name; ?></td>
         <td>
           <a href="#" onclick="self.shop.categoryEdit('<?php echo $category->category_id; ?>')" class="edit_cat"><i class="fa fa-pencil" aria-hidden="true"></i></a>
