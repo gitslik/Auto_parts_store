@@ -33,6 +33,8 @@
 
   <script src="../../js/admin/admin.js"></script>
 
+  <script type="text/javascript" src="../../js/tinymce/tinymce.min.js"></script>
+
   <script>
     var shop = new Shop();
   </script>

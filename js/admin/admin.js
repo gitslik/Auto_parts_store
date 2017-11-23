@@ -13,11 +13,18 @@ Shop.prototype.pagesOption = function (options) {
     dataType: "html",
     success: function (data) {
       $(".content_page").html(data);
-        tinymce.init({
-          selector: "#description",
-          menubar: false,
-          height: 200
-        });
+      $(document).ready(function () {
+        var intervalID = setInterval(function(){
+          if($(".content_page").find(".description_page")[0]){
+            tinyMCE.init({
+              selector: "#description",
+              menubar: false,
+              height: 200
+            });
+            clearInterval(intervalID);
+          }
+        },1000);
+      });
     }
   });
 };

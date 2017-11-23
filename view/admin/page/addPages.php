@@ -31,7 +31,7 @@
 
     <div class="form-group">
       <label for="description">Основной текст страницы:</label>
-      <textarea type="text" name="description" class="form-control" id="description"></textarea>
+      <textarea type="text" name="description" class="form-control description_page" id="description"></textarea>
     </div>
 
     <input type="hidden" id="enabled" name="enabled" value="1">
