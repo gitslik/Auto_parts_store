@@ -285,10 +285,17 @@ class Admin
   }
   /*End Category*/
 
+  /*Menu*/
   static function adminMenu()
   {
+    global $f3, $db;
+    $menu_obj = new Menu($db);
+    $menus = $menu_obj->find();
+
+    $f3->set("all_menus", $menus);
     self::layout_only_tpl('menu/index.php');
   }
+  /*End Menu*/
 
   /*Slider*/
   static function adminSliderPage()
