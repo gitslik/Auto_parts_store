@@ -1,6 +1,12 @@
 <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Меню</h1>
+
+      <div class="add-options">
+        <a href="#" onclick="self.shop.addMenu('addMenu')">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
 </div>
 

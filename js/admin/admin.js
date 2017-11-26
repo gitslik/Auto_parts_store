@@ -3,6 +3,11 @@ Shop = function () {
   })(this);
 };
 
+/*Menu*/
+Shop.prototype.addMenu = function (options) {
+  console.log(options);
+};
+/*End Menu*/
 
 /*Pages*/
 Shop.prototype.pagesOption = function (options) {
@@ -140,8 +145,6 @@ Shop.prototype.editProducts = function (options) {
 Shop.prototype.deleteProduct = function () {
   console.log("deleteProduct");
 };
-
-
 Shop.prototype.productAddItem = function () {
   var fd = new FormData;
   var array_photo = [];
@@ -215,7 +218,6 @@ Shop.prototype.slideAddItem = function (options) {
 
 
 };
-
 Shop.prototype.slideOption = function (options, id) {
   $.ajax({
     type: "POST",
@@ -227,7 +229,6 @@ Shop.prototype.slideOption = function (options, id) {
     }
   });
 };
-
 Shop.prototype.indexPageTest = function (menu_link) {
   $.ajax({
     type: "POST",
