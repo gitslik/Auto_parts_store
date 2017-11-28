@@ -1,3 +1,5 @@
+<div id="page-wrapper">
+  <div class="content_page col-lg-12">
 <style>
   div#page-wrapper {
     min-height: 750px!important;
@@ -38,3 +40,13 @@
 
   </form>
 </div>
+
+  </div>
+</div>
+<script>
+  tinyMCE.init({
+    selector: "#description",
+    menubar: false,
+    height: 200
+  });
+</script>

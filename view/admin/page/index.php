@@ -2,7 +2,7 @@
     <div class="col-lg-12">
       <h1 class="page-header">Страницы</h1>
       <div class="add-options">
-        <a href="#" onclick="self.shop.pagesOption('addPages')">
+        <a href="/admin/addPages" ><!--onclick="self.shop.pagesOption('addPages')"-->
           <i class="fa fa-plus" aria-hidden="true"></i>
         </a>
       </div>
@@ -11,6 +11,7 @@
 
 
 <table class="table">
+
   <?php foreach ($all_pages as $page) { ?>
     <tr>
       <td><?php echo $page->title; ?></td>

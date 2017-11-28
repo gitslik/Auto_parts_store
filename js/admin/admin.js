@@ -13,7 +13,7 @@ Shop.prototype.addMenu = function (options) {
 Shop.prototype.pagesOption = function (options) {
   $.ajax({
     type: "POST",
-    url: "admin/"+options,
+    url: "/admin/"+options,
     data: {cat: options},
     dataType: "html",
     success: function (data) {
@@ -47,7 +47,7 @@ Shop.prototype.savePageForm = function () {
   fd.append('menu_id', menu_id);
 
   $.ajax({
-    url: 'admin/savePages',
+    url: '/admin/savePages',
     data: fd,
     processData: false,
     contentType: false,
@@ -78,7 +78,7 @@ Shop.prototype.saveCategoryForm = function () {
   fd.append('name', $("#name").val());
 
   $.ajax({
-    url: 'admin/saveCategoryForm',
+    url: '/admin/saveCategoryForm',
     data: fd,
     processData: false,
     contentType: false,
@@ -90,7 +90,7 @@ Shop.prototype.saveCategoryForm = function () {
 };
 Shop.prototype.categoryOption = function (options) {
   $.ajax({
-    url: 'admin/'+options,
+    url: '/admin/'+options,
     processData: false,
     contentType: false,
     type: 'POST',
@@ -103,7 +103,7 @@ Shop.prototype.categoryEdit = function (options) {
   var fd = new FormData;
   fd.append('id', options);
   $.ajax({
-    url: 'admin/editCategoryForm',
+    url: '/admin/editCategoryForm',
     processData: false,
     contentType: false,
     data: fd,
@@ -122,7 +122,7 @@ Shop.prototype.updateCategoryForm = function (options) {
   fd.append('file', file[0]);
 
   $.ajax({
-    url: 'admin/updateCategoryForm',
+    url: '/admin/updateCategoryForm',
     processData: false,
     contentType: false,
     data: fd,
@@ -162,7 +162,7 @@ Shop.prototype.productAddItem = function () {
   fd.append('params', $("#add-new-products").serialize());
 
   $.ajax({
-    url: 'admin/saveProduct',
+    url: '/admin/saveProduct',
     data: fd,
     processData: false,
     contentType: false,
@@ -176,18 +176,18 @@ Shop.prototype.productAddItem = function () {
 Shop.prototype.productOption = function (options) {
   $.ajax({
     type: "POST",
-    url: "admin/"+options,
+    url: "/admin/"+options,
     data: {cat: options},
     dataType: "html",
     success: function (data) {
       $(".content_page").html(data);
     }
   });
-};
+};  
 Shop.prototype.productsOfCategory = function (id) {
   $.ajax({
     type: "POST",
-    url: "admin/productsOfCategory",
+    url: "/admin/productsOfCategory",
     data: {id: id},
     dataType: "html",
     success: function (data) {
@@ -206,7 +206,7 @@ Shop.prototype.slideAddItem = function (options) {
   fd.append('img', $input.prop('files')[0]);
 
   $.ajax({
-    url: 'admin/slider-upload',
+    url: '/admin/slider-upload',
     data: fd,
     processData: false,
     contentType: false,
@@ -221,7 +221,7 @@ Shop.prototype.slideAddItem = function (options) {
 Shop.prototype.slideOption = function (options, id) {
   $.ajax({
     type: "POST",
-    url: "admin/"+options,
+    url: "/admin/"+options,
     data: {cat: options, id: id},
     dataType: "html",
     success: function (data) {
@@ -232,7 +232,7 @@ Shop.prototype.slideOption = function (options, id) {
 Shop.prototype.indexPageTest = function (menu_link) {
   $.ajax({
     type: "POST",
-    url: "admin/"+menu_link,
+    url: "/admin/"+menu_link,
     data: {cat: menu_link},
     dataType: "html",
     success: function (data) {

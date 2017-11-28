@@ -25,8 +25,9 @@ class Admin
   }
   static function addPages()
   {
-
-    self::layout_only_tpl('page/addPages.php');
+    echo View::instance()->render(self::$base_derectory . 'header.php');
+    echo View::instance()->render(self::$base_derectory . 'page/addPages.php');
+    echo View::instance()->render(self::$base_derectory . 'footer.php');
   }
   static function savePages(){
 
