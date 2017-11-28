@@ -17,6 +17,7 @@ include_once "model/Category.php";
 include_once "model/Files.php";
 include_once "model/Products.php";
 include_once "model/Pages.php";
+include_once "model/Users.php";
 
 /*end models*/
 

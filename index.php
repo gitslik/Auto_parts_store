@@ -58,6 +58,12 @@ $f3->route('GET|POST /admin/editPages', 'Admin::editPages');
 $f3->route('GET|POST /admin/updatePages', 'Admin::updatePages');
 /*EndPages*/
 
+/*LoginRout*/
+$f3->route('GET|POST /admin/login', 'Admin::adminLoginForm');
+$f3->route('GET|POST /admin/auth', 'Admin::adminAuth');
+$f3->route('GET|POST /admin/logout', 'Admin::adminLogout');
+/*EndLoginRout*/
+
 /*End Admin Routings*/
 
 

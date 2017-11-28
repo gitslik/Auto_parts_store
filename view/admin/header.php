@@ -1,4 +1,17 @@
+<?php
+//СКРИПТ ПРОВЕРКИ АВТОРИЗАЦИИ
+if(isset($_GET['logSESS'])) {$logSESS = $_GET['logSESS'];unset($logSESS);}
+if(isset($_POST['logSESS'])) {$logSESS = $_POST['logSESS'];unset($logSESS);}
 
+session_start();
+$logSESS = $_SESSION['$logSESS'];
+if(!isset($logSESS))
+{
+  header("location: /admin/login");
+  exit;
+}
+//СКРИПТ ПРОВЕРКИ АВТОРИЗАЦИИ
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +82,7 @@
         </a>
         <ul class="dropdown-menu dropdown-user">
           <li>
-            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            <a href="/admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
           </li>
         </ul>
         <!-- /.dropdown-user -->
