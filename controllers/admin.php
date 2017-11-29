@@ -7,7 +7,6 @@ class Admin
 
   static function adminPage()
   {
-    global $f3;
     self::layout('index.php');
   }
 
@@ -84,8 +83,6 @@ class Admin
             exit;
           }
         }
-      //АВТОРИЗАЦИЯ
-
   }
   /*End Login*/
 
@@ -93,19 +90,14 @@ class Admin
   static function adminPages()
   {
     global $db,$f3;
-
     $pages_object = new Pages($db);
     $all_pages = $pages_object->find();
-
     $f3->set("all_pages", $all_pages);
-
     self::layout_only_tpl('page/index.php');
   }
   static function addPages()
   {
-    echo View::instance()->render(self::$base_derectory . 'header.php');
-    echo View::instance()->render(self::$base_derectory . 'page/addPages.php');
-    echo View::instance()->render(self::$base_derectory . 'footer.php');
+    self::layout('page/addPages.php');
   }
   static function savePages(){
 
@@ -125,9 +117,34 @@ class Admin
 
     self::layout_only_tpl('page/index.php');
   }
-  static function editPages(){}
+  static function editPages(){
+    global $db,$f3;
+    if (isset($_REQUEST['id'])) {
+      $id = $_REQUEST["id"];
+      $pages_object = new Pages($db);
+      $page_for_update = $pages_object->load(
+        array('page_id = ?',$id)
+      );
+
+
+
+      $f3->set("page_for_update", $page_for_update);
+      self::layout('page/editPages.php');
+    }
+  }
   static function updatePages(){}
-  static function deletePages(){}
+  static function deletePages(){
+    global $db;
+    $pages_object = new Pages($db);
+    $page_for_delete = $pages_object->load(
+      array('page_id = ?',$_REQUEST['id'])
+    );
+
+    if (isset($page_for_delete)){
+      $page_for_delete->erase();
+    }
+    header("location: /admin");
+  }
   /*EndPages*/
 
   /*Poducts*/

@@ -15,8 +15,8 @@
   <?php foreach ($all_pages as $page) { ?>
     <tr>
       <td><?php echo $page->title; ?></td>
-      <td><a href="/admin/page-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-      <td><a href="/admin/page-delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+      <td><a href="/admin/editPages?id=<?php echo $page->page_id;?>"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+      <td><a href="/admin/deletePages?id=<?php echo $page->page_id;?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
     </tr>
   <?php } ?>
 

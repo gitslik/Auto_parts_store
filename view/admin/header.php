@@ -66,7 +66,7 @@ if(!isset($logSESS))
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Раздел Администрации Сайта</a>
+      <a class="navbar-brand" href="/admin">Раздел Администрации Сайта</a>
     </div>
     <!-- /.navbar-header -->
 
