@@ -108,7 +108,7 @@ class Index
       }
     }
 
-    $PageClass = new Page($db);
+    $PageClass = new Pages($db);
     $allChildCategories  = $CategoryClass->find(array('parent_category_id=?',$id));
     $idsCategory  = array($id);
     foreach($allChildCategories as $catHil){
