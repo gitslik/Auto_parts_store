@@ -97,6 +97,11 @@ class Admin
   }
   static function addPages()
   {
+    global $f3, $db;
+    $menu_obj = new Menu($db);
+    $menus = $menu_obj->find();
+
+    $f3->set("all_menus", $menus);
     self::layout('page/addPages.php');
   }
   static function savePages(){

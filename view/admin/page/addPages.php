@@ -23,6 +23,11 @@
       <label for="menu_id">Выберите раздел для страницы.</label>
       <select class="form-control" id="menu_id" name="menu_id">
         <option value="0"></option>
+
+<!--        <?php /*print_die($all_menus);*/?>
+        <?php /*foreach ($all_menus as $menu){*/?>
+          <option value="<?php /*echo $menu['id'];*/?>"><?php /*echo $menu['name_menu'];*/?></option>
+        --><?php /*} */?>
       </select>
     </div>
 

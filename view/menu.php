@@ -74,7 +74,7 @@
       })(jQuery);
     </script>
 
-    <div id="banner0" class="banners row">
+<!--    <div id="banner0" class="banners row">
 
       <div class="col-sm-6 banner-1">
         <div class="banner-box">
@@ -89,7 +89,7 @@
 
         </div>
       </div>
-    </div>
+    </div>-->
 
 
 
