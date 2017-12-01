@@ -47,7 +47,7 @@
               <li class="footer-invert"><a href="//www.google.com/maps/?q=40.6700,+-73.9400" target="_blank">My Company , 4578 Marmora Road,<br />
                   Glasgow D04 89GR</a></li>
               <li class="footer-invert">Позвоните: <a href="callto:0123-456-789">0123-456-789</a></li>
-              <li>Email: <a href="/cdn-cgi/l/email-protection#bdd4d3dbd2fdd9d8d0d2d1d4d3d693d2cfda"><span class="__cf_email__" data-cfemail="8be2e5ede4cbefeee6e4e7e2e5e0a5e4f9ec">[email&#160;protected]</span></a></li>
+              <li>Email: <a href="mailto:technicavtoservice@gmail.com">technicavtoservice@gmail.com</a></li>
             </ul>
           </address>
         </div>
@@ -67,5 +67,10 @@
 <script src="catalog/view/theme/jetimpex/js/common.js" type="text/javascript"></script>
 <script src="catalog/view/theme/jetimpex/js/script.js" type="text/javascript"></script>
 </div>
+<!-- BEGIN JIVOSITE CODE {literal} -->
+<script type='text/javascript'>
+  (function(){ var widget_id = 'jUVndrPlSv';var d=document;var w=window;function l(){
+    var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
+<!-- {/literal} END JIVOSITE CODE -->
 </body>
 </html>
