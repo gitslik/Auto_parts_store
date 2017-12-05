@@ -142,8 +142,22 @@ Shop.prototype.editProducts = function (options) {
   console.log(options);
   console.log("editProducts");
 };
-Shop.prototype.deleteProduct = function () {
-  console.log("deleteProduct");
+Shop.prototype.deleteProduct = function (options) {
+  console.log(options);
+
+  var fd = new FormData;
+  fd.append('id', options);
+
+  $.ajax({
+    url: '/admin/deleteProduct',
+    data: fd,
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
 };
 Shop.prototype.productAddItem = function () {
   var fd = new FormData;
@@ -157,7 +171,12 @@ Shop.prototype.productAddItem = function () {
     fd.append('file-'+i, file);
   });
 
-  console.log(array_photo);
+
+
+
+  fd.append('name', $("#name").val());
+  fd.append('description', tinyMCE.get('description').getContent());
+
   fd.append('img', array_photo);
   fd.append('params', $("#add-new-products").serialize());
 

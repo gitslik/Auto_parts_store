@@ -10,7 +10,6 @@
     </div>
 </div>
 
-Навигация для управиления меню.
 
 <table class="table">
   <?php foreach ($all_menus as $menu) { ?>

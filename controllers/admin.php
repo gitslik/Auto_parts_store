@@ -161,7 +161,7 @@ class Admin
     $categories = $categories_obj->find();
 
     $f3->set("all_categories", $categories);
-    self::layout_only_tpl('products/index.php');
+    self::layout('products/index.php');
   }
   static function adminViewProducts($f3)
   {
@@ -181,7 +181,7 @@ class Admin
     $categories = $category->getMenu();
     $f3->set("all_category", $categories);
 
-    self::layout_only_tpl('products/addProducts.php');
+    self::layout('products/addProducts.php');
   }
   static function adminSaveProduct()
   {
@@ -206,8 +206,8 @@ class Admin
 
     $array_fin_for_save = array();
 
-    $array_fin_for_save['name'] = $array_params['name'];
-    $array_fin_for_save['description'] = $array_params['description'];
+    $array_fin_for_save['name'] = $_REQUEST['name'];
+    $array_fin_for_save['description'] = $_REQUEST['description'];
     $array_fin_for_save['price'] = $array_params['price'];
     $array_fin_for_save['product_code'] = $array_params['product_code'];
     $array_fin_for_save['condition'] = $array_params['condition'];
@@ -216,7 +216,9 @@ class Admin
     $array_fin_for_save['category_id'] = $array_params['category_id'];
 
     $product_table->copyfrom($array_fin_for_save);
-    $product_table->save();
+    if(!$product_table->save()){
+      header("location: /admin");
+    }
 
     $lastInsertIdProducts = $product_table->get('_id');
 
@@ -240,7 +242,12 @@ class Admin
   }
 
 
-  static function deleteProduct(){}
+  static function deleteProduct(){
+    $id = $_REQUEST['id'];
+    if (isset($id)) {
+      print_die($id);
+    }
+  }
   static function editProducts(){}
   static function updateProducts(){}
   /*End Products*/

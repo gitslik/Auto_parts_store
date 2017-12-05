@@ -112,7 +112,7 @@ if(!isset($logSESS))
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('pages')"><i class="fa fa-dashboard fa-fw"></i>Страницы</a>
           </li>
           <li>
-            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('products')"><i class="fa fa-dashboard fa-fw"></i>Продукция</a>
+            <a href="#" class="menu_shop" onclick="window.location='/admin/products'"><i class="fa fa-dashboard fa-fw"></i>Продукция</a>
           </li>
           <li>
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('category')"><i class="fa fa-dashboard fa-fw"></i>Категории</a>
