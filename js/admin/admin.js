@@ -139,12 +139,22 @@ Shop.prototype.updateProducts = function () {
   console.log("updateProducts");
 };
 Shop.prototype.editProducts = function (options) {
-  console.log(options);
-  console.log("editProducts");
+
+  var fd = new FormData;
+  fd.append('id', options);
+
+  $.ajax({
+    url: '/admin/editProducts',
+    data: fd,
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function () {
+      $(".content_page").html(data);
+    }
+  });
 };
 Shop.prototype.deleteProduct = function (options) {
-  console.log(options);
-
   var fd = new FormData;
   fd.append('id', options);
 
@@ -154,8 +164,8 @@ Shop.prototype.deleteProduct = function (options) {
     processData: false,
     contentType: false,
     type: 'POST',
-    success: function (data) {
-      $(".content_page").html(data);
+    success: function () {
+      window.location="/admin/products";
     }
   });
 };

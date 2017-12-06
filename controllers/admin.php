@@ -243,12 +243,24 @@ class Admin
 
 
   static function deleteProduct(){
+    global $f3, $db;
+
     $id = $_REQUEST['id'];
     if (isset($id)) {
-      print_die($id);
+      $categories_obj = new Products($db);
+      $categories_obj->deleteProducts($id);
     }
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->find();
+
+    $f3->set("all_categories", $categories);
+    self::layout('products/index.php');
   }
-  static function editProducts(){}
+
+  static function editProducts(){
+    print_die($_REQUEST);
+
+  }
   static function updateProducts(){}
   /*End Products*/
 

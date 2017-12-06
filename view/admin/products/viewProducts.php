@@ -28,7 +28,7 @@
     <td><?php echo $products->price; ?></td>
     <td><?php echo $products->condition; ?></td>
     <td>
-      <a href="#" onclick="self.shop.editProducts('<?php echo $products->product_id; ?>')" class="edit_product">
+      <a href="/admin/editProducts?id=<?php echo $products->product_id; ?>" onclick="self.shop.editProducts('<?php echo $products->product_id; ?>')" class="edit_product">
         <i class="fa fa-pencil" aria-hidden="true"></i>
       </a>
       <a href="#" onclick="self.shop.deleteProduct('<?php echo $products->product_id; ?>')" class="delete_product">

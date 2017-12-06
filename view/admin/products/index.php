@@ -1,3 +1,8 @@
+<style>
+  a.delete_product {
+    float: right;
+  }
+</style>
 <div id="page-wrapper">
   <div class="content_page col-lg-12">
 <div class="row">
