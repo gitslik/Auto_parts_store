@@ -31,6 +31,17 @@ class Products extends DB\SQL\Mapper
    return false;
  }
 
+  public function deleteProducts($id)
+  {
+    $product_row = $this->load(
+      array('product_id = ?',$id)
+    );
+    if (count($product_row)==1) {
+      $product_row->erase();
+    }
+    return false;
+  }
+
  public function getDefaulImage(){
   return BASE_URL . '/image/ImageProduct.jpg';
  }

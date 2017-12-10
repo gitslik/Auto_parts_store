@@ -42,7 +42,10 @@ $f3->route('GET|POST /admin/deleteCategory/@id', 'Admin::deleteCategory');
 $f3->route('GET|POST /admin/products', 'Admin::adminProducts');
 $f3->route('GET|POST /admin/productsOfCategory', 'Admin::adminViewProducts');
 $f3->route('GET|POST /admin/addProducts', 'Admin::adminAddProducts');
+$f3->route('GET|POST /admin/editProducts', 'Admin::editProducts');
+$f3->route('GET|POST /admin/updateProducts', 'Admin::updateProducts');
 $f3->route('GET|POST /admin/saveProduct', 'Admin::adminSaveProduct');
+$f3->route('GET|POST /admin/deleteProduct', 'Admin::deleteProduct');
 /*End Products*/
 
 
@@ -54,6 +57,12 @@ $f3->route('GET|POST /admin/deletePages', 'Admin::deletePages');
 $f3->route('GET|POST /admin/editPages', 'Admin::editPages');
 $f3->route('GET|POST /admin/updatePages', 'Admin::updatePages');
 /*EndPages*/
+
+/*LoginRout*/
+$f3->route('GET|POST /admin/login', 'Admin::adminLoginForm');
+$f3->route('GET|POST /admin/auth', 'Admin::adminAuth');
+$f3->route('GET|POST /admin/logout', 'Admin::adminLogout');
+/*EndLoginRout*/
 
 /*End Admin Routings*/
 

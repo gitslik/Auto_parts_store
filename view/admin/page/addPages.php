@@ -1,3 +1,5 @@
+<div id="page-wrapper">
+  <div class="content_page col-lg-12">
 <style>
   div#page-wrapper {
     min-height: 750px!important;
@@ -21,6 +23,11 @@
       <label for="menu_id">Выберите раздел для страницы.</label>
       <select class="form-control" id="menu_id" name="menu_id">
         <option value="0"></option>
+
+<!--        <?php /*print_die($all_menus);*/?>
+        <?php /*foreach ($all_menus as $menu){*/?>
+          <option value="<?php /*echo $menu['id'];*/?>"><?php /*echo $menu['name_menu'];*/?></option>
+        --><?php /*} */?>
       </select>
     </div>
 
@@ -31,10 +38,20 @@
 
     <div class="form-group">
       <label for="description">Основной текст страницы:</label>
-      <textarea type="text" name="description" class="form-control" id="description"></textarea>
+      <textarea type="text" name="description" class="form-control description_page" id="description"></textarea>
     </div>
 
     <input type="hidden" id="enabled" name="enabled" value="1">
 
   </form>
 </div>
+
+  </div>
+</div>
+<script>
+  tinyMCE.init({
+    selector: "#description",
+    menubar: false,
+    height: 200
+  });
+</script>

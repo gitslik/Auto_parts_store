@@ -32,8 +32,7 @@
       <select class="form-control" id="parent_category_id" name="parent_category_id">
         <option value="0"></option>
         <?php foreach ($options['all_sub_categories'] as $category) { ?>
-
-            <option value="<?php echo $category->category_id; ?>" <?php if ($options['info_category']->category_id ==  $category->category_id) { echo "selected"; }?>>
+            <option value="<?php echo $category->category_id; ?>" <?php if ($options['info_category']->parent_category_id ==  $category->category_id) { echo "selected"; }?>>
               <?php echo $category->name; ?>
             </option>
         <?php } ?>

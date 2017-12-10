@@ -4,7 +4,7 @@
     </div>
 </div>
 
-Навигация для управиления продукции.
+Редактирование продукции.
 
 <!--<table class="table">
   <?php /*foreach ($all_sliders as $slider) { */?>

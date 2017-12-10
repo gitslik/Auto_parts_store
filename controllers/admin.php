@@ -7,26 +7,103 @@ class Admin
 
   static function adminPage()
   {
-    global $f3;
     self::layout('index.php');
   }
+
+
+  /*Login*/
+  static function adminLoginForm(){
+    self::layout_only_tpl('login.php');
+  }
+  static function adminLogout(){
+    session_start();//стартуем сессию
+    unset ($_SESSION['$logSESS']);//удаляем зарегистрированную глобальную переменную
+    session_destroy();//уничтожаем сессию
+    header("location: ../");//перебрасываем на главную страницу пользовательской части
+    exit;
+  }
+  static function adminAuth(){
+    global $db;
+      //АВТОРИЗАЦИЯ
+      //уничтожаем переменную с логином и паролем которые были созданы путем ввода их в строку
+        if (isset ($_GET['loginDB'])) {$loginDB = $_GET['loginDB'];unset($loginDB);}
+        if (isset ($_GET['passDB'])) {$passDB = $_GET['passDB'];unset($passDB);}
+
+      //заносим в отдельные переменные логин и пароль присланных с помощью post запроса
+        if (isset ($_POST['loginDB'])) {$loginDB = $_POST['loginDB'];}
+        if (isset ($_POST['passDB'])) {$passDB = $_POST['passDB'];}
+
+        if(isset($loginDB) AND isset($passDB))//если существуют логин и пароль
+        {
+          if(preg_match("/^[a-zA-Z0-9_-]+$/s",$loginDB) AND preg_match("/^[a-zA-Z0-9]+$/s",$passDB))//проверяем их на корректность ввода с помощью регулярных выражений
+          {
+            $prov = getenv('HTTP_REFERER');//определяем страницу с который пришел запрос
+            $prov = str_replace("www.","",$prov);//удаляем www если есть
+            preg_match("/(http\:\/\/[-a-z0-9_.]+\/)/",$prov,$prov_pm);//чистим адресс от лишнего, нам необходимо добиться ссылки вот такого вида http://xxxx.ru
+            $prov = $prov_pm[1];//заносим чистый адрес в отдельную переменную
+            $server_root = "http://slik-9.xyz/";
+            $server_root = str_replace("www.","",$server_root);//удаляем www если есть
+
+            if($server_root == $prov)//если адрес нашего блога и адрес страницы с которой был прислан зарос равны
+            {
+              $passDB = md5($passDB);//шифруем введенный пароль
+              $users_obj = new Users($db);
+              $log_and_pass = $users_obj->load(
+                array('login = ?',$loginDB)
+              );
+              if($log_and_pass != "")//если был выведен результат из БД
+              {
+                if($loginDB == $log_and_pass[login] AND $passDB == $log_and_pass[pass])//если введенная информация совпадает с информацией из БД
+                {
+                  session_start();//стартуем сессию
+                  $_SESSION['$logSESS'] = $log_and_pass[login];//создаем глобальную переменную
+                  header("location: /admin");//переносим пользователя на главную страницу
+                  exit;
+                }
+                else//если введеная инфо не совпадает с инфо из БД
+                {
+                  header("location: /admin/login");//переносим на форму авторизации
+                  exit;
+                }
+              }
+              else//если не найдено такого юзера в БД
+              {
+                header("location: /admin/login");//переносим на форму авторизации
+                exit;
+              }
+            }
+            else//если запрос был послан с другого адреса
+            {
+              header("location: /admin/login");//переносим на форму авторизации
+              exit;
+            }
+          }
+          else//если введены не корректный логин и пароль
+          {
+            header("location: /admin/login");//переносим на форму авторизации
+            exit;
+          }
+        }
+  }
+  /*End Login*/
 
   /*Pages*/
   static function adminPages()
   {
     global $db,$f3;
-
     $pages_object = new Pages($db);
     $all_pages = $pages_object->find();
-
     $f3->set("all_pages", $all_pages);
-
     self::layout_only_tpl('page/index.php');
   }
   static function addPages()
   {
+    global $f3, $db;
+    $menu_obj = new Menu($db);
+    $menus = $menu_obj->find();
 
-    self::layout_only_tpl('page/addPages.php');
+    $f3->set("all_menus", $menus);
+    self::layout('page/addPages.php');
   }
   static function savePages(){
 
@@ -46,9 +123,34 @@ class Admin
 
     self::layout_only_tpl('page/index.php');
   }
-  static function editPages(){}
+  static function editPages(){
+    global $db,$f3;
+    if (isset($_REQUEST['id'])) {
+      $id = $_REQUEST["id"];
+      $pages_object = new Pages($db);
+      $page_for_update = $pages_object->load(
+        array('page_id = ?',$id)
+      );
+
+
+
+      $f3->set("page_for_update", $page_for_update);
+      self::layout('page/editPages.php');
+    }
+  }
   static function updatePages(){}
-  static function deletePages(){}
+  static function deletePages(){
+    global $db;
+    $pages_object = new Pages($db);
+    $page_for_delete = $pages_object->load(
+      array('page_id = ?',$_REQUEST['id'])
+    );
+
+    if (isset($page_for_delete)){
+      $page_for_delete->erase();
+    }
+    header("location: /admin");
+  }
   /*EndPages*/
 
   /*Poducts*/
@@ -59,7 +161,7 @@ class Admin
     $categories = $categories_obj->find();
 
     $f3->set("all_categories", $categories);
-    self::layout_only_tpl('products/index.php');
+    self::layout('products/index.php');
   }
   static function adminViewProducts($f3)
   {
@@ -79,7 +181,7 @@ class Admin
     $categories = $category->getMenu();
     $f3->set("all_category", $categories);
 
-    self::layout_only_tpl('products/addProducts.php');
+    self::layout('products/addProducts.php');
   }
   static function adminSaveProduct()
   {
@@ -104,8 +206,8 @@ class Admin
 
     $array_fin_for_save = array();
 
-    $array_fin_for_save['name'] = $array_params['name'];
-    $array_fin_for_save['description'] = $array_params['description'];
+    $array_fin_for_save['name'] = $_REQUEST['name'];
+    $array_fin_for_save['description'] = $_REQUEST['description'];
     $array_fin_for_save['price'] = $array_params['price'];
     $array_fin_for_save['product_code'] = $array_params['product_code'];
     $array_fin_for_save['condition'] = $array_params['condition'];
@@ -114,7 +216,9 @@ class Admin
     $array_fin_for_save['category_id'] = $array_params['category_id'];
 
     $product_table->copyfrom($array_fin_for_save);
-    $product_table->save();
+    if(!$product_table->save()){
+      header("location: /admin");
+    }
 
     $lastInsertIdProducts = $product_table->get('_id');
 
@@ -136,6 +240,28 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('products/index.php');
   }
+
+
+  static function deleteProduct(){
+    global $f3, $db;
+
+    $id = $_REQUEST['id'];
+    if (isset($id)) {
+      $categories_obj = new Products($db);
+      $categories_obj->deleteProducts($id);
+    }
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->find();
+
+    $f3->set("all_categories", $categories);
+    self::layout('products/index.php');
+  }
+
+  static function editProducts(){
+    print_die($_REQUEST);
+
+  }
+  static function updateProducts(){}
   /*End Products*/
 
 
@@ -185,7 +311,6 @@ class Admin
     $array_fin_for_save['photo_id'] = 0;
     $array_fin_for_save['enabled'] = $array_params['enabled'];
 
-
     $categories_obj->copyfrom($array_fin_for_save);
     $categories_obj->save();
 
@@ -206,7 +331,6 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('category/index.php');
   }
-
   static function editCategoryForm()
   {
     $id_category = $_REQUEST['id'];
@@ -223,6 +347,47 @@ class Admin
     self::layout_only_tpl('category/editCategory.php');
   }
   static function updateCategoryForm(){
+
+    global $f3, $db;
+
+    $categories_obj = new Category($db);
+
+    $cat = $categories_obj->load(
+      array('category_id = ?',$_REQUEST['id'])
+    );
+
+    $array_fin_for_save['name'] = $_REQUEST['name'];
+    $array_fin_for_save['parent_category_id'] = $_REQUEST['parent_category_id'];
+    $array_fin_for_save['photo_id'] = 0;
+    $array_fin_for_save['enabled'] = 1;
+
+    $cat->copyfrom($array_fin_for_save);
+    $cat->save();
+
+    if (count($_FILES)) {
+      $files_obj = new Files($db);
+      $file_input = $_FILES;
+      $path_category_photo = $files_obj->uploadCategoryPhotos($file_input);
+
+
+
+    $file_row = $files_obj->load(
+      array('	product_id = ? and type = ?',$_REQUEST['id'],1)
+    );
+
+    $array_for_files = array();
+    $array_for_files['path'] = $path_category_photo[0];
+    $array_for_files['url'] = $path_category_photo[0];
+
+    $file_row->copyfrom($array_for_files);
+    $file_row->save();
+    }
+
+    $categories_obj = new Category($db);
+    $categories = $categories_obj->find();
+
+    $f3->set("all_categories", $categories);
+    self::layout_only_tpl('category/index.php');
 
   }
   static function deleteCategory($id)
@@ -241,10 +406,17 @@ class Admin
   }
   /*End Category*/
 
+  /*Menu*/
   static function adminMenu()
   {
+    global $f3, $db;
+    $menu_obj = new Menu($db);
+    $menus = $menu_obj->find();
+
+    $f3->set("all_menus", $menus);
     self::layout_only_tpl('menu/index.php');
   }
+  /*End Menu*/
 
   /*Slider*/
   static function adminSliderPage()

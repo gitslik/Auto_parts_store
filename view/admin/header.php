@@ -1,4 +1,17 @@
+<?php
+//СКРИПТ ПРОВЕРКИ АВТОРИЗАЦИИ
+if(isset($_GET['logSESS'])) {$logSESS = $_GET['logSESS'];unset($logSESS);}
+if(isset($_POST['logSESS'])) {$logSESS = $_POST['logSESS'];unset($logSESS);}
 
+session_start();
+$logSESS = $_SESSION['$logSESS'];
+if(!isset($logSESS))
+{
+  header("location: /admin/login");
+  exit;
+}
+//СКРИПТ ПРОВЕРКИ АВТОРИЗАЦИИ
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +23,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Bootstrap Admin Theme</title>
+  <title>Admin</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="../../css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +46,8 @@
 
   <script src="../../js/admin/admin.js"></script>
 
+  <script type="text/javascript" src="../../js/tinymce/tinymce.min.js"></script>
+
   <script>
     var shop = new Shop();
   </script>
@@ -51,7 +66,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Раздел Администрации Сайта</a>
+      <a class="navbar-brand" href="/admin">Раздел Администрации Сайта</a>
     </div>
     <!-- /.navbar-header -->
 
@@ -67,7 +82,7 @@
         </a>
         <ul class="dropdown-menu dropdown-user">
           <li>
-            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            <a href="/admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
           </li>
         </ul>
         <!-- /.dropdown-user -->
@@ -97,7 +112,7 @@
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('pages')"><i class="fa fa-dashboard fa-fw"></i>Страницы</a>
           </li>
           <li>
-            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('products')"><i class="fa fa-dashboard fa-fw"></i>Продукция</a>
+            <a href="#" class="menu_shop" onclick="window.location='/admin/products'"><i class="fa fa-dashboard fa-fw"></i>Продукция</a>
           </li>
           <li>
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('category')"><i class="fa fa-dashboard fa-fw"></i>Категории</a>

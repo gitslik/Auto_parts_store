@@ -143,15 +143,17 @@
                   <div id="parallax_0" class="rd-parallax">
                     <div class="rd-parallax-layer" data-type="media" data-speed=".2" data-direction="normal" data-url="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/parallax-871x474.jpg" data-blur="false">
                     </div>
-                    <div class="rd-parallax-layer layer-1" data-type="html" data-speed="0" data-fade="false" data-direction="inverse"  >
+
+<!--                    <div class="rd-parallax-layer layer-1" data-type="html" data-speed="0" data-fade="false" data-direction="inverse"  >
                       <div class="parallax-block">
                         <h2>AUTO LIGHTING</h2>
                         <h4>50 % off</h4>
                         <p>We are honored to present you our products. We provide auto spare parts and our main goal is to satisfy all of our customers.</p>
                         <a href="index.php?route=product/product&amp;product_id=29" class="btn-primary">Shop now</a>
                       </div>
+                    </div>-->
 
-                    </div>
+
                   </div>
                   <script>
                     jQuery(document).ready(function () {
