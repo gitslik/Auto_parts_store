@@ -1,5 +1,5 @@
-<?php if(isset($recomended['subset']) && count($recomended['subset'])>0):?>
-  <?php foreach($recomended['subset'] as $product):?>
+<?php if(isset($news) && count($news)>0):?>
+  <?php foreach($news as $product):?>
     <div class="product-layout col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <div class="product-thumb transition  options ">
 

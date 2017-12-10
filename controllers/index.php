@@ -31,7 +31,13 @@ class Index
         $categories[$c->parent_category_id]['child'][$c->category_id] = $c;
       }
     }
+    $ProductClass = new Products($db);
+    $recomended = $ProductClass->find(array('product_id >0'),array('order' => 'product_id DESC','limit' => 3,'offset' => 0));
+    $news = $ProductClass->find(array('product_id >0'),array('order' => 'product_id  ASC','limit' => 3,'offset' => 0));
+   // print_die($recomended);
     $f3->set("categories", $categories);
+    $f3->set("recomended", $recomended);
+    $f3->set("news", $news);
     self::layout('index.php');
   }
   static function category()
@@ -108,7 +114,7 @@ class Index
       }
     }
 
-    $PageClass = new Page($db);
+    $PageClass = new Pages($db);
     $allChildCategories  = $CategoryClass->find(array('parent_category_id=?',$id));
     $idsCategory  = array($id);
     foreach($allChildCategories as $catHil){
