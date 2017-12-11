@@ -258,8 +258,16 @@ class Admin
   }
 
   static function editProducts(){
-    print_die($_REQUEST);
 
+    global $db,$f3;
+
+    $id =$_REQUEST['id'];
+    print_die($id);
+    $category = new Category($db);
+    $categories = $category->getMenu();
+    $f3->set("all_category", $categories);
+
+    self::layout('products/addProducts.php');
   }
   static function updateProducts(){}
   /*End Products*/

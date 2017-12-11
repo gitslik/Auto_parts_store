@@ -15,7 +15,7 @@
   <?php foreach ($all_sliders as $slider) { ?>
   <tr>
     <td><img class="slider_img" src="<?php echo $slider['url']?>"></td>
-    <td><a href="#" onclick="self.shop.slideOption('slider-edit',<?php echo $slider['id']?>)"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+<!--    <td><a href="#" onclick="self.shop.slideOption('slider-edit',<?php /*echo $slider['id']*/?>)"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>-->
     <td><a href="#" onclick="self.shop.slideOption('slider-delete',<?php echo $slider['id']?>)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
   </tr>
   <?php } ?>
