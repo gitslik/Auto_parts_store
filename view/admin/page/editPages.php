@@ -9,7 +9,7 @@
       <div class="col-lg-12">
         <h1 class="page-header">Страницы</h1>
         <div class="add-slider-options">
-          <a href="#" onclick="self.shop.savePageForm('savePages')" class="btn-success save-btn">Обновить страницу</a>
+          <a href="#" onclick="self.shop.editPageForm('editPageForm')" class="btn-success save-btn">Обновить страницу</a>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
           <label for="description">Основной текст страницы:</label>
           <textarea type="text" name="description" class="form-control description_page" id="description"><?php echo $page_for_update->description;?></textarea>
         </div>
-
+        <input type="hidden" id="page_id" name="page_id" value="<?php echo $page_for_update->page_id;?>">
         <input type="hidden" id="enabled" name="enabled" value="1">
 
       </form>
