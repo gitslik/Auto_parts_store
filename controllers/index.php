@@ -115,7 +115,9 @@ class Index
       $idsCategory[]  = $catHil->category_id;
     }
 
-    $page = $PageClass->load(array('menu_id=?',$f3->get('PARAMS.page_id')));;
+
+    $page = $PageClass->load(array('menu_id=?',$f3->get('PARAMS.page_id')));
+
     $f3->set("categories", $categories);
 
     $f3->set("page", $page);
