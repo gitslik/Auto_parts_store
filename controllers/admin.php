@@ -132,7 +132,10 @@ class Admin
         array('page_id = ?',$id)
       );
 
+      $menu_obj = new Menu($db);
+      $menus = $menu_obj->find();
 
+      $f3->set("all_menus", $menus);
 
       $f3->set("page_for_update", $page_for_update);
       self::layout('page/editPages.php');
