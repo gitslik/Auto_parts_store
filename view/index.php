@@ -207,10 +207,10 @@
                               <img width="270" height="300" alt="Angel Eye Headlight BMW 3er Limo" title="Angel Eye Headlight BMW 3er Limo" class="img-primary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-5-270x300.png" src="#"/>
                               <img width="270" height="300" alt="Angel Eye Headlight BMW 3er Limo" title="Angel Eye Headlight BMW 3er Limo" class="img-secondary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-8-270x300.png" src="#"/>
                             </a>
-                            <div class="img-button-group">
+<!--                            <div class="img-button-group">
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В закладки" onclick="wishlist.add('29');"><i class="fa fa-heart"></i></button>
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В сравнение" onclick="compare.add('29');"><i class="fa fa-exchange"></i></button>
-                            </div>
+                            </div>-->
                             <div class="rating">
                               <span class="fa fa-stack"><i class="material-design-mark1 star"></i></span>
                               <span class="fa fa-stack"><i class="material-design-mark1 star"></i></span>
@@ -304,10 +304,10 @@
                               <img width="270" height="300" alt="Maserati Granturismo Gearbox Transmission" title="Maserati Granturismo Gearbox Transmission" class="img-primary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-37-270x300.png" src="#"/>
                               <img width="270" height="300" alt="Maserati Granturismo Gearbox Transmission" title="Maserati Granturismo Gearbox Transmission" class="img-secondary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-38-270x300.png" src="#"/>
                             </a>
-                            <div class="img-button-group">
+<!--                            <div class="img-button-group">
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В закладки" onclick="wishlist.add('40');"><i class="fa fa-heart"></i></button>
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В сравнение" onclick="compare.add('40');"><i class="fa fa-exchange"></i></button>
-                            </div>
+                            </div>-->
 
 
                           </div>
@@ -394,10 +394,10 @@
                               <img width="270" height="300" alt="Headlight VW Polo Typ 6N" title="Headlight VW Polo Typ 6N" class="img-primary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-29-270x300.png" src="#"/>
                               <img width="270" height="300" alt="Headlight VW Polo Typ 6N" title="Headlight VW Polo Typ 6N" class="img-secondary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-30-270x300.png" src="#"/>
                             </a>
-                            <div class="img-button-group">
+<!--                            <div class="img-button-group">
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В закладки" onclick="wishlist.add('35');"><i class="fa fa-heart"></i></button>
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В сравнение" onclick="compare.add('35');"><i class="fa fa-exchange"></i></button>
-                            </div>
+                            </div>-->
 
 
                           </div>
@@ -512,10 +512,10 @@
                               <img width="270" height="300" alt="Stanley J5C09 1000 Peak Amp Jump Starter" title="Stanley J5C09 1000 Peak Amp Jump Starter" class="img-primary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-77-270x300.png" src="#"/>
                               <img width="270" height="300" alt="Stanley J5C09 1000 Peak Amp Jump Starter" title="Stanley J5C09 1000 Peak Amp Jump Starter" class="img-secondary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-78-270x300.png" src="#"/>
                             </a>
-                            <div class="img-button-group">
+<!--                            <div class="img-button-group">
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В закладки" onclick="wishlist.add('50');"><i class="fa fa-heart"></i></button>
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В сравнение" onclick="compare.add('50');"><i class="fa fa-exchange"></i></button>
-                            </div>
+                            </div>-->
 
 
                           </div>
@@ -600,10 +600,10 @@
                               <img width="270" height="300" alt="Sport Shock Absorber High Tec Fiat 500 74 KW" title="Sport Shock Absorber High Tec Fiat 500 74 KW" class="img-primary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-73-270x300.png" src="#"/>
                               <img width="270" height="300" alt="Sport Shock Absorber High Tec Fiat 500 74 KW" title="Sport Shock Absorber High Tec Fiat 500 74 KW" class="img-secondary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-76-270x300.png" src="#"/>
                             </a>
-                            <div class="img-button-group">
+<!--                            <div class="img-button-group">
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В закладки" onclick="wishlist.add('49');"><i class="fa fa-heart"></i></button>
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В сравнение" onclick="compare.add('49');"><i class="fa fa-exchange"></i></button>
-                            </div>
+                            </div>-->
 
 
                           </div>
@@ -688,10 +688,10 @@
                               <img width="270" height="300" alt="Sport Shock Absorber High Tec BMW Mini Cooper" title="Sport Shock Absorber High Tec BMW Mini Cooper" class="img-primary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-69-270x300.png" src="#"/>
                               <img width="270" height="300" alt="Sport Shock Absorber High Tec BMW Mini Cooper" title="Sport Shock Absorber High Tec BMW Mini Cooper" class="img-secondary" data-src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/products/product-71-270x300.png" src="#"/>
                             </a>
-                            <div class="img-button-group">
+<!--                            <div class="img-button-group">
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В закладки" onclick="wishlist.add('48');"><i class="fa fa-heart"></i></button>
                               <button type="button" class="btn-icon" data-toggle="tooltip" title="В сравнение" onclick="compare.add('48');"><i class="fa fa-exchange"></i></button>
-                            </div>
+                            </div>-->
 
 
                           </div>
