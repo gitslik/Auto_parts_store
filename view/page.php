@@ -9,8 +9,7 @@
 
       <h1><?php echo $page->title; ?></h1>
 
-
-      <?php echo $page->description; ?>
+      <div class="test"><?php echo htmlspecialchars_decode($page->description); ?></div>
       </div>
   </div>
 </div>
