@@ -2,7 +2,9 @@
 
 #error_reporting(0);
 session_start();
-
+if(isset($_SESSION['user'])){
+  $_SESSION['user'] = rand(1111111111,9999999999);
+}
 $f3 = require('lib/base.php');
 
 /*controllers*/

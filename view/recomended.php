@@ -39,7 +39,7 @@
         <p class="description"><?php echo $product->getShorDescription()?></p>
         <div class="button-group">
           <button type="button" class="btn-primary"  onclick="ajaxAdd($(this),50);" > <i class="fa fa-shopping-cart"></i> <span>Купить</span> </button>
-          <button class="btn quickview" type="button" data-rel="details" data-product="50">Детали</button>
+          <button class="btn " type="button" onclick="details_go('<?php echo BASE_URL . '/product?id='. $product->product_id?>')">Детали</button>
         </div>
       </div>
     </div>

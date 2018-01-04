@@ -204,6 +204,9 @@
               }
             });
           })(jQuery);
+          function details_go(url){
+            location.href = url;
+          }
         </script>
 
         <div id="search" class="search">

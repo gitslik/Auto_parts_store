@@ -163,9 +163,10 @@ class Index
       $querySelect .="or LOWER(name) like '%".htmlspecialchars($word)."%' or LOWER(description) like '%".htmlspecialchars($word)."%' ";
     }
     $products = $ProductClass->find(array($querySelect));
+
     $f3->set("categories", $categories);
     $f3->set("thisCategory", 'Поиск');
-    $f3->set("products", $products);
+    $f3->set("products", array('subset'=>$products));
     self::layout('search.php');
   }
   static function view_product(){
