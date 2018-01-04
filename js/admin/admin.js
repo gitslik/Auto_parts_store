@@ -58,6 +58,35 @@ Shop.prototype.savePageForm = function () {
   });
 
 };
+
+Shop.prototype.editPageForm = function () {
+
+  var fd = new FormData;
+  var title = $('#name').val();
+  var page_id = $('#page_id').val();
+
+  var description = tinyMCE.get('description').getContent();
+  var enabled = '1';
+  var menu_id = $("#menu_id").val();
+
+  fd.append('page_id', page_id);
+  fd.append('title', title);
+  fd.append('description', description);
+  fd.append('enabled', enabled);
+  fd.append('menu_id', menu_id);
+
+  $.ajax({
+    url: '/admin/updatePages',
+    data: fd,
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+
+};
 /*End Pages*/
 
 /*Category*/

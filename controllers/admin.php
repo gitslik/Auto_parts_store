@@ -132,13 +132,45 @@ class Admin
         array('page_id = ?',$id)
       );
 
+      $menu_obj = new Menu($db);
+      $menus = $menu_obj->find();
 
+      $f3->set("all_menus", $menus);
 
       $f3->set("page_for_update", $page_for_update);
       self::layout('page/editPages.php');
     }
   }
-  static function updatePages(){}
+
+  static function updatePages(){
+
+    global $db,$f3;
+
+    $pages_object = new Pages($db);
+    $array_for_save['title'] = $_REQUEST['title'];
+    $array_for_save['description'] = $_REQUEST['description'];
+    $array_for_save['enabled'] = $_REQUEST['enabled'];
+    $array_for_save['menu_id'] = $_REQUEST['menu_id'];
+
+    $page_find = $pages_object->load(
+      array('page_id = ?',$_REQUEST['page_id'])
+    );
+
+    if (isset($page_find)){
+      $page_find->title = $_REQUEST['title'];
+      $page_find->description = $_REQUEST['description'];
+      $page_find->enabled = $_REQUEST['enabled'];
+      $page_find->menu_id = $_REQUEST['menu_id'];
+      $page_find->save();
+    }
+
+    $all_pages = $pages_object->find();
+    $f3->set("all_pages", $all_pages);
+
+    self::layout_only_tpl('page/index.php');
+  }
+
+
   static function deletePages(){
     global $db;
     $pages_object = new Pages($db);
@@ -258,8 +290,16 @@ class Admin
   }
 
   static function editProducts(){
-    print_die($_REQUEST);
 
+    global $db,$f3;
+
+    $id =$_REQUEST['id'];
+    //print_die($id);
+    $category = new Category($db);
+    $categories = $category->getMenu();
+    $f3->set("all_category", $categories);
+
+    self::layout('products/addProducts.php');
   }
   static function updateProducts(){}
   /*End Products*/
