@@ -14,7 +14,8 @@
                     <div class="swiper-wrapper">
 
                       <?php foreach ($all_sliders as $slider) { ?>
-                        <div class="swiper-slide slide-1" data-slide-bg="<?php echo $slider['url']?>">
+
+                        <div class="swiper-slide slide-1" data-slide-bg="<?php echo BASE_URL."/".$slider['url']?>">
                           <div class="slide-desc">
                             <p><br></p>
                           </div>
