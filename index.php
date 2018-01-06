@@ -27,6 +27,7 @@ $f3->route('GET|POST /admin/slider-upload', 'Admin::adminUploadSlider');
 /*end slider*/
 
 $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
+$f3->route('GET|POST /admin/footer', 'Admin::adminFooter');
 
 /*Category*/
 $f3->route('GET|POST /admin/category', 'Admin::adminCategory');

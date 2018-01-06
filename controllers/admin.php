@@ -456,6 +456,10 @@ class Admin
     $f3->set("all_menus", $menus);
     self::layout_only_tpl('menu/index.php');
   }
+
+  static function adminFooter(){
+    print_die("В процессе");
+  }
   /*End Menu*/
 
   /*Slider*/
