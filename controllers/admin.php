@@ -461,6 +461,11 @@ class Admin
   //  print_die("В процессе");
     self::layout_only_tpl('footermenu/index.php');
   }
+
+  static function adminYoutube(){
+    self::layout_only_tpl('youtube/index.php');
+  }
+
   /*End Menu*/
 
   /*Slider*/

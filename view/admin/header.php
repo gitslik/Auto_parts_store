@@ -123,7 +123,9 @@ if(!isset($logSESS))
           <li>
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('footer')"><i class="fa fa-dashboard fa-fw"></i>Footer меню</a>
           </li>
-
+          <li>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('youtube')"><i class="fa fa-dashboard fa-fw"></i>Youtube меню</a>
+          </li>
 
 
 
