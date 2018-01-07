@@ -458,7 +458,8 @@ class Admin
   }
 
   static function adminFooter(){
-    print_die("В процессе");
+  //  print_die("В процессе");
+    self::layout_only_tpl('footermenu/index.php');
   }
   /*End Menu*/
 
