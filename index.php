@@ -11,6 +11,7 @@ $f3->route('GET|POST /', 'Index::indexPage');
 $f3->route('GET|POST /category', 'Index::category');
 $f3->route('GET|POST /search', 'Index::search');
 $f3->route('GET|POST /product', 'Index::view_product');
+$f3->route('GET|POST /cart/add', 'Index::cart_add');
 $f3->route('GET|POST /page/@page_id', 'Index::page');
 
 /*End Frontend Routings*/
@@ -27,6 +28,8 @@ $f3->route('GET|POST /admin/slider-upload', 'Admin::adminUploadSlider');
 /*end slider*/
 
 $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
+$f3->route('GET|POST /admin/footer', 'Admin::adminFooter');
+$f3->route('GET|POST /admin/youtube', 'Admin::adminYoutube');
 
 /*Category*/
 $f3->route('GET|POST /admin/category', 'Admin::adminCategory');

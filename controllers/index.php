@@ -7,6 +7,7 @@ class Index
 
   static function indexPage()
   {
+
     global $f3;
     $all_menus = Menu::allMenu();
     $all_slider = Slider::getSlideIconIndexPage();
@@ -168,6 +169,17 @@ class Index
     $f3->set("thisCategory", 'Поиск');
     $f3->set("products", array('subset'=>$products));
     self::layout('search.php');
+  }
+  static function cart_add(){
+    global $db;
+    $basketModel = new Basket($db);
+    $basketItem = new BasketItem($db);
+    $basket = $basketModel->getBasket();
+    $product_id = $_REQUEST['product_id'];
+    $quantity = $_REQUEST['quantity'];
+    $basketItem->addItem($basket->basket_id,$product_id,$quantity);
+    echo json_encode(array('redirect'=>0,'success'=>true,'text_items2'=>'some text'));
+
   }
   static function view_product(){
     global $f3;

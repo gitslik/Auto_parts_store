@@ -212,7 +212,7 @@ var cart = {
     });
   }, 'add': function (product_id, quantity) {
     $.ajax({
-      url: 'index.php?route=checkout/cart/add',
+      url: '/cart/add',
       type: 'post',
       data: 'product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
       dataType: 'json',

@@ -2,8 +2,11 @@
 
 #error_reporting(0);
 session_start();
-if(isset($_SESSION['user'])){
-  $_SESSION['user'] = rand(1111111111,9999999999);
+
+if(!isset($_SESSION['user']) || $_SESSION['user']<=0  ){
+
+    $_SESSION['user'] = rand(1111111111,9999999999);
+
 }
 $f3 = require('lib/base.php');
 
@@ -20,6 +23,8 @@ include_once "model/Files.php";
 include_once "model/Products.php";
 include_once "model/Pages.php";
 include_once "model/Users.php";
+include_once "model/Basket.php";
+include_once "model/BasketItem.php";
 
 /*end models*/
 
