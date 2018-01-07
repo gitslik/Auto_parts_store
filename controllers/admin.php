@@ -41,7 +41,7 @@ class Admin
             $prov = str_replace("www.","",$prov);//удаляем www если есть
             preg_match("/(http\:\/\/[-a-z0-9_.]+\/)/",$prov,$prov_pm);//чистим адресс от лишнего, нам необходимо добиться ссылки вот такого вида http://xxxx.ru
             $prov = $prov_pm[1];//заносим чистый адрес в отдельную переменную
-            $server_root = "http://slik-9.xyz/";
+            $server_root = BASE_URL."/";
             $server_root = str_replace("www.","",$server_root);//удаляем www если есть
 
             if($server_root == $prov)//если адрес нашего блога и адрес страницы с которой был прислан зарос равны
@@ -456,6 +456,16 @@ class Admin
     $f3->set("all_menus", $menus);
     self::layout_only_tpl('menu/index.php');
   }
+
+  static function adminFooter(){
+  //  print_die("В процессе");
+    self::layout_only_tpl('footermenu/index.php');
+  }
+
+  static function adminYoutube(){
+    self::layout_only_tpl('youtube/index.php');
+  }
+
   /*End Menu*/
 
   /*Slider*/

@@ -44,6 +44,12 @@
 
               <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 ">
                 <div class="col-inner ">
+
+                  <div id="youtube_block">
+                    <div class="video-block-ssw"><iframe src="https://www.youtube.com/embed/4QlCHulLlDI" width="100%" height="360" frameborder="0" allowfullscreen=""></iframe></div>
+                  </div>
+
+
                   <div id="banner1" class="banners row">
 
 

@@ -120,18 +120,13 @@ if(!isset($logSESS))
           <li>
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('slider')"><i class="fa fa-dashboard fa-fw"></i>Слайдер</a>
           </li>
+          <li>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('footer')"><i class="fa fa-dashboard fa-fw"></i>Footer меню</a>
+          </li>
+          <li>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('youtube')"><i class="fa fa-dashboard fa-fw"></i>Youtube меню</a>
+          </li>
 
-<!--          <li>
-            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-              <li>
-                <a href="flot.html">Flot Charts</a>
-              </li>
-              <li>
-                <a href="morris.html">Morris.js Charts</a>
-              </li>
-            </ul>
-          </li>-->
 
 
         </ul>
