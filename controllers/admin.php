@@ -466,6 +466,13 @@ class Admin
     self::layout_only_tpl('youtube/index.php');
   }
 
+  static function addYoutube(){
+    print_die("v processe addYoutube");
+  }
+
+  static function deleteYoutube(){
+    print_die("v processe deleteYoutube");
+  }
   /*End Menu*/
 
   /*Slider*/
