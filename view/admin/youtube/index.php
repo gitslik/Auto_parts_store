@@ -19,7 +19,13 @@
     <input type="submit"  value="Save">
   </form>
 </div>
-<div id="preview_youtube"></div>
+<div id="preview_youtube">
+  <?php if (isset($key_video)) {?>
+    <div class="video-block-ssw">
+      <iframe src="https://www.youtube.com/embed/<?php echo $key_video; ?>" width="60%" height="300" frameborder="0" allowfullscreen=""></iframe>
+    </div>
+  <?php }?>
+</div>
 
 <script>
 

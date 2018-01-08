@@ -32,6 +32,8 @@ $f3->route('GET|POST /admin/slider-upload', 'Admin::adminUploadSlider');
 $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
 $f3->route('GET|POST /admin/footer', 'Admin::adminFooter');
 $f3->route('GET|POST /admin/youtube', 'Admin::adminYoutube');
+$f3->route('GET|POST /admin/addYoutube', 'Admin::addYoutube');
+$f3->route('GET|POST /admin/deleteYoutube', 'Admin::deleteYoutube');
 
 /*Category*/
 $f3->route('GET|POST /admin/category', 'Admin::adminCategory');

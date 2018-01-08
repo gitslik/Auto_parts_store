@@ -39,6 +39,12 @@ class Index
     $f3->set("categories", $categories);
     $f3->set("recomended", $recomended);
     $f3->set("news", $news);
+    $obj_youtube = new Youtube($db);
+    $video_id = $obj_youtube->find(array('id =?',1));
+    if (isset($video_id[0]->id_youtube)) {
+      $key_video = $video_id[0]->id_youtube;
+      $f3->set("key_video", $key_video);
+    }
     self::layout('index.php');
   }
   static function category()

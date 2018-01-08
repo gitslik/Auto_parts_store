@@ -463,6 +463,13 @@ class Admin
   }
 
   static function adminYoutube(){
+    global $f3,$db;
+    $obj_youtube = new Youtube($db);
+    $video_id = $obj_youtube->find(array('id =?',1));
+    if (isset($video_id[0]->id_youtube)) {
+      $key_video = $video_id[0]->id_youtube;
+      $f3->set("key_video", $key_video);
+    }
     self::layout_only_tpl('youtube/index.php');
   }
 
@@ -471,12 +478,13 @@ class Admin
 
     $id_youtube = trim($_REQUEST["id"]);
 
+
     $obj_youtube = new Youtube($db);
-    print_arr("TUT");
 
-    $obj_youtube::addYoutubeItem($id_youtube);
 
-    print_arr("TUT");
+    $result = $obj_youtube::addYoutubeItem($id_youtube);
+
+    print_arr($result);
 
     print_die("v processe addYoutube");
   }
