@@ -19,8 +19,16 @@
     <input type="submit"  value="Save">
   </form>
 </div>
+<div id="preview_youtube"></div>
 
 <script>
+
+
+  function youtube_parser(url){
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    return (match&&match[7].length==11)? match[7] : false;
+  }
 
   $("#youtube_form").submit(function( event ) {
     event.preventDefault();
@@ -30,15 +38,11 @@
     console.log(url_video);
 
     if(url_video){
-      var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*!/;
-      var match = url_video.match(regExp);
 
-      console.log(match);
+      var productInputs = "<div class='video-block-ssw'><iframe src='https://www.youtube.com/embed/"+youtube_parser(url_video)+"' width='60%' height='300' frameborder='0' allowfullscreen></iframe></div>";
 
-/*      var productInputs = "<div class='video-block-ssw'><iframe src='https://www.youtube.com/embed/"+getId(url_video)+"' width='90%' height='360' frameborder='0' allowfullscreen></iframe></div>";
-      ssw(ssw(".grid.product-single>div")[0]).append(productInputs);
-      var productInputs_mobile = "<div class='video-block-ssw-mobile'><iframe src='https://www.youtube.com/embed/"+getId(url_video)+"' width='100%' height='360' frameborder='0' allowfullscreen></iframe></div>";
-      ssw(".description").append(productInputs_mobile);*/
+      $("#preview_youtube").html(productInputs);
+
 
     }
 
