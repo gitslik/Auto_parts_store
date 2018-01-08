@@ -152,7 +152,11 @@ function ajaxAdd(el, product_id) {
     overlay.addClass('visible');
     $('body').addClass('ajax-overlay-open');
   } else {
+    el.button('loading');
     cart.add(product_id);
+    setTimeout(function(){
+      el.button('reset');
+    },2000)
   }
 }
 function returnOptions() {
@@ -174,7 +178,7 @@ var cart = {
   }, 'addPopup': function (el) {
     var selector = el.parents('.product-option-wrap');
     $.ajax({
-      url: 'index.php?route=checkout/cart/add',
+      url: '/cart/add',
       type: 'post',
       data: selector.find('input[type=\'text\'], input[type=\'radio\']:checked, input[type=\'hidden\'], input[type=\'checkbox\']:checked, select, textarea'),
       dataType: 'json',
@@ -223,7 +227,7 @@ var cart = {
           location = json['redirect'];
         }
         if (json['success']) {
-          $('#content').parent().before('<div class="alert alert-success"><i class="material-design-verification24"></i> ' + json['success'] + '<button type="button" class="close material-design-close47"></button></div>');
+          $('#page').after('<div class="alert alert-success" style="    position: fixed;width: 100%;top: 0;"><i class="material-design-verification24"></i> Продукт добавлен в корзину.<button type="button" class="close material-design-close47"></button></div>');
           $('#cart-total').html(json['text_items2']);
           $('#cart-total2').html(json['text_items2']);
           $('#cart > ul').load('/cart/info');
