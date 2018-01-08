@@ -177,8 +177,53 @@ class Index
     $basket = $basketModel->getBasket();
     $product_id = $_REQUEST['product_id'];
     $quantity = $_REQUEST['quantity'];
-    $basketItem->addItem($basket->basket_id,$product_id,$quantity);
-    echo json_encode(array('redirect'=>0,'success'=>true,'text_items2'=>'some text'));
+    $items  = $basketItem->addItem($basket->basket_id,$product_id,$quantity);
+    $count = 0;
+    if(isset($items[0]) && isset($items[0]['count']) && $items[0]['count']>0){
+      $count = $items[0]['count'];
+    }
+    echo json_encode(array('redirect'=>0,'success'=>true,'text_items2'=>"Количество ({$count})"));
+
+  }
+  static function cart_count(){
+    global $db;
+    $basketModel = new Basket($db);
+    $basketItem = new BasketItem($db);
+    $basket = $basketModel->getBasket();
+    $items = $db->exec('SELECT SUM(quantity) as count FROM basket_items WHERE basket_id = ' . $basket->basket_id);
+    $count = 0;
+    if(isset($items[0]) && isset($items[0]['count']) && $items[0]['count']>0){
+      $count = $items[0]['count'];
+    }
+    echo "Количество ({$count}) ";
+
+  }
+  static function cart_info(){
+    global $db;
+    $basketModel = new Basket($db);
+    $basketItem = new BasketItem($db);
+    $Products = new Products($db);
+    $basket = $basketModel->getBasket();
+    $items  = $basketItem->getBasketItems($basket->basket_id);
+    $main_price  = 0;
+    foreach($items as $item){
+      $product = $Products->load(
+        array('product_id=?',$item->product_id)
+      );
+      $main_price = $main_price + ($product->price * $item->quantity);
+      echo ' <li>
+              <p>'.mb_substr($product->name,0,50). '  - ('.$item->quantity.')  '.($product->price * $item->quantity).' сом</p>
+            </li>';
+    }
+    echo ' <li style="padding: 8px">
+            <h4 class="text-center" style="    margin: 0;">Итого '.$main_price.' сом</h4>
+            </li>';
+    echo ' <li>
+             <div class="button-group">
+          <button type="button" class="btn-primary" style="font-size: 10px;   color:#fff; "> <i class="fa fa-shopping-cart"></i> <span>Завершить покупку</span> </button>
+          <button class="btn " type="button" onclick="" style="font-size: 10px;">В Козину</button>
+        </div>
+            </li>';
 
   }
   static function view_product(){

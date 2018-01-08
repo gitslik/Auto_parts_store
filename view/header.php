@@ -107,6 +107,8 @@
         </div>
         <script>
           ;(function ($) {
+            $('#cart > ul').load('/cart/info');
+            $('#cart-total2').load('/cart/info-count');
             $(document).ready(function(){
               var o = $('.sf-menu');
               o.superfish();

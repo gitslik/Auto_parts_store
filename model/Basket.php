@@ -12,16 +12,17 @@ class Basket extends DB\SQL\Mapper
   {
     $id = $_SESSION['user'];
     $basket = $this->load(
-      array('user_id = ?',$id)
+      array('`user_id` = ?',$id)
     );
+
     if(!$basket){
 
-      $this->user_id = $_SESSION['user'];
+      $this->user_id = $id;
       $this->active = '1';
       $this->date = time();
       $this->save();
       $basket = $this->load(
-        array('user_id = ?',$_SESSION['user'])
+        array('user_id = ?',$id)
       );
     }
     return $basket;

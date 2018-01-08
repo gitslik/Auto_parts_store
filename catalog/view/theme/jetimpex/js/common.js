@@ -226,7 +226,7 @@ var cart = {
           $('#content').parent().before('<div class="alert alert-success"><i class="material-design-verification24"></i> ' + json['success'] + '<button type="button" class="close material-design-close47"></button></div>');
           $('#cart-total').html(json['text_items2']);
           $('#cart-total2').html(json['text_items2']);
-          $('#cart > ul').load('index.php?route=common/cart/info ul li');
+          $('#cart > ul').load('/cart/info');
           timer = setTimeout(function () {
             $('.alert').addClass('fadeOut');
           }, 4000);

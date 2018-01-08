@@ -12,6 +12,8 @@ $f3->route('GET|POST /category', 'Index::category');
 $f3->route('GET|POST /search', 'Index::search');
 $f3->route('GET|POST /product', 'Index::view_product');
 $f3->route('GET|POST /cart/add', 'Index::cart_add');
+$f3->route('GET|POST /cart/info', 'Index::cart_info');
+$f3->route('GET|POST /cart/info-count', 'Index::cart_count');
 $f3->route('GET|POST /page/@page_id', 'Index::page');
 
 /*End Frontend Routings*/

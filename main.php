@@ -5,7 +5,7 @@ session_start();
 
 if(!isset($_SESSION['user']) || $_SESSION['user']<=0  ){
 
-    $_SESSION['user'] = rand(1111111111,9999999999);
+    $_SESSION['user'] = rand(11111111,99999999);
 
 }
 $f3 = require('lib/base.php');

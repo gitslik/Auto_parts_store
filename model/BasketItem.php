@@ -14,6 +14,7 @@ class BasketItem extends DB\SQL\Mapper
   }
   public function addItem($basket_id,$product_id,$quantity)
   {
+  global $db;
     $basket = $this->load(
       array('basket_id = ? and 	product_id=?',$basket_id,$product_id)
     );
@@ -29,7 +30,7 @@ class BasketItem extends DB\SQL\Mapper
         $this->copyfrom($array_basket);
         $this->save();
       }
-    return 'added';
+    return $db->exec('SELECT SUM(quantity) as count FROM basket_items WHERE basket_id = ' . $basket_id);;
   }
 }
 
