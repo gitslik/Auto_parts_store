@@ -10,11 +10,10 @@ class Basket extends DB\SQL\Mapper
 
   public function getBasket()
   {
-
+    $id = $_SESSION['user'];
     $basket = $this->load(
-      array('`user_id` = ?',$_SESSION['user'])
+      array('user_id = ?',$id)
     );
-
     if(!$basket){
 
       $this->user_id = $_SESSION['user'];
