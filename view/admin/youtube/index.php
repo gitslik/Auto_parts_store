@@ -44,6 +44,15 @@
       $("#preview_youtube").html(productInputs);
 
 
+      $.ajax({
+        type: "POST",
+        url: "/admin/addYoutube",
+        data: {id: youtube_parser(url_video)},
+        dataType: "html",
+        success: function (data) {
+          console.log(data)
+        }
+      });
     }
 
 

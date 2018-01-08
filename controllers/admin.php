@@ -467,6 +467,17 @@ class Admin
   }
 
   static function addYoutube(){
+    global $f3,$db;
+
+    $id_youtube = trim($_REQUEST["id"]);
+
+    $obj_youtube = new Youtube($db);
+    print_arr("TUT");
+
+    $obj_youtube::addYoutubeItem($id_youtube);
+
+    print_arr("TUT");
+
     print_die("v processe addYoutube");
   }
 
