@@ -300,6 +300,22 @@ Shop.prototype.indexPageTest = function (menu_link) {
 };
 /*End Slide*/
 
+/*FooterMenu*/
+Shop.prototype.footer = function (event) {
+  console.log(event);
+/*  $.ajax({
+    type: "POST",
+    url: "/admin/"+menu_link,
+    data: {cat: menu_link},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });*/
+};
+
+/*EndFooterMenu*/
+
 
 
 
