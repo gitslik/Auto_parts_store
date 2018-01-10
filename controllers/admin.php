@@ -461,6 +461,16 @@ class Admin
     self::layout_only_tpl('footermenu/index.php');
   }
 
+  static function adminFooterInfo(){
+    self::layout_only_tpl('footermenu/info.php');
+  }
+  static function adminFooterSubscription(){
+    self::layout_only_tpl('footermenu/subscription.php');
+  }
+  static function adminFooterCollbeack(){
+    self::layout_only_tpl('footermenu/collbeack.php');
+  }
+
   static function adminYoutube(){
     global $f3,$db;
     $obj_youtube = new Youtube($db);

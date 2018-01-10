@@ -30,7 +30,14 @@ $f3->route('GET|POST /admin/slider-upload', 'Admin::adminUploadSlider');
 /*end slider*/
 
 $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
+
+/*Footer_menu*/
 $f3->route('GET|POST /admin/footer', 'Admin::adminFooter');
+$f3->route('GET|POST /admin/info', 'Admin::adminFooterInfo');
+$f3->route('GET|POST /admin/subscription', 'Admin::adminFooterSubscription');
+$f3->route('GET|POST /admin/collbeack', 'Admin::adminFooterCollbeack');
+/*End_Footer_menu*/
+
 $f3->route('GET|POST /admin/youtube', 'Admin::adminYoutube');
 $f3->route('GET|POST /admin/addYoutube', 'Admin::addYoutube');
 $f3->route('GET|POST /admin/deleteYoutube', 'Admin::deleteYoutube');

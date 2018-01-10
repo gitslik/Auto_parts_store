@@ -302,18 +302,16 @@ Shop.prototype.indexPageTest = function (menu_link) {
 
 /*FooterMenu*/
 Shop.prototype.footer = function (event) {
-  console.log(event);
-/*  $.ajax({
+  $.ajax({
     type: "POST",
-    url: "/admin/"+menu_link,
-    data: {cat: menu_link},
+    url: "/admin/"+event,
+    data: {cat: event},
     dataType: "html",
     success: function (data) {
       $(".content_page").html(data);
     }
-  });*/
+  });
 };
-
 /*EndFooterMenu*/
 
 

@@ -1,3 +1,4 @@
+<div class="content_page">
 <style>
   div#page-wrapper {
     min-height: 500px!important;
@@ -28,5 +29,5 @@
     <p class="menu_text">ОБРАТНАЯ СВЯЗЬ</p>
   </div>
 </div>
-
+</div>
 
