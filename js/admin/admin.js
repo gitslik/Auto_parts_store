@@ -313,6 +313,15 @@ Shop.prototype.footer = function (event) {
   });
 };
 Shop.prototype.addInfopagesOption = function () {
+  $.ajax({
+    type: "POST",
+    url: "/admin/addInfopagesOption",
+    data: {page: $("#page_info").val()},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
   console.log("addInfopagesOption");
 };
 Shop.prototype.deleteInfopagesOption = function (id) {

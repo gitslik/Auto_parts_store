@@ -471,6 +471,48 @@ class Admin
     $f3->set("pages", $pages);
     self::layout_only_tpl('footermenu/info.php');
   }
+
+  static function addInfopagesOption(){
+    global $f3, $db;
+    $page_obj = new Pages($db);
+
+    $page_for_update = $page_obj->load(
+      array('page_id = ?',$_REQUEST['page'])
+    );
+
+    $page_for_update['info'] = 1;
+
+    $page_for_update->copyfrom($page_for_update);
+    $page_for_update->save();
+
+    $pages = $page_obj->find(array('info =?',0));
+    $pages_list = $page_obj->find(array('info =?',1));
+
+    $f3->set("pages_lists", $pages_list);
+    $f3->set("pages", $pages);
+    self::layout_only_tpl('footermenu/info.php');
+  }
+  static function deleteInfopagesOption(){
+    global $f3, $db;
+    $page_obj = new Pages($db);
+
+    $page_for_update = $page_obj->load(
+      array('page_id = ?',$_REQUEST['page'])
+    );
+
+    $page_for_update['info'] = 0;
+
+    $page_for_update->copyfrom($page_for_update);
+    $page_for_update->save();
+
+    $pages = $page_obj->find(array('info =?',0));
+    $pages_list = $page_obj->find(array('info =?',1));
+
+    $f3->set("pages_lists", $pages_list);
+    $f3->set("pages", $pages);
+    self::layout_only_tpl('footermenu/info.php');
+  }
+
   static function adminFooterSubscription(){
     self::layout_only_tpl('footermenu/subscription.php');
   }
