@@ -6,6 +6,13 @@
 .video-block-ssw {
   margin-top: 20px;
 }
+.list_info {
+  width: 90%;
+  float: left;
+}
+.list_info_delete {
+  float: left;
+}
 .menu_td {
   display: block;
   width: 25%;

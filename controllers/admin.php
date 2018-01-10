@@ -462,6 +462,13 @@ class Admin
   }
 
   static function adminFooterInfo(){
+    global $f3, $db;
+    $page_obj = new Pages($db);
+    $pages = $page_obj->find(array('info =?',0));
+    $pages_list = $page_obj->find(array('info =?',1));
+
+    $f3->set("pages_lists", $pages_list);
+    $f3->set("pages", $pages);
     self::layout_only_tpl('footermenu/info.php');
   }
   static function adminFooterSubscription(){

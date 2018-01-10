@@ -312,6 +312,20 @@ Shop.prototype.footer = function (event) {
     }
   });
 };
+Shop.prototype.addInfopagesOption = function () {
+  console.log("addInfopagesOption");
+};
+Shop.prototype.deleteInfopagesOption = function (id) {
+  $.ajax({
+    type: "POST",
+    url: "/admin/deleteInfopagesOption",
+    data: {page: id},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
 /*EndFooterMenu*/
 
 
