@@ -109,22 +109,22 @@ if(!isset($logSESS))
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('menu')"><i class="fa fa-dashboard fa-fw"></i>Меню</a>
           </li>
           <li>
-            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('pages')"><i class="fa fa-dashboard fa-fw"></i>Страницы</a>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('pages')"><i class="fa fa-file-text-o fa-fw"></i>Страницы</a>
           </li>
           <li>
-            <a href="#" class="menu_shop" onclick="window.location='/admin/products'"><i class="fa fa-dashboard fa-fw"></i>Продукция</a>
+            <a href="#" class="menu_shop" onclick="window.location='/admin/products'"><i class="fa fa-product-hunt fa-fw"></i>Продукция</a>
           </li>
           <li>
-            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('category')"><i class="fa fa-dashboard fa-fw"></i>Категории</a>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('category')"><i class="fa fa-caret-down fa-fw"></i>Категории</a>
           </li>
           <li>
-            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('slider')"><i class="fa fa-dashboard fa-fw"></i>Слайдер</a>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('slider')"><i class="fa fa-sliders fa-fw"></i>Слайдер</a>
           </li>
           <li>
-            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('footer')"><i class="fa fa-dashboard fa-fw"></i>Footer меню</a>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('footer')"><i class="fa fa-bars fa-fw"></i>Footer меню</a>
           </li>
           <li>
-            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('youtube')"><i class="fa fa-dashboard fa-fw"></i>Youtube меню</a>
+            <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('youtube')"><i class="fa fa-youtube fa-fw"></i>Youtube меню</a>
           </li>
 
 
