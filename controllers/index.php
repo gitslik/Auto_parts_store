@@ -176,6 +176,90 @@ class Index
     $f3->set("products", array('subset'=>$products));
     self::layout('search.php');
   }
+  static function checkout(){
+    global $db;
+    global $f3;
+      print_die($_POST);
+    $all_menus = Menu::allMenu();
+    $all_slider = Slider::getSlideIconIndexPage();
+
+    if (count($all_menus)>0 && count($all_slider)>0) {
+      $f3->set("all_menus", $all_menus);
+      $f3->set("all_sliders", $all_slider);
+    }
+    global $db;
+    $CategoryClass = new Category($db);
+    $menu = $CategoryClass->getMenu();
+    $categories = array();
+    foreach($menu as $key => $m){
+      if($m->parent_category_id <= 0){
+        $categories[$m->category_id]['menu']  = $m;
+      }
+    }
+
+    foreach($menu as $key => $c){
+
+      if($c->parent_category_id>0 ){
+        $categories[$c->parent_category_id]['child'][$c->category_id] = $c;
+      }
+    }
+
+    $basketModel = new Basket($db);
+    $basketItem = new BasketItem($db);
+    $Products = new Products($db);
+    $basket = $basketModel->getBasket();
+    $items  = $basketItem->getBasketItems($basket->basket_id);
+    $main_price  = 0;
+
+
+    $f3->set("categories", $categories);
+    $f3->set("thisCategory", 'Корзина');
+    $f3->set("productTable", $Products);
+    $f3->set("cart_items", $items);
+    self::layout('cart.php');
+
+  }
+  static function cart()
+  {
+    global $f3;
+    $all_menus = Menu::allMenu();
+    $all_slider = Slider::getSlideIconIndexPage();
+
+    if (count($all_menus)>0 && count($all_slider)>0) {
+      $f3->set("all_menus", $all_menus);
+      $f3->set("all_sliders", $all_slider);
+    }
+    global $db;
+    $CategoryClass = new Category($db);
+    $menu = $CategoryClass->getMenu();
+    $categories = array();
+    foreach($menu as $key => $m){
+      if($m->parent_category_id <= 0){
+        $categories[$m->category_id]['menu']  = $m;
+      }
+    }
+
+    foreach($menu as $key => $c){
+
+      if($c->parent_category_id>0 ){
+        $categories[$c->parent_category_id]['child'][$c->category_id] = $c;
+      }
+    }
+
+    $basketModel = new Basket($db);
+    $basketItem = new BasketItem($db);
+    $Products = new Products($db);
+    $basket = $basketModel->getBasket();
+    $items  = $basketItem->getBasketItems($basket->basket_id);
+    $main_price  = 0;
+
+
+    $f3->set("categories", $categories);
+    $f3->set("thisCategory", 'Корзина');
+    $f3->set("productTable", $Products);
+    $f3->set("cart_items", $items);
+    self::layout('cart.php');
+  }
   static function cart_add(){
     global $db;
     $basketModel = new Basket($db);
@@ -191,6 +275,18 @@ class Index
     echo json_encode(array('redirect'=>0,'success'=>true,'text_items2'=>"Количество ({$count})"));
 
   }
+
+  static function updatequantity(){
+    global $db;
+    $basketModel = new Basket($db);
+    $basketItem = new BasketItem($db);
+    $basket = $basketModel->getBasket();
+    $product_id = $_REQUEST['product_id'];
+    $quantity = $_REQUEST['quantity'];
+    $items  = $basketItem->updatequantity($basket->basket_id,$product_id,$quantity);
+
+  }
+
   static function cart_count(){
     global $db;
     $basketModel = new Basket($db);
@@ -226,8 +322,7 @@ class Index
             </li>';
     echo ' <li>
              <div class="button-group">
-          <button type="button" class="btn-primary" style="font-size: 10px;   color:#fff; "> <i class="fa fa-shopping-cart"></i> <span>Завершить покупку</span> </button>
-          <button class="btn " type="button" onclick="" style="font-size: 10px;">В Козину</button>
+          <a type="button" class="btn-primary" href="/cart" style="font-size: 10px;   color:#fff; "> <i class="fa fa-shopping-cart"></i> <span>Завершить покупку</span> </a>
         </div>
             </li>';
 

@@ -30,6 +30,19 @@ class Products extends DB\SQL\Mapper
    }
    return false;
  }
+  public function getMainPhoto(){
+   global $db;
+
+  $FilesTable = new Files($db);
+   $files = $FilesTable->load(array('product_id=? and type=0',$this->product_id));
+
+   if($files){
+     return $files->url;
+   }else{
+     return $this->getDefaulImage();
+   }
+   return false;
+ }
 
   public function deleteProducts($id)
   {
