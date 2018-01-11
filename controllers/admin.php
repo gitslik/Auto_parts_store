@@ -457,9 +457,41 @@ class Admin
     self::layout_only_tpl('menu/index.php');
   }
   static function addMenu(){
-
     self::layout_only_tpl('menu/addMenu.php');
   }
+  static function addMenuSave(){
+    global $f3, $db;
+
+    print_arr($_REQUEST);
+    print_die("addMenuSave");
+
+
+
+
+
+    $menu_obj = new Menu($db);
+    $array_for_menu['path'] = $_REQUEST[0];
+
+    $menu_obj->copyfrom($array_for_menu);
+    $menu_obj->save();
+
+
+    $menus = $menu_obj->find();
+
+    $f3->set("all_menus", $menus);
+    self::layout_only_tpl('menu/index.php');
+
+
+  }
+  static function addMenuUpdate(){
+    print_arr($_REQUEST);
+    print_die("addMenuUpdate");
+  }
+  static function addMenuDelete(){
+    print_arr($_REQUEST);
+    print_die("addMenuDelete");
+  }
+
   static function editMenu(){
     self::layout_only_tpl('menu/editMenu.php');
   }
