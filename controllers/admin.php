@@ -457,6 +457,7 @@ class Admin
     self::layout_only_tpl('menu/index.php');
   }
   static function addMenu(){
+
     self::layout_only_tpl('menu/addMenu.php');
   }
   static function editMenu(){

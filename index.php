@@ -14,6 +14,7 @@ $f3->route('GET|POST /product', 'Index::view_product');
 $f3->route('GET|POST /cart/add', 'Index::cart_add');
 $f3->route('GET|POST /cart/info', 'Index::cart_info');
 $f3->route('GET|POST /cart/info-count', 'Index::cart_count');
+$f3->route('GET|POST /cart', 'Index::cart');
 $f3->route('GET|POST /page/@page_id', 'Index::page');
 
 /*End Frontend Routings*/
@@ -33,6 +34,9 @@ $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
 
 /*Footer_menu*/
 $f3->route('GET|POST /admin/addMenu', 'Admin::addMenu');
+$f3->route('GET|POST /admin/addMenuSave', 'Admin::addMenuSave');
+$f3->route('GET|POST /admin/addMenuUpdate', 'Admin::addMenuUpdate');
+$f3->route('GET|POST /admin/addMenuDelete', 'Admin::addMenuDelete');
 $f3->route('GET|POST /admin/editMenu', 'Admin::editMenu');
 
 $f3->route('GET|POST /admin/footer', 'Admin::adminFooter');

@@ -4,6 +4,7 @@ Shop = function () {
 };
 
 /*Menu*/
+
 Shop.prototype.addMenu = function (options) {
   console.log(options);
   $.ajax({

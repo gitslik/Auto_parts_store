@@ -8,7 +8,14 @@
     </div>
 </div>
 
+<div>
 
+</div>
+
+  <form id="menu_add" action="/admin/addYoutube" method="post">
+    <input type="text" name="menu_name" id="menu_name">
+    <input type="submit" value="Save">
+  </form>
 
 </div>
 
