@@ -6,6 +6,28 @@ Shop = function () {
 /*Menu*/
 Shop.prototype.addMenu = function (options) {
   console.log(options);
+  $.ajax({
+    url: '/admin/addMenu',
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
+
+Shop.prototype.editMenu = function (options) {
+  console.log(options);
+  $.ajax({
+    url: '/admin/editMenu',
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
 };
 /*End Menu*/
 

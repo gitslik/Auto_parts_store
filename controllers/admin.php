@@ -456,6 +456,12 @@ class Admin
     $f3->set("all_menus", $menus);
     self::layout_only_tpl('menu/index.php');
   }
+  static function addMenu(){
+    self::layout_only_tpl('menu/addMenu.php');
+  }
+  static function editMenu(){
+    self::layout_only_tpl('menu/editMenu.php');
+  }
 
   static function adminFooter(){
     self::layout_only_tpl('footermenu/index.php');

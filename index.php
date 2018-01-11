@@ -32,6 +32,9 @@ $f3->route('GET|POST /admin/slider-upload', 'Admin::adminUploadSlider');
 $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
 
 /*Footer_menu*/
+$f3->route('GET|POST /admin/addMenu', 'Admin::addMenu');
+$f3->route('GET|POST /admin/editMenu', 'Admin::editMenu');
+
 $f3->route('GET|POST /admin/footer', 'Admin::adminFooter');
 $f3->route('GET|POST /admin/info', 'Admin::adminFooterInfo');
 $f3->route('GET|POST /admin/deleteInfopagesOption', 'Admin::deleteInfopagesOption');
