@@ -35,6 +35,7 @@ img.menu_img {
   width: 200px;
   height: 200px;
   margin: 0 10%;
+  margin-top: 25px;
 }
 
 .row_hover:hover {
