@@ -15,9 +15,9 @@
 <table class="table">
   <?php foreach ($all_menus as $menu) { ?>
   <tr>
-    <td><?php echo $menu['name_menu']?></td>
+    <td><?php echo $menu['name_menu'];?></td>
     <td><a href="#" onclick="self.shop.editMenu('editMenu')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-    <td><a href="/admin/slider-delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+    <td><a href="#" onclick="self.shop.addMenuDelete(<?php echo $menu['id'];?>)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
   </tr>
   <?php } ?>
 </table>

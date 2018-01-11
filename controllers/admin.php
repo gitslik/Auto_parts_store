@@ -461,35 +461,33 @@ class Admin
   }
   static function addMenuSave(){
     global $f3, $db;
-
-    print_arr($_REQUEST);
-    print_die("addMenuSave");
-
-
-
-
-
     $menu_obj = new Menu($db);
-    $array_for_menu['path'] = $_REQUEST[0];
-
+    $array_for_menu['name_menu'] = $f3->BODY;
     $menu_obj->copyfrom($array_for_menu);
     $menu_obj->save();
-
-
     $menus = $menu_obj->find();
-
     $f3->set("all_menus", $menus);
     self::layout_only_tpl('menu/index.php');
-
-
   }
+
   static function addMenuUpdate(){
     print_arr($_REQUEST);
     print_die("addMenuUpdate");
   }
   static function addMenuDelete(){
-    print_arr($_REQUEST);
-    print_die("addMenuDelete");
+    global $f3, $db;
+    $menu_obj = new Menu($db);
+    $menu_for_delete = $menu_obj->load(
+      array('id = ?',$_REQUEST['menu'])
+    );
+
+    if (isset($menu_for_delete)){
+      $menu_for_delete->erase();
+    }
+
+    $menus = $menu_obj->find();
+    $f3->set("all_menus", $menus);
+    self::layout_only_tpl('menu/index.php');
   }
 
   static function editMenu(){

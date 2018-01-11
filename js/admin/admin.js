@@ -4,9 +4,33 @@ Shop = function () {
 };
 
 /*Menu*/
+Shop.prototype.addMenuSave = function () {
+  var menu_name = $("#menu_name").val();
+  $.ajax({
+    type: "POST",
+    url: "/admin/addMenuSave",
+    data: menu_name,
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
+
+Shop.prototype.addMenuDelete = function (options) {
+  $.ajax({
+    type: "POST",
+    url: "/admin/addMenuDelete",
+    data: {menu: options},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
+
 
 Shop.prototype.addMenu = function (options) {
-  console.log(options);
   $.ajax({
     url: '/admin/addMenu',
     processData: false,
@@ -19,7 +43,6 @@ Shop.prototype.addMenu = function (options) {
 };
 
 Shop.prototype.editMenu = function (options) {
-  console.log(options);
   $.ajax({
     url: '/admin/editMenu',
     processData: false,
@@ -57,7 +80,6 @@ Shop.prototype.pagesOption = function (options) {
   });
 };
 Shop.prototype.savePageForm = function () {
-
   var fd = new FormData;
   var title = $('#name').val();
   var description = tinyMCE.get('description').getContent();
@@ -83,7 +105,6 @@ Shop.prototype.savePageForm = function () {
 };
 
 Shop.prototype.editPageForm = function () {
-
   var fd = new FormData;
   var title = $('#name').val();
   var page_id = $('#page_id').val();

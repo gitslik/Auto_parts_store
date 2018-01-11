@@ -11,12 +11,8 @@
 <div>
 
 </div>
-
-  <form id="menu_add" action="/admin/addMenuSave" method="post">
     <input type="text" name="menu_name" id="menu_name">
-    <input type="submit" value="Save">
-  </form>
-
+    <input id="addMenuSave" onclick="self.shop.addMenuSave()" type="submit" value="Save">
 </div>
 
 
