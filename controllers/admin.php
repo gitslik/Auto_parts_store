@@ -347,6 +347,7 @@ class Admin
     $array_fin_for_save = array();
 
     $array_fin_for_save['name'] = $_REQUEST['name'];
+    $array_fin_for_save['description'] = $_REQUEST['description'];
     $array_fin_for_save['parent_category_id'] = $array_params['parent_category_id'];
     $array_fin_for_save['photo_id'] = 0;
     $array_fin_for_save['enabled'] = $array_params['enabled'];
@@ -404,6 +405,7 @@ class Admin
     );
 
     $array_fin_for_save['name'] = $_REQUEST['name'];
+    $array_fin_for_save['description'] = $_REQUEST['description'];
     $array_fin_for_save['parent_category_id'] = $_REQUEST['parent_category_id'];
     $array_fin_for_save['photo_id'] = 0;
     $array_fin_for_save['enabled'] = 1;

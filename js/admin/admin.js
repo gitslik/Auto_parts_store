@@ -149,6 +149,7 @@ Shop.prototype.saveCategoryForm = function () {
   fd.append('img', array_photo);
   fd.append('params', $("#add-new-category").serialize());
   fd.append('name', $("#name").val());
+  fd.append('description', $("#description").val());
 
   $.ajax({
     url: '/admin/saveCategoryForm',
@@ -190,6 +191,7 @@ Shop.prototype.updateCategoryForm = function (options) {
   var fd = new FormData;
   fd.append('id', options);
   fd.append('name', $('#name').val());
+  fd.append('description', $('#description').val());
   fd.append('parent_category_id', $('#parent_category_id').val());
   var file =  $($("#photo").prop('files'));
   fd.append('file', file[0]);

@@ -1,6 +1,6 @@
 <style>
   div#page-wrapper {
-    min-height: 500px!important;
+    min-height: 700px!important;
   }
 </style>
 <div class="row">
@@ -38,6 +38,12 @@
             </option>
         <?php } ?>
       </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="description">Описание категории</label>
+      <textarea name="description" id="description" rows="10" class="col-lg-12"><?php echo $category->description; ?></textarea>
     </div>
 
     <input type="hidden" id="id_category" name="category_id" value="<?php echo $options['info_category']->category_id; ?>">
