@@ -54,91 +54,41 @@
                   <?php } ?>
 
 
-                  <div id="banner1" class="banners row">
+                  <div id="banner1" class="banners row" style="    width: 100%;">
 
+                    <?php
+                    $counter  = 0;
+                    global $db;
+                    foreach($categories_main as $cat):
 
-                    <div class="col-sm-6 banner-1">
-                      <div class="banner-box">
-                        <img src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/banner-1-418x128.jpg" alt="banner-1" class="img-responsive" />
-                        <a class="clearfix link" href="index.php?route=product/category&amp;path=48"></a>
+                      $file_obj = new Files($db);
 
-                        <div class="s-desc">						<h2>SUSPENSION</h2>
-                          <h4>SYSTEMS</h4>
-                          <p>Nowadays we have great opportunities to satisfy your demands with the high quality products.</p>
+                      $file_for_edit = $file_obj->find(array('product_id =? and type = 1',$cat['menu']->category_id));
+                      if(count($file_for_edit)<=0){
+                        continue;
+                        $img_url_hehe = 'https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/bmw-m-performance-parts/bmw-mpp-sg-01-xl-03-silencer-system-m5-m6.jpg/_jcr_content/renditions/cq5dam.resized.img.1185.large.time1489574734489.jpg';
+                      }else{
+                        $img_url_hehe = $file_for_edit[0]->url;
+                      }
+                      if($counter>=6){
+                        continue;
+                      }
+                      ?>
+                    <div class="col-sm-6 banner-1" style="width: 48%;">
+                      <div class="banner-box" style="height: 128px;">
+                        <img style="max-width: 150px; float: right; height: 100%; object-fit: cover;" src="<?php echo $img_url_hehe ?>" alt="banner-1" class="img-responsive" />
+                        <a class="clearfix link" href="<?php echo BASE_URL . '/category?id='. $cat['menu']->category_id ?>"></a>
+
+                        <div class="s-desc">						<h2><?php echo $cat['menu']->name ?></h2>
+                         <!-- <h4>SYSTEMS</h4>-->
+                          <p><?php echo $cat['menu']->description ?></p>
                         </div>
 
                       </div>
                     </div>
-
-
-                    <div class="col-sm-6 banner-2">
-                      <div class="banner-box">
-                        <img src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/banner-2-418x128.jpg" alt="banner-2" class="img-responsive" />
-                        <a class="clearfix link" href="index.php?route=product/category&amp;path=47"></a>
-
-                        <div class="s-desc">						<h2>BRAKE</h2>
-                          <h4>SYSTEMS</h4>
-                          <p>Nowadays we have great opportunities to satisfy your demands with the high quality products.</p>
-                        </div>
-
-                      </div>
-                    </div>
-
-
-                    <div class="col-sm-6 banner-3">
-                      <div class="banner-box">
-                        <img src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/banner-3-418x128.jpg" alt="banner-3" class="img-responsive" />
-                        <a class="clearfix link" href="index.php?route=product/category&amp;path=58"></a>
-
-                        <div class="s-desc">						<h2>HALO</h2>
-                          <h4>HEADLIGHTS</h4>
-                          <p>Nowadays we have great opportunities to satisfy your demands with the high quality products.</p>
-                        </div>
-
-                      </div>
-                    </div>
-
-
-                    <div class="col-sm-6 banner-4">
-                      <div class="banner-box">
-                        <img src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/banner-4-418x128.jpg" alt="banner-4" class="img-responsive" />
-                        <a class="clearfix link" href="index.php?route=product/category&amp;path=56"></a>
-
-                        <div class="s-desc">						<h2>AIR</h2>
-                          <h4>INTAKES</h4>
-                          <p>Nowadays we have great opportunities to satisfy your demands with the high quality products.</p>
-                        </div>
-
-                      </div>
-                    </div>
-
-
-                    <div class="col-sm-6 banner-5">
-                      <div class="banner-box">
-                        <img src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/banner-5-418x128.jpg" alt="banner-5" class="img-responsive" />
-                        <a class="clearfix link" href="index.php?route=product/category&amp;path=64"></a>
-
-                        <div class="s-desc">						<h2>turbine</h2>
-                          <h4>SYSTEMS</h4>
-                          <p>Nowadays we have great opportunities to satisfy your demands with the high quality products.</p>
-                        </div>
-
-                      </div>
-                    </div>
-
-
-                    <div class="col-sm-6 banner-6">
-                      <div class="banner-box">
-                        <img src="https://livedemo00.template-help.com/opencart_65320/image/cache/catalog/banner-6-418x128.jpg" alt="banner-6" class="img-responsive" />
-                        <a class="clearfix link" href="index.php?route=product/category&amp;path=42"></a>
-
-                        <div class="s-desc">						<h2>EXHAUST</h2>
-                          <h4>SYSTEMS</h4>
-                          <p>Nowadays we have great opportunities to satisfy your demands with the high quality products.</p>
-                        </div>
-
-                      </div>
-                    </div>
+                    <?php
+                      $counter ++;
+                    endforeach;?>
                   </div>
 
                   <div class="box featured">

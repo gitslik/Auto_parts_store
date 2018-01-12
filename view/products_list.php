@@ -36,7 +36,7 @@
 															<?php echo $product->getPrize()?>
 																				</span>
         <div class="name"><a href="<?php echo BASE_URL . '/product?id='. $product->product_id?>"><?php echo $product->name?></a></div>
-        <p class="description"><?php echo htmlspecialchars_decode($product->getShorDescription());?></p>
+        <p class="description"><?php echo strip_tags($product->getShorDescription());?></p>
         <div class="button-group">
           <button type="button" class="btn-primary"  onclick="ajaxAdd($(this),<?php echo $product->product_id?>);" > <i class="fa fa-shopping-cart"></i> <span>Купить</span> </button>
           <button class="btn " type="button" onclick="details_go('<?php echo BASE_URL . '/product?id='. $product->product_id?>')">Детали</button>

@@ -20,10 +20,16 @@ class Index
     $CategoryClass = new Category($db);
     $menu = $CategoryClass->getMenu();
     $categories = array();
+    $categories_main = array();
     foreach($menu as $key => $m){
       if($m->parent_category_id <= 0){
         $categories[$m->category_id]['menu']  = $m;
       }
+    }
+    foreach($menu as $key => $m){
+
+      $categories_main[$m->category_id]['menu']  = $m;
+
     }
 
     foreach($menu as $key => $c){
@@ -36,6 +42,7 @@ class Index
     $recomended = $ProductClass->find(array('product_id >0'),array('order' => 'product_id DESC','limit' => 3,'offset' => 0));
     $news = $ProductClass->find(array('product_id >0'),array('order' => 'product_id  ASC','limit' => 3,'offset' => 0));
     $f3->set("categories", $categories);
+    $f3->set("categories_main", $categories_main);
     $f3->set("recomended", $recomended);
     $f3->set("news", $news);
     $obj_youtube = new Youtube($db);
@@ -178,7 +185,7 @@ class Index
   static function checkout(){
     global $db;
     global $f3;
-      print_die($_POST);
+
     $all_menus = Menu::allMenu();
     $all_slider = Slider::getSlideIconIndexPage();
 
@@ -211,11 +218,35 @@ class Index
     $main_price  = 0;
 
 
+    foreach($items as $item) {
+      $product = $Products->load(
+        array('product_id=?', $item->product_id)
+      );
+      $main_price = $main_price + ($product->price * $item->quantity);
+    }
+    $checkoutTable = new Checkout($db);
+
+    $array_data  = array(
+      'user_id' => $_SESSION['user'],
+      'name' => (strip_tags(htmlspecialchars($_POST['fio']))),
+      'address' => strip_tags(htmlspecialchars($_POST['adress'])),
+      'email' => strip_tags(htmlspecialchars($_POST['email'])),
+      'phone' => strip_tags(htmlspecialchars($_POST['phone'])),
+      'status' => 1,
+      'basket' => $basket->basket_id,
+      'total' => $main_price,
+      'date' => date('Y-m-d H:m:s'),
+    );
+    $checkoutTable->copyfrom($array_data);
+    $checkoutTable->save();
+    $basket->active = 0;
+    $basket->save();
+    $_SESSION['user'] = rand(11111111,99999999);
     $f3->set("categories", $categories);
-    $f3->set("thisCategory", 'Корзина');
-    $f3->set("productTable", $Products);
+    $f3->set("thisCategory", 'Оформление заказа');
+    $f3->set("allSum", $main_price);
     $f3->set("cart_items", $items);
-    self::layout('cart.php');
+    self::layout('checkout.php');
 
   }
   static function cart()

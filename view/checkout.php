@@ -51,24 +51,18 @@
                                     </div>
                                     <div class="row" style="margin: 0">
 
-                                    <?php foreach($cart_items as $item ):?>
-                                      <?php $product  = $productTable->load(
-                                          array('product_id=?',$item->product_id)
-                                        ); ?>
-                                    <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12  item_<?php echo $item->product_id?>" style="padding: 20px 0;">
-                                        <img src="<?php echo $product->getMainPhoto()?>" style="    float: left;width: 180px; height: 180px;object-fit: cover;">
-                                        <a href="<?php echo BASE_URL . '/product?id='. $product->product_id?>" style="  padding-left: 20px;  font-size: 25px;position: relative;min-height: 50px;float: left;"><?php echo $product->name?></a>
-                                        <div style="float: right">
-                                           <span style="float: right;"> Количество <input type="number" value="<?php echo $item->quantity?>" min="0" step="1" data-prize="<?php echo (int)$product->getPrize()?>"  class="form-control currency" style="width: 70px;" onchange="changeQuantity(this,<?php echo $item->product_id?>)"/></span>
-                                            <br><span style="float: right;    font-size: 20px;padding: 5px;display: inline-block;">Цена: <span class="product_prize_<?php echo (int)$product->product_id?>"><?php echo (int)$product->getPrize() * (int)$item->quantity?></span> сом</span>
+                                        <p style="padding-left: 20px; font-size: 25px; position: relative; min-height: 50px; text-align: center; width: 100%; color: green; line-height: normal;"
+                                          >Спасибо вам за покупку!<br>
+                                            Сумма заказа составила <?php echo $allSum?> сом, в скором времени с Вами свяжутся для уточнения заказа.
+                                            <br>
+                                            <a style=" padding-left: 20px;  font-size: 25px; " href="<?php echo BASE_URL?>">На главную</a>
+                                        </p>
                                         </div>
-                                    </div>
-                                    <?php endforeach; ?>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                                            <div>
-                                                <a type="button"  href="javascript:void(0)"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="font-size: 10px; float: right;  color:#fff; "> <i class="fa fa-shopping-cart"></i> <span>Оформить заказ</span> </a>
-                                            </div>
-                                        </div>
+                                    <script>
+                                        setTimeout(function(){
+                                            location.href = '<?php echo BASE_URL?>';
+                                        },10000)
+                                    </script>
                                       <!--product end -->
                                     </div>
                                 </div>
