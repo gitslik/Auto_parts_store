@@ -8,7 +8,10 @@ a.delete_page {
 a.edit_cat {
   margin-right: 10px;
 }
-
+form#youtube_form {
+  width: 80%;
+  float: left;
+}
 .mini_menu {
   display: inline-block;
   width: 100%;

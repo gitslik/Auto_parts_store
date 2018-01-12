@@ -552,7 +552,7 @@ class Admin
   static function adminYoutube(){
     global $f3,$db;
     $obj_youtube = new Youtube($db);
-    $video_id = $obj_youtube->find(array('id =?',1));
+    $video_id = $obj_youtube->find();
     if (isset($video_id[0]->id_youtube)) {
       $key_video = $video_id[0]->id_youtube;
       $f3->set("key_video", $key_video);
@@ -569,15 +569,33 @@ class Admin
     $obj_youtube = new Youtube($db);
 
 
-    $result = $obj_youtube::addYoutubeItem($id_youtube);
+    $obj_youtube::addYoutubeItem($id_youtube);
 
-    print_arr($result);
-
-    print_die("v processe addYoutube");
+    $video_id = $obj_youtube->find();
+    if (isset($video_id[0]->id_youtube)) {
+      $key_video = $video_id[0]->id_youtube;
+      $f3->set("key_video", $key_video);
+    }
+    self::layout_only_tpl('youtube/index.php');
   }
 
   static function deleteYoutube(){
-    print_die("v processe deleteYoutube");
+    global $f3, $db;
+    $obj_youtube = new Youtube($db);
+    $youtube_for_delete = $obj_youtube->load(
+      array('id_youtube = ?',$_REQUEST["options"])
+    );
+
+    if (isset($youtube_for_delete)){
+      $youtube_for_delete->erase();
+    }
+
+    $video_id = $obj_youtube->find();
+    if (isset($video_id[0]->id_youtube)) {
+      $key_video = $video_id[0]->id_youtube;
+      $f3->set("key_video", $key_video);
+    }
+    self::layout_only_tpl('youtube/index.php');
   }
   /*End Menu*/
 

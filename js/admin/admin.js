@@ -381,7 +381,17 @@ Shop.prototype.deleteInfopagesOption = function (id) {
 };
 /*EndFooterMenu*/
 
-
+Shop.prototype.deleteYoutubeVideo = function (options) {
+  $.ajax({
+    type: "POST",
+    url: "/admin/deleteYoutube",
+    data: {options: options},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
 
 
 

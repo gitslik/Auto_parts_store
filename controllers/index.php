@@ -35,12 +35,11 @@ class Index
     $ProductClass = new Products($db);
     $recomended = $ProductClass->find(array('product_id >0'),array('order' => 'product_id DESC','limit' => 3,'offset' => 0));
     $news = $ProductClass->find(array('product_id >0'),array('order' => 'product_id  ASC','limit' => 3,'offset' => 0));
-   // print_die($recomended);
     $f3->set("categories", $categories);
     $f3->set("recomended", $recomended);
     $f3->set("news", $news);
     $obj_youtube = new Youtube($db);
-    $video_id = $obj_youtube->find(array('id =?',1));
+    $video_id = $obj_youtube->find();
     if (isset($video_id[0]->id_youtube)) {
       $key_video = $video_id[0]->id_youtube;
       $f3->set("key_video", $key_video);
