@@ -1,6 +1,12 @@
 a.edit_page {
   float: right;
 }
+ul.category_product {
+  padding-left: 15px;
+}
+.content_page.col-lg-12 ul>li {
+  list-style-type: none;
+}
 a.delete_page {
   float: right;
   margin-right: 20px;

@@ -19,7 +19,16 @@
 <ul>
 <?php foreach ($all_categories as $category) { ?>
     <?php if ($category->enabled != 0) { ?>
-    <li><a href="#" onclick="self.shop.productsOfCategory(<?php echo $category->category_id; ?>)"><?php echo $category->name; ?></li>
+      <?php if ($category->parent_category_id == 0){?>
+      <li><a href="#" onclick="self.shop.productsOfCategory(<?php echo $category->category_id; ?>)"><?php echo $category->name; ?></li>
+        <ul class="category_product">
+        <?php foreach ($all_categories as $category_sub){?>
+            <?php if ($category->category_id == $category_sub->parent_category_id){?>
+             <li><a href="#" onclick="self.shop.productsOfCategory(<?php echo $category_sub->category_id; ?>)"><?php echo $category_sub->name; ?></li>
+            <?php } ?>
+        <?php } ?>
+        </ul>
+      <?php } ?>
     <?php } ?>
  <?php } ?>
 </ul>

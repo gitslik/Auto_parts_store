@@ -21,13 +21,13 @@
       <label for="name">Название категории:</label>
       <input type="text" name="name" class="form-control" id="name" value="<?php echo $options['info_category']->name;?>">
     </div>
-    <?php if (count($file_for_edit)!=0) {?>
+
     <div class="form-group">
       <label for="category_id">Фото категории</label>
       <input type="file" name="photo" id="photo" />
     </div>
       <img src="<?php echo BASE_URL."/".$file_for_edit[0]->url; ?>" style="width: 50px;height: 50px;" >
-    <?php } ?>
+
     <div class="form-group">
       <label for="category_id">Опция для создания под категории выберите главный раздел</label>
       <select class="form-control" id="parent_category_id" name="parent_category_id">
