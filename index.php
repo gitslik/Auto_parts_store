@@ -69,6 +69,7 @@ $f3->route('GET|POST /admin/editProducts', 'Admin::editProducts');
 $f3->route('GET|POST /admin/updateProducts', 'Admin::updateProducts');
 $f3->route('GET|POST /admin/saveProduct', 'Admin::adminSaveProduct');
 $f3->route('GET|POST /admin/deleteProduct', 'Admin::deleteProduct');
+$f3->route('GET|POST /admin/deleteImageProduct', 'Admin::deleteImageProduct');
 /*End Products*/
 
 

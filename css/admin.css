@@ -4,8 +4,24 @@ a.edit_page {
 ul.category_product {
   padding-left: 15px;
 }
+.product_img_edit {
+  margin-top: 20px;
+  display: inline-block;
+}
 .content_page.col-lg-12 ul>li {
   list-style-type: none;
+}
+.block_img_product i {
+  position: absolute;
+  margin-left: 35px;
+  color: #c81313;
+}
+.block_img_product {
+  position: relative;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 a.delete_page {
   float: right;

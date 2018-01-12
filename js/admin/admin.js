@@ -418,5 +418,18 @@ Shop.prototype.deleteYoutubeVideo = function (options) {
 };
 
 
+Shop.prototype.deleteImageProduct = function (options) {
+  $.ajax({
+    type: "POST",
+    url: "/admin/deleteImageProduct",
+    data: {options: options},
+    dataType: "html",
+    success: function (data) {
+     $("#block_img_product_"+options).hide();
+    }
+  });
+};
+
+
 
 

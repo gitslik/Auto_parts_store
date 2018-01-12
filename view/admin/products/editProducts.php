@@ -21,14 +21,14 @@
 
         <div class="form-group">
           <label for="name">Название товара:</label>
-          <input type="text" name="name" class="form-control" id="name">
+          <input type="text" name="name" class="form-control" id="name" value="<?php echo $product->name;?>">
         </div>
 
         <div class="form-group">
           <label for="category_id">Выбор категории</label>
           <select class="form-control" id="category_id" name="category_id">
             <?php foreach ($all_category as $category) { ?>
-              <option value="<?php echo $category->category_id; ?>"><?php echo $category->name; ?></option>
+              <option value="<?php echo $category->category_id; ?>" <?php if ($category->category_id==$product->category_id){echo"selected";}?>><?php echo $category->name; ?></option>
             <?php } ?>
           </select>
         </div>
@@ -37,32 +37,43 @@
         <div class="form-group">
           <label for="category_id">Фото продукта</label>
           <input type="file" name="photos[]" id="photo" multiple="true" />
+          <?php if (isset($files_for_edit)){ ?>
+            <div class="product_img_edit">
+              <?php foreach ($files_for_edit as $image){ ?>
+                <div class="block_img_product" id="block_img_product_<?php echo $image->file_id;?>">
+                  <i class="fa fa-trash-o" aria-hidden="true" onclick="self.shop.deleteImageProduct(<?php echo $image->file_id;?>)"></i>
+                  <img src="<?php echo BASE_URL."/".$image->url; ?>" style="width: 50px;height: 50px;" >
+                </div>
+
+              <?php } ?>
+            </div>
+          <?php } ?>
         </div>
 
 
         <div class="form-group">
           <label for="product_code">Код продукта:</label>
-          <input type="text" name="product_code" class="form-control" id="product_code">
+          <input type="text" name="product_code" class="form-control" id="product_code" value="<?php echo $product->product_code;?>">
         </div>
 
         <div class="form-group">
           <label for="part_number">Серийный номер:</label>
-          <input type="text" name="part_number" class="form-control" id="part_number">
+          <input type="text" name="part_number" class="form-control" id="part_number" value="<?php echo $product->part_number;?>">
         </div>
 
         <div class="form-group">
           <label for="description">Описание товара:</label>
-          <textarea class="form-control" name="description" rows="5" id="description"></textarea>
+          <textarea class="form-control" name="description" rows="5" id="description"><?php echo $product->description;?></textarea>
         </div>
 
         <div class="form-group">
           <label for="condition">Количество:</label>
-          <input type="text" name="condition" class="form-control" id="condition">
+          <input type="text" name="condition" class="form-control" id="condition" value="<?php echo $product->condition;?>">
         </div>
 
         <div class="form-group">
           <label for="price">Цена:</label>
-          <input type="text" name="price" class="form-control" id="price">
+          <input type="text" name="price" class="form-control" id="price" value="<?php echo $product->price;?>">
         </div>
 
       </form>

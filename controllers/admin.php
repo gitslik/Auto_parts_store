@@ -294,14 +294,41 @@ class Admin
     global $db,$f3;
 
     $id =$_REQUEST['id'];
-    //print_die($id);
+
     $category = new Category($db);
     $categories = $category->getMenu();
-    $f3->set("all_category", $categories);
 
-    self::layout('products/addProducts.php');
+
+    $product_obj = new Products($db);
+
+    $products_for_edit = $product_obj->load(array('product_id =?',$id));
+
+    $file_obj = new Files($db);
+
+    $files_for_edit = $file_obj->find(array('product_id =? and type = 0',$id));
+
+    //print_die(count($files_for_edit));
+    $f3->set("files_for_edit", $files_for_edit);
+    $f3->set("product", $products_for_edit);
+    $f3->set("all_category", $categories);
+    self::layout('products/editProducts.php');
   }
-  static function updateProducts(){}
+
+  static function deleteImageProduct(){
+    global $db;
+    $obj_file = new Files($db);
+    $file_for_delete = $obj_file->load(
+      array('file_id = ?',$_REQUEST["options"])
+    );
+
+    if (isset($file_for_delete)){
+      $file_for_delete->erase();
+      return true;
+    }
+  }
+  static function updateProducts(){
+
+  }
   /*End Products*/
 
 
@@ -668,10 +695,6 @@ class Admin
       $f3->set("all_sliders", $all_slider);
     }
     self::layout_only_tpl('slider/index.php');
-  }
-  static function adminEditSlider()
-  {
-    print_die($_REQUEST);
   }
   static function adminAddSlider()
   {
