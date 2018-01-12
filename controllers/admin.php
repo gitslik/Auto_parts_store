@@ -380,9 +380,16 @@ class Admin
 
     $category_for_edit = $categories_obj->find(array('category_id =?',$id_category));
 
+    $file_obj = new Files($db);
+
+    $file_for_edit = $file_obj->find(array('product_id =? and type = 1',$id_category));
+
     $options = array();
     $options["info_category"] = $category_for_edit[0];
     $options["all_sub_categories"] = $categories;
+
+
+    $f3->set("file_for_edit", $file_for_edit);
     $f3->set("options", $options);
     self::layout_only_tpl('category/editCategory.php');
   }
@@ -404,23 +411,34 @@ class Admin
     $cat->copyfrom($array_fin_for_save);
     $cat->save();
 
+
     if (count($_FILES)) {
       $files_obj = new Files($db);
       $file_input = $_FILES;
       $path_category_photo = $files_obj->uploadCategoryPhotos($file_input);
 
-
-
     $file_row = $files_obj->load(
-      array('	product_id = ? and type = ?',$_REQUEST['id'],1)
+      array('product_id = ? and type = 1',$_REQUEST['id'])
     );
 
+
     $array_for_files = array();
+
     $array_for_files['path'] = $path_category_photo[0];
     $array_for_files['url'] = $path_category_photo[0];
 
-    $file_row->copyfrom($array_for_files);
-    $file_row->save();
+    if(!$file_row){
+      $array_for_files['type'] = 1;
+      $array_for_files['product_id'] = $_REQUEST['id'];
+      $files_obj_for_save = new Files($db);
+      $files_obj_for_save->copyfrom($array_for_files);
+      $files_obj_for_save->save();
+    }else{
+      $file_row->copyfrom($array_for_files);
+      $file_row->save();
+    }
+
+
     }
 
     $categories_obj = new Category($db);
