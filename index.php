@@ -37,9 +37,7 @@ $f3->route('GET|POST /admin/menu', 'Admin::adminMenu');
 /*Footer_menu*/
 $f3->route('GET|POST /admin/addMenu', 'Admin::addMenu');
 $f3->route('GET|POST /admin/addMenuSave', 'Admin::addMenuSave');
-$f3->route('GET|POST /admin/addMenuUpdate', 'Admin::addMenuUpdate');
 $f3->route('GET|POST /admin/addMenuDelete', 'Admin::addMenuDelete');
-$f3->route('GET|POST /admin/editMenu', 'Admin::editMenu');
 
 $f3->route('GET|POST /admin/footer', 'Admin::adminFooter');
 $f3->route('GET|POST /admin/info', 'Admin::adminFooterInfo');

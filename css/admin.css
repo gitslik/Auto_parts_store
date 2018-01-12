@@ -1,3 +1,14 @@
+a.edit_page {
+  float: right;
+}
+a.delete_page {
+  float: right;
+  margin-right: 20px;
+}
+a.edit_cat {
+  margin-right: 10px;
+}
+
 .mini_menu {
   display: inline-block;
   width: 100%;
@@ -44,6 +55,11 @@ img.menu_img {
 img.slider_img {
   width: 20%;
 }
+a.delete_menu {
+  float: right;
+  margin-right: 20px;
+}
+
 .add-slider-options {
   position: absolute;
   right: 40px;

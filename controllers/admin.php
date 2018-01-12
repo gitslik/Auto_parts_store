@@ -470,10 +470,6 @@ class Admin
     self::layout_only_tpl('menu/index.php');
   }
 
-  static function addMenuUpdate(){
-    print_arr($_REQUEST);
-    print_die("addMenuUpdate");
-  }
   static function addMenuDelete(){
     global $f3, $db;
     $menu_obj = new Menu($db);
@@ -488,10 +484,6 @@ class Admin
     $menus = $menu_obj->find();
     $f3->set("all_menus", $menus);
     self::layout_only_tpl('menu/index.php');
-  }
-
-  static function editMenu(){
-    self::layout_only_tpl('menu/editMenu.php');
   }
 
   static function adminFooter(){

@@ -20,7 +20,7 @@
     <thead>
     <tr>
       <th>Название категорий</th>
-      <th>Опции</th>
+      <th style="width: 65px;">Опции</th>
     </tr>
     </thead>
     <tbody>
@@ -28,7 +28,7 @@
       <?php if ($category->enabled != 0) { ?>
       <tr class="row_hover">
         <td><?php echo $category->name; ?></td>
-        <td>
+        <td style="width: 65px;text-align: center;">
           <a href="#" onclick="self.shop.categoryEdit('<?php echo $category->category_id; ?>')" class="edit_cat"><i class="fa fa-pencil" aria-hidden="true"></i></a>
           <a href="#" onclick="self.shop.categoryOption('deleteCategory/delete_id=<?php echo $category->category_id; ?>')" class="delete_cat" data-id="<?php echo $category->category_id; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
         </td>
