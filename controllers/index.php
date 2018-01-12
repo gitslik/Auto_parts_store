@@ -412,7 +412,7 @@ class Index
 
 
     $message_data = array(
-      'to'		=> 'yunodkg@gmail.com',
+      'to'		=> 'technicavtoservice@gmail.com',
       'to_name' 	=> 'Auti Poin',
       'title'		=> 'Новый заказ на сайте',
       'text'		=> $message,
