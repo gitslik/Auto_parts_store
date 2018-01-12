@@ -114,7 +114,7 @@
               </div>
               <hr>
               <h3>Описение</h3>
-              <?php echo $product->description?>
+              <?php echo htmlspecialchars_decode($product->description);?>
              <!-- <ul class="product-buttons">
                 <li>
                   <button type="button" class="product-btn" onclick="wishlist.add('29');"><i class="fa fa-heart"></i><span>Add to Wish List</span></button>
