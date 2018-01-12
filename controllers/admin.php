@@ -565,6 +565,35 @@ class Admin
   static function adminFooterSubscription(){
     self::layout_only_tpl('footermenu/subscription.php');
   }
+
+  static function checkout(){
+    global $f3, $db;
+    $checkoutTable = new Checkout($db);
+    $chekouts  = $checkoutTable->find();
+    $f3->set("chekouts", $chekouts);
+    self::layout_only_tpl('checkout/index.php');
+  }
+  static function statuscheckout(){
+    global $f3, $db;
+    $checkoutTable = new Checkout($db);
+    $id = $_REQUEST['id'];
+    $chekouts  = $checkoutTable->load(
+      array('id=?',$id)
+    );
+    $chekouts->status = 0;
+    $chekouts->save();
+  }
+  static function removecheckout(){
+    global $f3, $db;
+    $checkoutTable = new Checkout($db);
+    $id = $_REQUEST['id'];
+    $chekouts  = $checkoutTable->load(
+      array('id=?',$id)
+    );
+    if ($chekouts) {
+      $chekouts->erase();
+    }
+  }
   static function adminFooterCollbeack(){
     self::layout_only_tpl('footermenu/collbeack.php');
   }

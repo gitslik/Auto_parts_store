@@ -18,7 +18,7 @@
         <img src="../image/pisma.jpeg" class="menu_img">
         <p class="menu_text">ПИСЬМА</p>
       </div>
-      <div class="menu_td" onclick="self.shop.footer('subscription')">
+      <div class="menu_td" onclick="self.shop.footer('checkout')">
         <img src="../image/zakazy.jpg" onclick="" class="menu_img">
         <p class="menu_text">ЗАКАЗЫ</p>
       </div>

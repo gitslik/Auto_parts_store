@@ -27,6 +27,7 @@ include_once "model/Basket.php";
 include_once "model/BasketItem.php";
 include_once "model/Youtube.php";
 include_once "model/Checkout.php";
+include_once "Api/sender.php";
 /*end models*/
 
 include_once "configs.php";

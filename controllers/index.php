@@ -246,6 +246,7 @@ class Index
     $f3->set("thisCategory", 'Оформление заказа');
     $f3->set("allSum", $main_price);
     $f3->set("cart_items", $items);
+    self::sendInfoEmail();
     self::layout('checkout.php');
 
   }
@@ -401,5 +402,31 @@ class Index
   static function layout_only_tpl($template)
   {
     echo View::instance()->render(self::$base_derectory . $template);
+  }
+  static function sendInfoEmail(){
+    /*$sender = new sender;*/
+    $message = "Новый заказ на сайте, можете пожалуйста проверить " . BASE_URL;
+
+
+
+
+
+    $message_data = array(
+      'to'		=> 'yunodkg@gmail.com',
+      'to_name' 	=> 'Auti Poin',
+      'title'		=> 'Новый заказ на сайте',
+      'text'		=> $message,
+      'alt_text'	=> strip_tags($message)
+    );
+    mail($message_data['to'],$message_data['title'],$message);
+/*    $mailSend = $sender->sendMail($sender->smtp_data, $message_data);
+    if($mailSend == 0)
+    {
+      echo "MF000";
+    }
+    else
+    {
+      echo "Error";
+    }*/
   }
 }

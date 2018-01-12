@@ -287,7 +287,29 @@ Shop.prototype.productOption = function (options) {
       $(".content_page").html(data);
     }
   });
-};  
+};
+Shop.prototype.checoutStatus = function (element,options,id) {
+  $.ajax({
+    type: "POST",
+    url: "/admin/"+options,
+    data: {'id': id},
+    dataType: "html",
+    success: function (data) {
+      $('#status_' + id).html('');
+    }
+  });
+};
+Shop.prototype.checoutDelete = function (element,options,id) {
+  $.ajax({
+    type: "POST",
+    url: "/admin/"+options,
+    data: {'id': id},
+    dataType: "html",
+    success: function (data) {
+      $(element).parent().parent().remove();
+    }
+  });
+};
 Shop.prototype.productsOfCategory = function (id) {
   $.ajax({
     type: "POST",
