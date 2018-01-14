@@ -289,24 +289,73 @@ Shop.prototype.productOption = function (options) {
   });
 };
 Shop.prototype.checoutStatus = function (element,options,id) {
+  var status_name = 1;
+  var status_id = 1;
+  if($('#status_' + id).html() == 'Активный'){
+    status_name ='Обработан';
+    status_id = 0;
+  }else{
+    status_name ='Активный';
+    status_id = 1;
+    $('#status_' + id).html('Активный');
+  }
+  $('#status_' + id).html('Изменение...');
   $.ajax({
     type: "POST",
     url: "/admin/"+options,
-    data: {'id': id},
+    data: {'id': id,'status_id': status_id},
     dataType: "html",
     success: function (data) {
-      $('#status_' + id).html('');
+      $('#status_' + id).html(status_name);
+
+    }
+  });
+};Shop.prototype.checoutStatus = function (element,options,id) {
+  $('#censelMOdalBurron').click();
+  var status_name = 1;
+  var status_id = 1;
+  if($('#status_' + id).html() == 'Активный'){
+    status_name ='Обработан';
+    status_id = 0;
+  }else{
+    status_name ='Активный';
+    status_id = 1;
+    $('#status_' + id).html('Активный');
+  }
+  $('#status_' + id).html('Изменение...');
+  $.ajax({
+    type: "POST",
+    url: "/admin/"+options,
+    data: {'id': id,'status_id': status_id},
+    dataType: "html",
+    success: function (data) {
+      $('#status_' + id).html(status_name);
+
     }
   });
 };
 Shop.prototype.checoutDelete = function (element,options,id) {
+  $('#censelMOdalBurron').click();
   $.ajax({
     type: "POST",
     url: "/admin/"+options,
     data: {'id': id},
     dataType: "html",
     success: function (data) {
-      $(element).parent().parent().remove();
+      $('#status_' + id).parent().remove();
+    }
+  });
+};
+Shop.prototype.checkoutView = function (id) {
+  $('#showModalForCheckout').click();
+  $('.modal-body').html('Загрузка данных...')
+  $.ajax({
+    type: "POST",
+    url: "/admin/checkoutdetails",
+    data: {'id': id},
+    dataType: "html",
+    success: function (data) {
+      $('.modal-content').html(data);
     }
   });
 };
@@ -425,7 +474,7 @@ Shop.prototype.deleteImageProduct = function (options) {
     data: {options: options},
     dataType: "html",
     success: function (data) {
-     $("#block_img_product_"+options).hide();
+      $("#block_img_product_"+options).hide();
     }
   });
 };

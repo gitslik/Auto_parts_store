@@ -51,13 +51,22 @@
                                     </div>
                                     <div class="row" style="margin: 0">
 
-                                    <?php foreach($cart_items as $item ):?>
+                                    <?php foreach($cart_items as $item ):
+
+                                        if(!$item){
+                                            continue;
+                                        }
+                                        ?>
                                       <?php $product  = $productTable->load(
                                           array('product_id=?',$item->product_id)
-                                        ); ?>
+                                        );
+                                        if(!$product){
+                                            continue;
+                                        }
+                                        ?>
                                     <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12  item_<?php echo $item->product_id?>" style="padding: 20px 0;">
                                         <img src="<?php echo $product->getMainPhoto()?>" style="    float: left;width: 180px; height: 180px;object-fit: cover;">
-                                        <a href="<?php echo BASE_URL . '/product?id='. $product->product_id?>" style="  padding-left: 20px;  font-size: 25px;position: relative;min-height: 50px;float: left;"><?php echo $product->name?></a>
+                                        <a href="<?php echo BASE_URL . '/product?id='. $product->product_id?>" style="padding-left: 20px; font-size: 25px; position: relative; min-height: 50px; float: left; line-height: 30px; max-width: 50%;"><?php echo $product->name?></a>
                                         <div style="float: right">
                                            <span style="float: right;"> Количество <input type="number" value="<?php echo $item->quantity?>" min="0" step="1" data-prize="<?php echo (int)$product->getPrize()?>"  class="form-control currency" style="width: 70px;" onchange="changeQuantity(this,<?php echo $item->product_id?>)"/></span>
                                             <br><span style="float: right;    font-size: 20px;padding: 5px;display: inline-block;">Цена: <span class="product_prize_<?php echo (int)$product->product_id?>"><?php echo (int)$product->getPrize() * (int)$item->quantity?></span> сом</span>

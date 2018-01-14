@@ -44,7 +44,7 @@
       </div>
     </div>
   <?php endforeach;?>
-  <div class="row">
+  <div class="row" style="width: 100%; clear: both; display: inline-block;">
     <div class="col-sm-6 text-left">
       <ul class="pagination">
         <?php if ($products['pos'] > 1): ?>

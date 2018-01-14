@@ -86,6 +86,7 @@ $f3->route('GET|POST /admin/updatePages', 'Admin::updatePages');
 $f3->route('GET|POST /admin/checkout', 'Admin::checkout');
 $f3->route('GET|POST /admin/statuscheckout', 'Admin::statuscheckout');
 $f3->route('GET|POST /admin/removecheckout', 'Admin::removecheckout');
+$f3->route('GET|POST /admin/checkoutdetails', 'Admin::checkoutdetails');
 /*EndCheckout*/
 
 /*LoginRout*/

@@ -171,7 +171,7 @@ class Index
     $search = mb_strtolower($_GET['search']);
     $array_search  = explode(' ', $search);
     $ProductClass = new Products($db);
-    $querySelect  = "LOWER(name) like '%".htmlspecialchars($search)."%' or LOWER(description) like '%".htmlspecialchars($search)."%' ";
+    $querySelect  = "LOWER(name) like '%".htmlspecialchars($search)."%' or LOWER(description) like '%".htmlspecialchars($search)."%'  or LOWER(part_number) like '%".htmlspecialchars($search)."%' ";
     foreach($array_search as $word){
       $querySelect .="or LOWER(name) like '%".htmlspecialchars($word)."%' or LOWER(description) like '%".htmlspecialchars($word)."%' ";
     }

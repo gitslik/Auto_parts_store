@@ -596,9 +596,23 @@ class Admin
   static function checkout(){
     global $f3, $db;
     $checkoutTable = new Checkout($db);
-    $chekouts  = $checkoutTable->find();
+    $chekouts  = $checkoutTable->find(array(),array('order' => 'id  DESC'));
     $f3->set("chekouts", $chekouts);
     self::layout_only_tpl('checkout/index.php');
+  }
+  static function checkoutdetails(){
+    global $f3, $db;
+    $checkoutTable = new Checkout($db);
+    $chekout  = $checkoutTable->load(
+      array('basket=?',$_REQUEST['id'])
+    );
+    $basketItem = new BasketItem($db);
+    $Products = new Products($db);
+    $items  = $basketItem->getBasketItems($_REQUEST['id']);
+    $f3->set("cart_items", $items);
+    $f3->set("productTable", $Products);
+    $f3->set("checkout", $chekout);
+    self::layout_only_tpl('checkout/details.php');
   }
   static function statuscheckout(){
     global $f3, $db;
@@ -607,7 +621,7 @@ class Admin
     $chekouts  = $checkoutTable->load(
       array('id=?',$id)
     );
-    $chekouts->status = 0;
+    $chekouts->status = $_REQUEST['status_id'];
     $chekouts->save();
   }
   static function removecheckout(){

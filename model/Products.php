@@ -62,7 +62,7 @@ class Products extends DB\SQL\Mapper
   return $this->price . ' сом';
  }
  public function getShorDescription(){
-  return mb_substr(strip_tags($this->description), 0, 50);
+  return mb_substr(strip_tags(htmlspecialchars_decode($this->description)), 0, 50);
  }
 }
 
