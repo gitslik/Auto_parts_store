@@ -51,6 +51,46 @@
   tinyMCE.init({
     selector: "#description",
     menubar: false,
-    height: 200
+    height: 200,
+    plugins: [
+      "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+      "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking spellchecker",
+      "table contextmenu directionality emoticons paste textcolor responsivefilemanager "
+    ],
+    relative_urls: false,
+    language: 'ru',
+
+    filemanager_title:"Responsive Filemanager",
+    filemanager_crossdomain: true,
+    external_filemanager_path:"source/",
+    external_plugins: { "filemanager" : "plugins/responsivefilemanager/plugin.min.js"},
+
+    image_advtab: true,
+    toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+    toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview"
+  });
+
+  //
+  // Handles message from ResponsiveFilemanager
+  //
+  function OnMessage(e){
+    var event = e.originalEvent;
+    // Make sure the sender of the event is trusted
+    if(event.data.sender === 'responsivefilemanager'){
+      if(event.data.field_id){
+        var fieldID=event.data.field_id;
+        var url=event.data.url;
+        $('#'+fieldID).val(url).trigger('change');
+        $.fancybox.close();
+
+        // Delete handler of the message from ResponsiveFilemanager
+        $(window).off('message', OnMessage);
+      }
+    }
+  }
+
+  // Handler for a message from ResponsiveFilemanager
+  $(".opener-class").on('click',function(){
+    $(window).on('message', OnMessage);
   });
 </script>
