@@ -590,6 +590,10 @@ class Admin
   }
 
   static function adminFooterSubscription(){
+    global $f3, $db;
+    $subscription_obj = new Subscription($db);
+    $all_subscription = $subscription_obj->find();
+    $f3->set("all_subscription", $all_subscription);
     self::layout_only_tpl('footermenu/subscription.php');
   }
 
