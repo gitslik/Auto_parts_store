@@ -16,9 +16,12 @@
   <div id="socseti">
       <?php if (isset($all_subscription) && count($all_subscription)>0){ ?>
         <?php foreach ($all_subscription as $subscription){ ?>
-        <input type="text" id="<?php echo $subscription->type;?>" data-id="<?php echo $subscription->id;?>" data-type="<?php echo $subscription->type; ?>" value="<?php echo $subscription->subscription; ?>">
+        <div class="form-group">
+          <label for="name"><?php echo $subscription->type;?></label>
+              <input type="text" id="<?php echo $subscription->type;?>" data-id="<?php echo $subscription->id;?>" data-type="<?php echo $subscription->type; ?>" value="<?php echo $subscription->subscription; ?>">
+        </div>
         <?php } ?>
-        <input type="button" id="submit" value="Сохранить">
+        <input type="button" id="submit_save_subscription" onclick="self.shop.submitSaveSubscription()" value="Сохранить">
       <?php } ?>
   </div>
 </div>

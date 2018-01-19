@@ -44,6 +44,7 @@ $f3->route('GET|POST /admin/info', 'Admin::adminFooterInfo');
 $f3->route('GET|POST /admin/deleteInfopagesOption', 'Admin::deleteInfopagesOption');
 $f3->route('GET|POST /admin/addInfopagesOption', 'Admin::addInfopagesOption');
 $f3->route('GET|POST /admin/subscription', 'Admin::adminFooterSubscription');
+$f3->route('GET|POST /admin/submitSaveSubscription', 'Admin::submitSaveSubscription');
 $f3->route('GET|POST /admin/collbeack', 'Admin::adminFooterCollbeack');
 /*End_Footer_menu*/
 

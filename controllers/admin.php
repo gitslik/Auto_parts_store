@@ -596,6 +596,10 @@ class Admin
     $f3->set("all_subscription", $all_subscription);
     self::layout_only_tpl('footermenu/subscription.php');
   }
+  static function submitSaveSubscription(){
+    print_arr($_REQUEST);
+    print_die("TUT");
+  }
 
   static function checkout(){
     global $f3, $db;

@@ -1,6 +1,9 @@
 a.edit_page {
   float: right;
 }
+div#socseti label {
+  width: 90px;
+}
 ul.category_product {
   padding-left: 15px;
 }

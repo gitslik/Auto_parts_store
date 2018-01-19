@@ -479,6 +479,27 @@ Shop.prototype.deleteImageProduct = function (options) {
   });
 };
 
+Shop.prototype.submitSaveSubscription = function () {
+  var facebook = $("#facebook").val();
+  var twitter = $("#twitter").val();
+  var instagram = $("#instagram").val();
+
+  var fd = new FormData;
+
+  fd.append('facebook', facebook);
+  fd.append('twitter', twitter);
+  fd.append('instagram', instagram);
+
+  $.ajax({
+    type: "POST",
+    url: "/admin/submitSaveSubscription",
+    data: fd,
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });
+};
 
 
 
