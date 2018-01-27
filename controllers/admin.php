@@ -596,9 +596,33 @@ class Admin
     $f3->set("all_subscription", $all_subscription);
     self::layout_only_tpl('footermenu/subscription.php');
   }
+
   static function submitSaveSubscription(){
-    print_arr($_REQUEST);
-    print_die("TUT");
+    global $f3, $db;
+
+    $subscription_obj = new Subscription($db);
+
+    $facebook  = $subscription_obj->load(
+      array('id=?',1)
+    );
+    $facebook->subscription = $_REQUEST['facebook'];
+    $facebook->save();
+
+    $twitter  = $subscription_obj->load(
+      array('id=?',2)
+    );
+    $twitter->subscription = $_REQUEST['twitter'];
+    $twitter->save();
+
+    $instagram  = $subscription_obj->load(
+      array('id=?',3)
+    );
+    $instagram->subscription = $_REQUEST['instagram'];
+    $instagram->save();
+
+    $all_subscription = $subscription_obj->find();
+    $f3->set("all_subscription", $all_subscription);
+    self::layout_only_tpl('footermenu/subscription.php');
   }
 
   static function checkout(){
