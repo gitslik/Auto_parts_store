@@ -52,6 +52,25 @@
   tinyMCE.init({
     selector: "#description",
     menubar: false,
-    height: 200
+    height: 200,
+    plugins: [
+      "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+      "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking spellchecker",
+      "table contextmenu directionality emoticons paste textcolor responsivefilemanager "
+    ],
+    relative_urls: false,
+    language: 'ru',
+
+    filemanager_title:"Responsive Filemanager",
+    filemanager_crossdomain: true,
+    external_filemanager_path:"../../filemanager/",
+    external_plugins: {
+      "filemanager" : "../../filemanager/plugin.min.js",
+      "responsivefilemanager" : "plugins/wysiwyg/tinymce/plugins/responsivefilemanager/plugin.min.js",
+    },
+    relative_urls: false,
+    image_advtab: true,
+    toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+    toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview"
   });
 </script>
