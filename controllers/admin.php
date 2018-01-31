@@ -141,7 +141,6 @@ class Admin
       self::layout('page/editPages.php');
     }
   }
-
   static function updatePages(){
 
     global $db,$f3;
@@ -169,8 +168,6 @@ class Admin
 
     self::layout_only_tpl('page/index.php');
   }
-
-
   static function deletePages(){
     global $db;
     $pages_object = new Pages($db);
@@ -272,8 +269,6 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('products/index.php');
   }
-
-
   static function deleteProduct(){
     global $f3, $db;
 
@@ -288,7 +283,6 @@ class Admin
     $f3->set("all_categories", $categories);
     self::layout('products/index.php');
   }
-
   static function editProducts(){
 
     global $db,$f3;
@@ -313,7 +307,6 @@ class Admin
     $f3->set("all_category", $categories);
     self::layout('products/editProducts.php');
   }
-
   static function deleteImageProduct(){
     global $db;
     $obj_file = new Files($db);
@@ -516,7 +509,6 @@ class Admin
     $f3->set("all_menus", $menus);
     self::layout_only_tpl('menu/index.php');
   }
-
   static function addMenuDelete(){
     global $f3, $db;
     $menu_obj = new Menu($db);
@@ -532,11 +524,9 @@ class Admin
     $f3->set("all_menus", $menus);
     self::layout_only_tpl('menu/index.php');
   }
-
   static function adminFooter(){
     self::layout_only_tpl('footermenu/index.php');
   }
-
   static function adminFooterInfo(){
     global $f3, $db;
     $page_obj = new Pages($db);
@@ -547,7 +537,6 @@ class Admin
     $f3->set("pages", $pages);
     self::layout_only_tpl('footermenu/info.php');
   }
-
   static function addInfopagesOption(){
     global $f3, $db;
     $page_obj = new Pages($db);
@@ -588,7 +577,6 @@ class Admin
     $f3->set("pages", $pages);
     self::layout_only_tpl('footermenu/info.php');
   }
-
   static function adminFooterSubscription(){
     global $f3, $db;
     $subscription_obj = new Subscription($db);
@@ -596,7 +584,6 @@ class Admin
     $f3->set("all_subscription", $all_subscription);
     self::layout_only_tpl('footermenu/subscription.php');
   }
-
   static function submitSaveSubscription(){
     global $f3, $db;
 
@@ -624,7 +611,6 @@ class Admin
     $f3->set("all_subscription", $all_subscription);
     self::layout_only_tpl('footermenu/subscription.php');
   }
-
   static function checkout(){
     global $f3, $db;
     $checkoutTable = new Checkout($db);
@@ -670,7 +656,6 @@ class Admin
   static function adminFooterCollbeack(){
     self::layout_only_tpl('footermenu/collbeack.php');
   }
-
   static function adminYoutube(){
     global $f3,$db;
     $obj_youtube = new Youtube($db);
@@ -681,7 +666,6 @@ class Admin
     }
     self::layout_only_tpl('youtube/index.php');
   }
-
   static function addYoutube(){
     global $f3,$db;
 
@@ -700,7 +684,6 @@ class Admin
     }
     self::layout_only_tpl('youtube/index.php');
   }
-
   static function deleteYoutube(){
     global $f3, $db;
     $obj_youtube = new Youtube($db);

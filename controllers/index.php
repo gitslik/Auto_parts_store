@@ -51,6 +51,15 @@ class Index
       $key_video = $video_id[0]->id_youtube;
       $f3->set("key_video", $key_video);
     }
+
+    $subscription_obj = new Subscription($db);
+    $all_subscription = $subscription_obj->find();
+    $f3->set("all_subscription", $all_subscription);
+
+    $pages_obj = new Pages($db);
+    $pages_info = $pages_obj->find(array('info = 1'));
+    $f3->set("pages_info", $pages_info);
+
     self::layout('index.php');
   }
   static function category()
@@ -102,7 +111,9 @@ class Index
   }
   static function page()
   {
+
     global $f3;
+
     $all_menus = Menu::allMenu();
     $all_slider = Slider::getSlideIconIndexPage();
 
@@ -121,7 +132,6 @@ class Index
     }
 
     foreach($menu as $key => $c){
-
       if($c->parent_category_id>0 ){
         $categories[$c->parent_category_id]['child'][$c->category_id] = $c;
       }
@@ -134,8 +144,20 @@ class Index
       $idsCategory[]  = $catHil->category_id;
     }
 
+    $page_info = $f3->get('GET.page-info');
 
-    $page = $PageClass->load(array('menu_id=?',$f3->get('PARAMS.page_id')));
+    if(!isset($page_info)){
+      $page = $PageClass->load(array('menu_id=?',$f3->get('PARAMS.page_id')));
+    }else{
+      $page = $PageClass->load(array('page_id=?',$f3->get('PARAMS.page_id')));
+    }
+    $subscription_obj = new Subscription($db);
+    $all_subscription = $subscription_obj->find();
+    $f3->set("all_subscription", $all_subscription);
+
+    $pages_obj = new Pages($db);
+    $pages_info = $pages_obj->find(array('info = 1'));
+    $f3->set("pages_info", $pages_info);
 
     $f3->set("categories", $categories);
 

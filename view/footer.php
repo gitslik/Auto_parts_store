@@ -5,15 +5,11 @@
       <div class="block-info">
         <h3 class="box-heading">Информация</h3>
         <ul class="box-content list-unstyled">
-
-          <li><a href="">O нас</a></li>
-
-          <li><a href="">Информация о доставке</a></li>
-
-          <li><a href="">Условия использования</a></li>
-
-          <li><a href="">Политика конфиденциальности</a></li>
-
+          <?php if (count($pages_info)>0){?>
+            <?php foreach ($pages_info as $page_inf){ ?>
+              <li><a href="/page/<?php echo $page_inf->page_id;?>?page-info=<?php echo $page_inf->page_id;?>" target="_blank"><?php echo $page_inf->title;?></a></li>
+            <?php } ?>
+          <?php } ?>
         </ul>
       </div>
 
@@ -29,11 +25,19 @@
 
 
             <ul class="social-list list-unstyled">
+              <?php foreach ($all_subscription as $subscription){ ?>
+                <?php if ($subscription->type == "facebook" ){?>
+                  <li><a href="<?php echo $subscription->subscription;?>" target="_blank"><i class=""></i> Facebook</a></li>
+                <?php }?>
 
-              <li><a href="//www.facebook.com/TemplateMonster"><i class=""></i> Facebook</a></li>
+                <?php if ($subscription->type == "twitter" ){?>
+                  <li><a href="<?php echo $subscription->subscription;?>" target="_blank"><i class=""></i> Twitter</a></li>
+                <?php }?>
 
-              <li><a href="//twitter.com/templatemonster"><i class=""></i> Twitter</a></li>
-
+                <?php if ($subscription->type == "instagram" ){?>
+                  <li><a href="<?php echo $subscription->subscription;?>" target="_blank"><i class=""></i> Instagram</a></li>
+                <?php }?>
+              <?php } ?>
             </ul>		</div>
         </div>
       </div>
