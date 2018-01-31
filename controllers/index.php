@@ -101,8 +101,15 @@ class Index
       $position = (int)$_GET['page'];
     }
     $products = $ProductClass->paginate($position,6,array('category_id in('.implode(',',$idsCategory).')'));
-/*    print_arr($position);
-    print_die($products);*/
+
+    $subscription_obj = new Subscription($db);
+    $all_subscription = $subscription_obj->find();
+    $f3->set("all_subscription", $all_subscription);
+
+    $pages_obj = new Pages($db);
+    $pages_info = $pages_obj->find(array('info = 1'));
+    $f3->set("pages_info", $pages_info);
+
     $f3->set("categories", $categories);
     $f3->set("thisCategory", $thisCategory);
     $f3->set("products", $products);
@@ -199,6 +206,14 @@ class Index
     }
     $products = $ProductClass->find(array($querySelect));
 
+    $subscription_obj = new Subscription($db);
+    $all_subscription = $subscription_obj->find();
+    $f3->set("all_subscription", $all_subscription);
+
+    $pages_obj = new Pages($db);
+    $pages_info = $pages_obj->find(array('info = 1'));
+    $f3->set("pages_info", $pages_info);
+
     $f3->set("categories", $categories);
     $f3->set("thisCategory", 'Поиск');
     $f3->set("products", array('subset'=>$products));
@@ -264,6 +279,15 @@ class Index
     $basket->active = 0;
     $basket->save();
     $_SESSION['user'] = rand(11111111,99999999);
+
+    $subscription_obj = new Subscription($db);
+    $all_subscription = $subscription_obj->find();
+    $f3->set("all_subscription", $all_subscription);
+
+    $pages_obj = new Pages($db);
+    $pages_info = $pages_obj->find(array('info = 1'));
+    $f3->set("pages_info", $pages_info);
+
     $f3->set("categories", $categories);
     $f3->set("thisCategory", 'Оформление заказа');
     $f3->set("allSum", $main_price);
@@ -306,7 +330,13 @@ class Index
     $items  = $basketItem->getBasketItems($basket->basket_id);
     $main_price  = 0;
 
+    $subscription_obj = new Subscription($db);
+    $all_subscription = $subscription_obj->find();
+    $f3->set("all_subscription", $all_subscription);
 
+    $pages_obj = new Pages($db);
+    $pages_info = $pages_obj->find(array('info = 1'));
+    $f3->set("pages_info", $pages_info);
     $f3->set("categories", $categories);
     $f3->set("thisCategory", 'Корзина');
     $f3->set("productTable", $Products);
@@ -409,6 +439,13 @@ class Index
     $ProductClass = new Products($db);
 
     $product  = $ProductClass->load(array('product_id=?',$id));
+    $subscription_obj = new Subscription($db);
+    $all_subscription = $subscription_obj->find();
+    $f3->set("all_subscription", $all_subscription);
+
+    $pages_obj = new Pages($db);
+    $pages_info = $pages_obj->find(array('info = 1'));
+    $f3->set("pages_info", $pages_info);
     $f3->set("categories", $categories);
     $f3->set("thisCategory", 'Поиск');
     $f3->set("product", $product);

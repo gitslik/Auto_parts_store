@@ -272,7 +272,10 @@ Shop.prototype.productAddItem = function () {
     contentType: false,
     type: 'POST',
     success: function (data) {
-      $(".content_page").html(data);
+
+      var element = $(data).find(".content_page");
+      console.log(element);
+      $(".content_page").html(element);
     }
   });
 

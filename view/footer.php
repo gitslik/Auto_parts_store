@@ -7,7 +7,7 @@
         <ul class="box-content list-unstyled">
           <?php if (count($pages_info)>0){?>
             <?php foreach ($pages_info as $page_inf){ ?>
-              <li><a href="/page/<?php echo $page_inf->page_id;?>?page-info=<?php echo $page_inf->page_id;?>" target="_blank"><?php echo $page_inf->title;?></a></li>
+              <li><a href="/page/<?php echo $page_inf->page_id;?>?page-info=<?php echo $page_inf->page_id;?>"><?php echo $page_inf->title;?></a></li>
             <?php } ?>
           <?php } ?>
         </ul>
