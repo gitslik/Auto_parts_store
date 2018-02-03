@@ -453,6 +453,21 @@ class Index
   }
   static function layout($template)
   {
+    global $f3, $db;
+    $collbeack_obj = new Сollbeack($db);
+    $collbeack_1 = $collbeack_obj->load(
+      array('id = ?',1)
+    );
+    $collbeack_2 = $collbeack_obj->load(
+      array('id = ?',2)
+    );
+    $collbeack_3 = $collbeack_obj->load(
+      array('id = ?',3)
+    );
+    $f3->set("collbeack_1", $collbeack_1);
+    $f3->set("collbeack_2", $collbeack_2);
+    $f3->set("collbeack_3", $collbeack_3);
+
     echo View::instance()->render(self::$base_derectory . 'header.php');
     echo View::instance()->render(self::$base_derectory . $template);
     echo View::instance()->render(self::$base_derectory . 'footer.php');

@@ -505,21 +505,20 @@ Shop.prototype.submitSaveSubscription = function () {
 };
 
 Shop.prototype.adminFooterCollbeackUpdate = function () {
-  console.log("tut");
 
-/*  var facebook = $("#facebook").val();
-  var twitter = $("#twitter").val();
-  var instagram = $("#instagram").val();
+  var location = $("#locaion").val();
+  var phone =  tinyMCE.get('phone').getContent();
+  var email = $("#email").val();
 
   $.ajax({
     type: "POST",
-    url: "/admin/submitSaveSubscription",
-    data: {facebook: facebook,twitter:twitter,instagram:instagram},
+    url: "/admin/collbeackUpdate",
+    data: {location: location,phone:phone,email:email},
     dataType: "html",
     success: function (data) {
-      $(".content_page").html(data);
+      window.location.href="/admin/collbeack";
     }
-  });*/
+  });
 
 };
 

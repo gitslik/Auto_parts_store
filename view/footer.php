@@ -43,10 +43,10 @@
         <div class="box-content footer_box">
           <address>
             <ul class="list-unstyled">
-              <li class="footer-invert"><a href="https://www.google.com/maps/place/42%C2%B052'30.2%22N+74%C2%B029'42.8%22E/@42.8750554,74.4944464,197m/data=!3m2!1e3!4b1!4m6!3m5!1s0x0:0x0!7e2!8m2!3d42.8750543!4d74.4952186" target="_blank">
+              <li class="footer-invert"><a href="<?php if(isset($collbeack_1['value'])){echo $collbeack_1['value'];}?>" target="_blank">
                   Наше расположение. </a></li>
-              <li class="footer-invert">Позвоните: <a href="callto:0123-456-789">0123-456-789</a></li>
-              <li>Email: <a href="mailto:technicavtoservice@gmail.com">technicavtoservice@gmail.com</a></li>
+              <li class="footer-invert"><?php if(isset($collbeack_2['value'])){echo htmlspecialchars_decode($collbeack_2['value']);}?></li>
+              <li>Email: <a href="mailto:<?php if(isset($collbeack_3['value'])){echo $collbeack_3['value'];}?>"><?php if(isset($collbeack_3['value'])){echo $collbeack_3['value'];}?></a></li>
             </ul>
           </address>
         </div>

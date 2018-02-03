@@ -14,14 +14,14 @@
     </div>
 
     <div class="form-group col-lg-8">
-      <input type="text" id="locaion" name="location" value="">
+      <input type="text" id="locaion" name="location" value="<?php if(isset($collbeack_1['value'])){echo $collbeack_1['value'];}?>">
     </div>
     <div class="form-group col-lg-8">
-      <textarea name="phone" id="phone" cols="30" rows="10"></textarea>
+      <textarea name="phone" id="phone" cols="30" rows="10"><?php if(isset($collbeack_2['value'])){echo $collbeack_2['value'];}?></textarea>
     </div>
 
     <div class="form-group col-lg-8">
-      <input type="text" id="email" name="email" value="">
+      <input type="text" id="email" name="email" value="<?php if(isset($collbeack_3['value'])){echo $collbeack_3['value'];}?>">
     </div>
     <div class="form-group col-lg-8">
       <input type="button" id="submit_save_subscription" onclick="self.shop.adminFooterCollbeackUpdate()"

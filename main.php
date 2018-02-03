@@ -28,7 +28,7 @@ include_once "model/BasketItem.php";
 include_once "model/Youtube.php";
 include_once "model/Checkout.php";
 include_once "model/Subscription.php";
-include_once "model/Сollbeack.php";
+include_once "model/Collbeack.php";
 include_once "Api/sender.php";
 /*end models*/
 
