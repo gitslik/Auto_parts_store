@@ -729,6 +729,19 @@ class Admin
   }
   static function adminFooterCollbeackUpdate(){
     print_die($_REQUEST);
+
+    global $f3, $db;
+
+    $categories_obj = new Category($db);
+
+    $cat = $categories_obj->load(
+      array('category_id = ?',$_REQUEST['id'])
+    );
+
+    $array_fin_for_save['name'] = $_REQUEST['name'];
+
+    $cat->copyfrom($array_fin_for_save);
+    $cat->save();
   }
   /*End Menu*/
 
