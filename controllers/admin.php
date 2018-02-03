@@ -102,7 +102,7 @@ class Admin
     $menu_obj = new Menu($db);
     $menus = $menu_obj->find();
 
-    $f3->set("all_menus", $menus);
+    $f3->set("all_menus_items", $menus);
     self::layout('page/addPages.php');
   }
   static function savePages(){
@@ -114,6 +114,7 @@ class Admin
     $array_for_save['description'] = $_REQUEST['description'];
     $array_for_save['enabled'] = $_REQUEST['enabled'];
     $array_for_save['menu_id'] = $_REQUEST['menu_id'];
+    $array_for_save['info'] = 0;
 
     $pages_object->copyfrom($array_for_save);
     $pages_object->save();
@@ -216,6 +217,7 @@ class Admin
   {
     global $db,$f3;
 
+
     $files_photo = $_FILES;
 
     $params = explode('&',$_REQUEST['params']);
@@ -226,6 +228,8 @@ class Admin
       $array_params[$options[0]] = $options[1];
     }
 
+
+
     $files_object = new Files($db);
     $path_new_file_in_directory = $files_object->uploadProductsPhotos($files_photo);
 
@@ -234,6 +238,14 @@ class Admin
     $array_params['photo_id'] = 0;
 
     $array_fin_for_save = array();
+
+
+    if (isset($array_params['product_id'])){
+      $array_fin_for_save = $product_table->load(
+        array("product_id = ?", $array_params['product_id'])
+      );
+    }
+
 
     $array_fin_for_save['name'] = $_REQUEST['name'];
     $array_fin_for_save['description'] = $_REQUEST['description'];
@@ -244,31 +256,42 @@ class Admin
     $array_fin_for_save['photo_id'] = 0;
     $array_fin_for_save['category_id'] = $array_params['category_id'];
 
+
     $product_table->copyfrom($array_fin_for_save);
+
+
     if(!$product_table->save()){
       header("location: /admin");
     }
 
     $lastInsertIdProducts = $product_table->get('_id');
 
-    foreach ($path_new_file_in_directory as $path) {
-      $files_object = new Files($db);
-      $array_for_files = array();
-      $array_for_files['path'] = $path;
-      $array_for_files['url'] = $path;
-      $array_for_files['type'] = 0;
-      $array_for_files['product_id'] = $lastInsertIdProducts;
-
-      $files_object->copyfrom($array_for_files);
-      $files_object->save();
+    if (isset($array_params['product_id'])){
+      $lastInsertIdProducts = $array_params['product_id'];
     }
 
+    if (isset($path_new_file_in_directory)){
+      foreach ($path_new_file_in_directory as $path) {
+        $files_object = new Files($db);
+        $array_for_files = array();
+        $array_for_files['path'] = $path;
+        $array_for_files['url'] = $path;
+        $array_for_files['type'] = 0;
+        $array_for_files['product_id'] = $lastInsertIdProducts;
+
+        $files_object->copyfrom($array_for_files);
+        $files_object->save();
+      }
+
+    }
     $categories_obj = new Category($db);
     $categories = $categories_obj->find();
 
     $f3->set("all_categories", $categories);
     self::layout_only_tpl('products/index.php');
   }
+
+
   static function deleteProduct(){
     global $f3, $db;
 

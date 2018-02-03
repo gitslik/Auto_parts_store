@@ -76,6 +76,7 @@
           <input type="text" name="price" class="form-control" id="price" value="<?php echo $product->price;?>">
         </div>
 
+        <input type="hidden" name="product_id" value="<?php echo $product->product_id;?>">
       </form>
     </div>
 

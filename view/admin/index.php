@@ -14,18 +14,18 @@
     </div>
 
     <div class="mini_menu">
-      <div class="menu_td" onclick="self.shop.footer('info')">
+<!--      <div class="menu_td" onclick="self.shop.footer('info')">
         <img src="../image/pisma.jpeg" class="menu_img">
         <p class="menu_text">ПИСЬМА</p>
-      </div>
+      </div>-->
       <div class="menu_td" onclick="self.shop.footer('checkout')">
         <img src="../image/zakazy.jpg" onclick="" class="menu_img">
         <p class="menu_text">ЗАКАЗЫ</p>
       </div>
-      <div class="menu_td" onclick="self.shop.footer('collbeack')">
+<!--      <div class="menu_td" onclick="self.shop.footer('collbeack')">
         <img src="../image/prosmotry.jpg" class="menu_img">
         <p class="menu_text">ПРОСМОТРЫ</p>
-      </div>
+      </div>-->
     </div>
 
   </div>
