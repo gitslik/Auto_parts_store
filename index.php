@@ -18,7 +18,6 @@ $f3->route('GET|POST /cart', 'Index::cart');
 $f3->route('GET|POST /checkout', 'Index::checkout');
 $f3->route('GET|POST /cart/updatequantity', 'Index::updatequantity');
 $f3->route('GET|POST /page/@page_id', 'Index::page');
-
 /*End Frontend Routings*/
 
 
@@ -46,6 +45,7 @@ $f3->route('GET|POST /admin/addInfopagesOption', 'Admin::addInfopagesOption');
 $f3->route('GET|POST /admin/subscription', 'Admin::adminFooterSubscription');
 $f3->route('GET|POST /admin/submitSaveSubscription', 'Admin::submitSaveSubscription');
 $f3->route('GET|POST /admin/collbeack', 'Admin::adminFooterCollbeack');
+$f3->route('GET|POST /admin/collbeackUpdate', 'Admin::adminFooterCollbeackUpdate');
 /*End_Footer_menu*/
 
 $f3->route('GET|POST /admin/youtube', 'Admin::adminYoutube');

@@ -653,9 +653,6 @@ class Admin
       $chekouts->erase();
     }
   }
-  static function adminFooterCollbeack(){
-    self::layout_only_tpl('footermenu/collbeack.php');
-  }
   static function adminYoutube(){
     global $f3,$db;
     $obj_youtube = new Youtube($db);
@@ -701,6 +698,14 @@ class Admin
       $f3->set("key_video", $key_video);
     }
     self::layout_only_tpl('youtube/index.php');
+  }
+
+
+  static function adminFooterCollbeack(){
+    self::layout('footermenu/collbeack.php');
+  }
+  static function adminFooterCollbeackUpdate(){
+    print_die($_REQUEST);
   }
   /*End Menu*/
 

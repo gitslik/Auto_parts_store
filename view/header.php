@@ -51,6 +51,16 @@
 
   <link id="color_scheme" href="catalog/view/theme/jetimpex/stylesheet/color_schemes/color_scheme_1.css" rel="stylesheet">
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113506450-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113506450-1');
+  </script>
+
 </head>
 <body>
 <p id="gl_path" class="hidden">jetimpex</p>

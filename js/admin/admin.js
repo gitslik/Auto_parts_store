@@ -422,15 +422,22 @@ Shop.prototype.indexPageTest = function (menu_link) {
 
 /*FooterMenu*/
 Shop.prototype.footer = function (event) {
-  $.ajax({
-    type: "POST",
-    url: "/admin/"+event,
-    data: {cat: event},
-    dataType: "html",
-    success: function (data) {
-      $(".content_page").html(data);
-    }
-  });
+  console.log("tut");
+  if(event == "collbeack"){
+    console.log(event);
+    window.location.href = "/admin/collbeack";
+  }else {
+    $.ajax({
+      type: "POST",
+      url: "/admin/"+event,
+      data: {cat: event},
+      dataType: "html",
+      success: function (data) {
+        $(".content_page").html(data);
+      }
+    });
+  }
+
 };
 Shop.prototype.addInfopagesOption = function () {
   $.ajax({
@@ -495,6 +502,25 @@ Shop.prototype.submitSaveSubscription = function () {
       $(".content_page").html(data);
     }
   });
+};
+
+Shop.prototype.adminFooterCollbeackUpdate = function () {
+  console.log("tut");
+
+/*  var facebook = $("#facebook").val();
+  var twitter = $("#twitter").val();
+  var instagram = $("#instagram").val();
+
+  $.ajax({
+    type: "POST",
+    url: "/admin/submitSaveSubscription",
+    data: {facebook: facebook,twitter:twitter,instagram:instagram},
+    dataType: "html",
+    success: function (data) {
+      $(".content_page").html(data);
+    }
+  });*/
+
 };
 
 

@@ -20,10 +20,6 @@
           <h3 class="box-heading">Подписка</h3>
           <div class="box-content">
 
-
-
-
-
             <ul class="social-list list-unstyled">
               <?php foreach ($all_subscription as $subscription){ ?>
                 <?php if ($subscription->type == "facebook" ){?>
