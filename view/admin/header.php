@@ -93,7 +93,8 @@ if(!isset($logSESS))
     <div class="navbar-default sidebar" role="navigation">
       <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
-          <li class="sidebar-search">
+
+<!--          <li class="sidebar-search">
             <div class="input-group custom-search-form">
               <input type="text" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
@@ -102,8 +103,7 @@ if(!isset($logSESS))
                                 </button>
                             </span>
             </div>
-            <!-- /input-group -->
-          </li>
+          </li>-->
 
           <li>
             <a href="#" class="menu_shop" onclick="self.shop.indexPageTest('menu')"><i class="fa fa-dashboard fa-fw"></i>Меню</a>
