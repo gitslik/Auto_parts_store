@@ -2,7 +2,7 @@
   <div class="content_page col-lg-12">
     <style>
       div#page-wrapper {
-        min-height: 1060px!important;
+        min-height: 1180px!important;
       }
     </style>
     <div class="row">

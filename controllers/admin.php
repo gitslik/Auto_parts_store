@@ -526,6 +526,8 @@ class Admin
     global $f3, $db;
     $menu_obj = new Menu($db);
     $array_for_menu['name_menu'] = $f3->BODY;
+    $array_for_menu['sub_id'] = 0;
+    $array_for_menu['page_menu'] = "";
     $menu_obj->copyfrom($array_for_menu);
     $menu_obj->save();
     $menus = $menu_obj->find();

@@ -1,3 +1,9 @@
+div#page-wrapper {
+ min-height: auto!important;
+}
+div#page-wrapper {
+  background: transparent;
+}
 a.edit_page {
   float: right;
 }
